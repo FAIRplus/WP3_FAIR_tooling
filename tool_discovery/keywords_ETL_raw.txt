@@ -1,0 +1,24 @@
+Provenance
+Documentation
+Data structure
+Workflow management
+scheduler
+Extraction:
+Data querying
+Database management
+Data import
+File reader
+read/load metadata
+Data cleaning
+Transform
+Data validation
+Data harmonisation
+Field mapping
+Formatting
+Conversion
+Loading
+Data packaging
+Identifier generation
+Data transfer
+Data warehouse
+Data validation
