@@ -1,0 +1,32 @@
+keyword,iri,label,confidence
+Provenance,http://edamontology.org/data_2337,Resource metadata,MEDIUM
+Provenance,,,
+Documentation,,,
+Data structure,,,
+Data structure,,,
+Workflow management,http://edamontology.org/data_0949,Workflow metadata,MEDIUM
+Workflow management,,,
+Extraction:,,,
+Extraction:,http://edamontology.org/operation_3907,Information extraction,MEDIUM
+Data querying,,,
+Database management,http://edamontology.org/topic_3489,Database management,GOOD
+Data import,,,
+File reader,,,
+File reader,,,
+read/load metadata,http://edamontology.org/data_2337,Resource metadata,MEDIUM
+read/load metadata,,,
+Data cleaning,http://edamontology.org/topic_3572,Data quality management,GOOD
+Data validation,http://edamontology.org/operation_0336,Format validation,MANUAL
+Data validation,,,
+Data harmonisation,,,
+Field mapping,,,
+Formatting,http://edamontology.org/operation_0335,Formatting,GOOD
+Conversion,http://edamontology.org/operation_3434,Conversion,GOOD
+Loading,http://edamontology.org/operation_1812,Parsing,GOOD
+Data packaging,,,
+Data packaging,,,
+Identifier generation,http://edamontology.org/data_0842,Identifier,GOOD
+Data transfer,http://edamontology.org/data_0006,Data,GOOD
+Data warehouse,http://edamontology.org/topic_3366,Data integration and warehousing,MANUAL
+Data validation,,,
+Data validation,,,
