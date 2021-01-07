@@ -1,0 +1,14 @@
+Ontology annotation
+Semantic annotation
+Text mining
+Entity tagging
+NLP
+Named Entity recognition
+Query expansion
+Knowledge graph
+Module extraction (eg slims)
+Free text mapping
+Text Annotation
+Ontology mapping
+Ontology Alignment
+Term mapping
