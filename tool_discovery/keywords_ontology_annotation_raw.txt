@@ -5,7 +5,6 @@ Entity tagging
 NLP
 Named Entity recognition
 Query expansion
-Knowledge graph
 Module extraction
 Free text mapping
 Text Annotation
