@@ -6,7 +6,7 @@ NLP
 Named Entity recognition
 Query expansion
 Knowledge graph
-Module extraction (eg slims)
+Module extraction
 Free text mapping
 Text Annotation
 Ontology mapping
