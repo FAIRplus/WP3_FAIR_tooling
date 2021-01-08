@@ -3,7 +3,7 @@ Ontology annotation,http://edamontology.org/operation_0226,Annotation,MEDIUM
 Ontology annotation,,,
 semantic annotation,,,
 semantic annotation,http://edamontology.org/operation_3778,Text annotation,MEDIUM
-Text mining,http://edamontology.org/topic_0218,Natural language processing,GOOD
+Text mining,
 Entity tagging,,,
 Entity recognition,,,
 Query expansion,,,
@@ -13,5 +13,7 @@ Knowledge graph,,,
 Module extraction (eg slims),,,
 Module extraction (eg slims),,,
 Free text mapping,,,
-Machine learning,http://edamontology.org/topic_3474,Machine learning,GOOD
-NLP,http://edamontology.org/topic_0218,Natural language processing,GOOD
+Machine learning,,,
+NLP,,,
+ontology and terminology,http://edamontology.org/topic_0089,ontology and terminology,MANUAL
+entity recognition,http://edamontology.org/operation_3280,Named-entity and concept recognition,MANUAL
