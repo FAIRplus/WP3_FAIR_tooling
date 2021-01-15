@@ -1,0 +1,45 @@
+keyword,iri,label
+,Data integration and warehousing,http://edamontology.org/topic_3366
+,data governance,http://edamontology.org/topic_3571
+,Data identity and mapping,http://edamontology.org/topic_3345
+,"Data submission, annotation and curation",http://edamontology.org/topic_0219
+,Database management,http://edamontology.org/topic_3489
+,workflows,http://edamontology.org/topic_0769
+,Data quality management,http://edamontology.org/topic_3572
+,parsing,http://edamontology.org/operation_1812
+,deposition,http://edamontology.org/operation_3431
+,aggregation,http://edamontology.org/operation_3436
+,formatting,http://edamontology.org/operation_0335
+,Query and retrieval,http://edamontology.org/operation_0224
+,"Information extraction
+","http://edamontology.org/operation_3907
+"
+,"Format validation
+",http://edamontology.org/operation_0336
+data store,,
+data warehous*,,
+data lake,,
+aggregated data,,
+ETL,,
+ingest,,
+retriev,,
+Cloud migration,,
+Database replication,,
+dataflow,,
+integrat,,
+extract,,
+transform,,
+data cleaning,,
+loading,,
+validat,,
+query,,
+provenance,,
+Database management,,
+Data quality,,
+parsing,,
+deposit,,
+format,,
+data unification,,
+provenance,,
+workflow,,
+transfer,,

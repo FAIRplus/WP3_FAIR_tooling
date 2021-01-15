@@ -1,0 +1,34 @@
+keyword,iri,label,confidence
+data store,http://edamontology.org/data_0006,Data,Good
+data warehous*,http://edamontology.org/topic_3366,Data integration and warehousing,Medium
+data warehous*,http://edamontology.org/data_0006,Data,Medium
+data lake,http://edamontology.org/data_0006,Data,Good
+aggregated data,http://edamontology.org/data_0006,Data,Good
+ETL,,N/A,Did not map
+ingest,,N/A,Did not map
+retriev,,N/A,Did not map
+Cloud migration,http://edamontology.org/topic_3316,Computer science,Medium
+Cloud migration,http://edamontology.org/data_3449,Cell migration track image,Medium
+Database replication,http://edamontology.org/topic_3489,Database management,Medium
+Database replication,http://edamontology.org/data_1048,Database ID,Medium
+dataflow,,N/A,Did not map
+integrat,,N/A,Did not map
+extract,,N/A,Did not map
+transform,,N/A,Did not map
+data cleaning,http://edamontology.org/topic_3572,Data quality management,Good
+loading,http://edamontology.org/operation_1812,Parsing,Good
+validat,,N/A,Did not map
+query,http://edamontology.org/operation_0224,Query and retrieval,Good
+provenance,http://edamontology.org/data_2337,Resource metadata,Medium
+provenance,http://edamontology.org/topic_0219,"Data submission, annotation and curation",Medium
+Database management,http://edamontology.org/topic_3489,Database management,Good
+Data quality,http://edamontology.org/topic_3572,Data quality management,Good
+parsing,http://edamontology.org/operation_1812,Parsing,Good
+deposit,,N/A,Did not map
+format,http://edamontology.org/format_1915,Format,Good
+data unification,http://edamontology.org/data_0006,Data,Good
+provenance,http://edamontology.org/data_2337,Resource metadata,Medium
+provenance,http://edamontology.org/topic_0219,"Data submission, annotation and curation",Medium
+workflow,http://edamontology.org/data_1083,Workflow ID,Medium
+workflow,http://edamontology.org/data_0949,Workflow metadata,Medium
+transfer,,N/A,Did not map
