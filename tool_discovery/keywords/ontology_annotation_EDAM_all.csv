@@ -1,17 +1,17 @@
 keyword,iri,label,confidence
-"Ontology annotation, ",http://edamontology.org/operation_0226,Annotation,MEDIUM
-"Ontology annotation, ",http://edamontology.org/operation_3559,Ontology visualisation,MEDIUM
-semantic annotation,http://edamontology.org/operation_0226,Annotation,MEDIUM
-semantic annotation,http://edamontology.org/operation_3778,Text annotation,MEDIUM
+Ontology annotation,http://edamontology.org/operation_0226,Annotation,MEDIUM
+Ontology annotation,http://edamontology.org/operation_3559,Ontology visualisation,MEDIUM
+Semantic annotation,http://edamontology.org/operation_0226,Annotation,MEDIUM
+Semantic annotation,http://edamontology.org/operation_3778,Text annotation,MEDIUM
 Text mining,http://edamontology.org/topic_0218,Natural language processing,GOOD
-"Entity tagging,",http://edamontology.org/data_2776,ConsensusPathDB entity ID,GOOD
-"Entity recognition,",http://edamontology.org/topic_3473,Data mining,GOOD
+Entity tagging,http://edamontology.org/data_2776,ConsensusPathDB entity ID,GOOD
+Named Entity recognition,http://edamontology.org/topic_3473,Data mining,GOOD
 Query expansion,http://edamontology.org/format_3787,Query language,MEDIUM
 Query expansion,http://edamontology.org/format_3789,XQuery,MEDIUM
-Knowledge graph,http://edamontology.org/data_2884,Plot,MEDIUM
-Knowledge graph,http://edamontology.org/format_3823,FASTG,MEDIUM
-Module extraction (eg slims),http://edamontology.org/operation_3907,Information extraction,MEDIUM
-Module extraction (eg slims),http://edamontology.org/operation_3937,Feature extraction,MEDIUM
-"Free text mapping,",http://edamontology.org/data_3671,Text,GOOD
-"Machine learning, ",http://edamontology.org/topic_3474,Machine learning,GOOD
-NLP,http://edamontology.org/topic_0218,Natural language processing,GOOD
+Module extraction,http://edamontology.org/operation_3937,Feature extraction,MEDIUM
+Module extraction,http://edamontology.org/operation_3907,Information extraction,MEDIUM
+Free text mapping,http://edamontology.org/data_3671,Text,GOOD
+Text Annotation,http://edamontology.org/operation_3778,Text annotation,GOOD
+Ontology mapping,http://edamontology.org/data_3509,Ontology mapping,GOOD
+Ontology alignment,http://edamontology.org/data_1916,Alignment,GOOD
+Term mapping,http://edamontology.org/topic_0102,Mapping,GOOD

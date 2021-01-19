@@ -1,4 +1,4 @@
-# This scripts reads keywords in \n seperated files, finds corresponding EDAM ontology terms, and query bio.tools
+# This scripts reads keywords, finds corresponding EDAM ontology terms, and query bio.tools
 # Input: a list of manual curated keywords
 # Output: A list of tools for each topic
 
@@ -11,6 +11,7 @@ def read_keywords(filename):
         keys = f.read().splitlines()
     return keys
 
+
 # Query ZOOMA
 def query_zooma(keyword):
     zooma_ep = "https://www.ebi.ac.uk/spot/zooma/v2/api/services/annotate?propertyValue="
@@ -20,6 +21,7 @@ def query_zooma(keyword):
 
     r = requests.get(query)
     if r.ok:
+        # TODO revise
         results = r.json()
         all_matches = []
     # save all matched EDAM terms
@@ -30,13 +32,24 @@ def query_zooma(keyword):
         return all_matches
 
 
+# TODO: extract term definition and parent terms
+# TODO: use one branch only
 
-
+def query_ols_def(iri):
+    # find the term definition in ols. using iri
+    ols_ep = "http://www.ebi.ac.uk/ols/api/terms?iri="
+    ols_query = ols_ep + iri
+    try:
+        response = requests.get(ols_query)
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print("Error:",e)
+        return 1
 
 
 if __name__ == '__main__':
-    topic = "ETL"
-    keywords_raw = read_keywords("keywords_ETL_raw.txt")
+    topic = "ontology_annotation"
+    keywords_raw = read_keywords("keywords/keywords_ontology_annotation_raw.txt")
     all_matches = []
     for i in keywords_raw:
         keywords_edam = query_zooma(i)
@@ -44,5 +57,5 @@ if __name__ == '__main__':
     all_edam = pd.DataFrame(all_matches)
     all_edam.columns = ["keyword","iri","label","confidence"]
     all_edam.to_csv(topic+"_EDAM_all.csv", index = False)
-    print(all_edam["iri"])
+
 
