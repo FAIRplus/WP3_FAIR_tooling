@@ -2,7 +2,6 @@ Ontology annotation
 Semantic annotation
 Text mining
 Entity tagging
-NLP
 Named Entity recognition
 Query expansion
 Module extraction
