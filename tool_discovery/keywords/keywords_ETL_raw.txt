@@ -1,0 +1,27 @@
+data store
+data warehous*
+data lake
+aggregated data
+ETL
+ingest
+retriev
+Cloud migration
+Database replication
+dataflow
+integrat
+extract
+transform
+data cleaning
+loading
+validat
+query
+provenance
+Database management
+Data quality
+parsing
+deposit
+format
+data unification
+provenance
+workflow
+transfer
