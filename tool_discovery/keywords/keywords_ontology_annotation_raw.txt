@@ -8,5 +8,5 @@ Module extraction
 Free text mapping
 Text Annotation
 Ontology mapping
-Ontology Alignment
+Ontology alignment
 Term mapping
