@@ -1,6 +1,6 @@
 keyword,weight
 data store,100.00%
-data warehous*,100.00%
+data warehous,100.00%
 data lake,100.00%
 aggregated data,50.00%
 ETL,100.00%
@@ -26,3 +26,19 @@ data unification,100.00%
 provenance,30.00%
 workflow,50.00%
 transfer,50.00%
+Data integration and warehousing,70.00%
+data governance,70.00%
+Data identity and mapping,70.00%
+"Data submission, annotation and curation",70.00%
+Database management,70.00%
+workflows,70.00%
+Data quality management,70.00%
+parsing,70.00%
+deposition,70.00%
+aggregation,70.00%
+formatting,70.00%
+Query and retrieval,70.00%
+"Information extraction
+",70.00%
+"Format validation
+",70.00%
