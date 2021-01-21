@@ -1,80 +1,73 @@
-Tool	confidence	website	description
-Collibra	manual	https://www.collibra.com/	NA
-TriFacta	manual	https://www.trifacta.com/	Poor data quality can sink any analytics project. Trifacta helps you understand your data so you can quickly and accurately clean it up. Clean, Blend & Standardize your Data
-Data transformation. All the power with none of the code. Trifacta provides visual and intelligent guidance so you can get to insights faster.Automate Your Data Processes
-Data pipelines. Manual, repetitive data preparation processes donÔÇÖt scale. Trifacta helps you build, deploy and manage self-service data pipelines in minutes not months."
-TAMR	manual	https://www.tamr.com/	"Accelerating Analytic outcomes
-The toughest analytics challenges need consolidated, cleansed, categorized data. TamrÔÇÖs data mastering solutions are designed to power timely, actionable analytic insightsCloud-Native Master
-Data Management (MDM)
-TamrÔÇÖs cloud-native data mastering solutions make it easy to connect internal and external data sources quickly to power analytic insights and drive business outcomes"
-Informatica	manual	https://www.informatica.com/gb/about-us.html	Informatica┬« is the only Enterprise Cloud Data Management leader that accelerates data-driven digital transformation. Informatica enables companies to fuel innovation
-SDTM	manual	https://www.cdisc.org/standards/foundational/sdtm	SDTM provides a standard for organizing and formatting data to streamline processes in collection
-OMOP	manual	https://www.ohdsi.org/data-standardization/the-common-data-model/	The OMOP Common Data Model allows for the systematic analysis of disparate observational databases. The concept behind this approach is to transform data contained within those databases into a common format (data model) as well as a common representation (terminologies
-ReadCap	manual	https://www.project-redcap.org/	REDCap is a secure web application for building and managing online surveys and databases. While REDCap can be used to collect virtually any type of data in any environment (including compliance with 21 CFR Part 11
-TransMART	manual	https://i2b2transmart.org/	"An Open-SourceÔÇöOpen-Data Community
-Enabling collaboration for precision medicine, through sharing, integration, standardization, and analysis of heterogenous data from healthcare and research
+Tool	source	confidence	website	description
+Collibra	manual		https://www.collibra.com/	NA
+TriFacta	manual		https://www.trifacta.com/	Poor data quality can sink any analytics project. Trifacta helps you understand your data so you can quickly and accurately clean it up. Clean, Blend & Standardize your Data. Data transformation. All the power with none of the code. Trifacta provides visual and intelligent guidance so you can get to insights faster.Automate Your Data Processes. Data pipelines. Manual, repetitive data preparation processes don’t scale. Trifacta helps you build, deploy and manage self-service data pipelines in minutes not months.
+TAMR	manual		https://www.tamr.com/	Accelerating Analytic outcomes. The toughest analytics challenges need consolidated, cleansed, categorized data. Tamr’s data mastering solutions are designed to power timely, actionable analytic insightsCloud-Native Master. Data Management (MDM). Tamr’s cloud-native data mastering solutions make it easy to connect internal and external data sources quickly to power analytic insights and drive business outcomes
+Informatica	manual		https://www.informatica.com/gb/about-us.html	Informatica is the only Enterprise Cloud Data Management leader that accelerates data-driven digital transformation. Informatica enables companies to fuel innovation, become more agile and realize new growth opportunities, resulting in intelligent market disruptions
+SDTM	manual		https://www.cdisc.org/standards/foundational/sdtm	SDTM provides a standard for organizing and formatting data to streamline processes in collection, management, analysis and reporting. Implementing SDTM supports data aggregation and warehousing; fosters mining and reuse; facilitates sharing; helps perform due diligence and other important data review activities; and improves the regulatory review and approval process. SDTM is also used in non-clinical data (SEND), medical devices and pharmacogenomics/genetics studies.
+OMOP	manual		https://www.ohdsi.org/data-standardization/the-common-data-model/	The OMOP Common Data Model allows for the systematic analysis of disparate observational databases. The concept behind this approach is to transform data contained within those databases into a common format (data model) as well as a common representation (terminologies, vocabularies, coding schemes), and then perform systematic analyses using a library of standard analytic routines that have been written based on the common format
+ReadCap	manual		https://www.project-redcap.org/	REDCap is a secure web application for building and managing online surveys and databases. While REDCap can be used to collect virtually any type of data in any environment (including compliance with 21 CFR Part 11, FISMA, HIPAA, and GDPR), it is specifically geared to support online and offline data capture for research studies and operations. The REDCap Consortium, a vast support network of collaborators, is composed of thousands of active institutional partners in over one hundred countries who utilize and support their own individual REDCap systems. Please visit the Join page to learn how your non-profit organization can join the consortium, or explore the first section on our FAQ for other options to use REDCap.
+TransMART	manual		https://i2b2transmart.org/	An Open-Source—Open-Data Community. Enabling collaboration for precision medicine, through sharing, integration, standardization, and analysis of heterogenous data from healthcare and researce
+Dublin Core	manual		https://dublincore.org/	"The Dublin Core Metadata Initiative, or DCMI, is an organization supporting innovation in metadata design and best practices across the metadata ecology. DCMI works openly, and it supported by a paid-membership model. DCMI's activities include: work on architecture and modelling, discussions and collaborative work in DCMI Communities and DCMI Task Groups, global conferences, meetings and workshops, educational efforts to promote widespread acceptance of metadata standards and best practices.
 "
-Dublin Core	manual	https://dublincore.org/	"The Dublin CoreÔäó Metadata Initiative, or ""DCMI"", is an organization supporting innovation in metadata design and best practices across the metadata ecology. DCMI works openly, and it supported by a paid-membership model. DCMI's activities include: work on architecture and modelling, discussions and collaborative work in DCMI Communities and DCMI Task Groups, global conferences, meetings and workshops,  educational efforts to promote widespread acceptance of metadata standards and best practices.
-"
-fairifier	6		
-query tabular	6		
-martview	6		
-osirix	5		
-ms-data-core-api	5		
-snpator	5		
-disqover	5		
-baget	5		
-ncbi resources	5		
-repo	5		
-pga	5		
-pcddb	4		
-pygmql	4		
-grok	4		
-mg-rast api explorer	4		
-genomicsdb	4		
-museqbox	4		
-sigreannot-mart	4		
-ispider central	4		
-pubcrawler	4		
-biomodels database	4		
-icite	4		
-ega	4		
-aclimatise	4		
-workflow characterizing nanoparticle monolayers biosensors	4		
-wft4galaxy	4		
-ontobrowser	4		
-diseasecard	4		
-gpress	4		
-g-links	4		
-bioextract	4		
-plantpis	4		
-pastmus	4		
-croco	4		
-epiviz file server	4		
-arteria	4		
-ddbj	4		
-omics data paper generator	4		
-pubmed	4		
-moirai	4		
-geonode-tools4msp	4		
-jmztab-m	4		
-dvd	4		
-miamexpress	4		
-sapp	4		
-clobnet	4		
-pdbusqlextractor	4		
-genscalpel	4		
-dnemo	4		
-pgconverter	4		
-mgnify	4		
-viennngs	4		
-bionimbus	4		
-snappy	4		
-yabi	4		
-redcap	4		
-mibig 2.0	4		
-multiplierz	4		
-entrez	4		
-libmgf	4		
-orfer	4		
-biomart	4		
+fairifier	biotools	6		
+query tabular	biotools	6		
+martview	biotools	6		
+osirix	biotools	5		
+ms-data-core-api	biotools	5		
+snpator	biotools	5		
+disqover	biotools	5		
+baget	biotools	5		
+ncbi resources	biotools	5		
+repo	biotools	5		
+pga	biotools	5		
+pcddb	biotools	4		
+pygmql	biotools	4		
+grok	biotools	4		
+mg-rast api explorer	biotools	4		
+genomicsdb	biotools	4		
+museqbox	biotools	4		
+sigreannot-mart	biotools	4		
+ispider central	biotools	4		
+pubcrawler	biotools	4		
+biomodels database	biotools	4		
+icite	biotools	4		
+ega	biotools	4		
+aclimatise	biotools	4		
+workflow characterizing nanoparticle monolayers biosensors	biotools	4		
+wft4galaxy	biotools	4		
+ontobrowser	biotools	4		
+diseasecard	biotools	4		
+gpress	biotools	4		
+g-links	biotools	4		
+bioextract	biotools	4		
+plantpis	biotools	4		
+pastmus	biotools	4		
+croco	biotools	4		
+epiviz file server	biotools	4		
+arteria	biotools	4		
+ddbj	biotools	4		
+omics data paper generator	biotools	4		
+pubmed	biotools	4		
+moirai	biotools	4		
+geonode-tools4msp	biotools	4		
+jmztab-m	biotools	4		
+dvd	biotools	4		
+miamexpress	biotools	4		
+sapp	biotools	4		
+clobnet	biotools	4		
+pdbusqlextractor	biotools	4		
+genscalpel	biotools	4		
+dnemo	biotools	4		
+pgconverter	biotools	4		
+mgnify	biotools	4		
+viennngs	biotools	4		
+bionimbus	biotools	4		
+snappy	biotools	4		
+yabi	biotools	4		
+redcap	biotools	4		
+mibig 2.0	biotools	4		
+multiplierz	biotools	4		
+entrez	biotools	4		
+libmgf	biotools	4		
+orfer	biotools	4		
+biomart	biotools	4		
