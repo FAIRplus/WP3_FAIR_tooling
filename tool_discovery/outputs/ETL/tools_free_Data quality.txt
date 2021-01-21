@@ -1,0 +1,14 @@
+quadtrim
+hydrosight
+histoneanalysisworkflow
+gazevisual-lib
+qcquan
+ewastools
+varfish
+watermelon
+sconify
+gazepath
+moirai
+saqc
+solexaqa
+one touch pipeline (otp)

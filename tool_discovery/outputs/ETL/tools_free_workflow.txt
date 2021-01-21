@@ -1,0 +1,249 @@
+omics data paper generator
+workflow
+teachopencadd-knime
+tcellsubc
+rbbt
+nf-core-sarek
+bionet-mining
+rbbt-hts
+belief
+actman
+dna-bot
+mvp_a
+microbiomebpr
+pyradiomics
+t cell classification
+nf-core-hic
+ontobrowser
+pipe-t
+pepfunk
+rnaseqr
+xenocp
+pathflowai
+pastmus
+orchestrating single-cell analysis
+workflowr
+workflow characterizing nanoparticle monolayers biosensors
+wipp
+vap
+uorf-tools
+uniqprimer
+transcup
+fraser
+msms-chooser
+minion
+explainer
+midrmpol
+miams
+mgnify
+mglex
+mg-rast api explorer
+metasanity
+metadegalaxy
+mdfptools
+masterofpores
+lobster
+doepipeline
+dnemo
+sepath
+sentieon dnaseq
+scrnaseq_benchmark
+deep docking
+cumulus
+sciapps
+csa
+scgeatoolbox
+crup
+sbp_2019
+croco
+cancer predisposition sequencing reporter (cpsr)
+connectedreads
+clij
+krasi
+judi
+isima
+robot
+rasflow
+quasitools
+pymethylprocess
+ia-lab
+i3
+hyper
+cellassign
+histoneanalysisworkflow
+progeo-neo
+bisr-rnaseq
+hash-cgmlst
+graphclust2
+popinf
+qiime artifact extractor (qax)
+geonode-tools4msp
+autopvs1
+atlas
+alumine
+aclimatise
+panoptes
+pm4ngs
+sv-callers
+sv-gen
+emgb
+scipion workflow repository
+cryoem ontology
+xplatcom (cross platform commander)
+knime - phenotyping of image data
+biomex
+gatk
+grape 2.0
+docker4seq
+rcasc
+candimeth
+nbis-meta
+bioexcel building blocks tutorials: common workflow language with biobb
+bioexcel building blocks tutorials: command-line workflows
+isoform
+ramid
+midcor
+snakepipes
+packmol-memgen
+microsysmics
+rna workbench 2.0
+el-maven
+comw
+hmp2
+armor
+datastorr
+open targets
+imageo
+bbknn
+dewe: differential expression workflow executor
+gcac
+som
+biomas
+impact framework
+molgenis
+ms-data-core-api
+diversitydescriptions
+irods
+yabi
+peptimapper
+snp2sim
+syqada
+speaq
+bioexcel genome sequence quality control workflow
+open phacts api
+piqed
+sequanix
+fqcleaner
+tool recommender system in galaxy using deeplearning
+tool recommender system in galaxy using deep learning
+retropath2.0
+watchdog
+metdb
+query tabular
+clip-explorer
+bionix
+biobb mutations workflow
+excemplify
+epigenomics workflow on galaxy and jupyter
+rampart
+microbiomer
+dep
+varfish
+fairifier
+rsat peak-motifs
+taverna4proteomics
+specl
+proteomatic
+memhdx
+blast2go
+taverna
+pims lims
+ballaxy
+konstanz information miner (knime)
+sciluigi
+systempiper
+sincell
+imir
+scan.upc
+diana-microt v5.0
+rmassbank
+quasr
+a-game
+rseqflow
+methmarker
+seqacademy
+ambergpumdsimulation
+gcat
+hermes
+cipher
+crosslinkwgcna
+aiida
+ub-isap
+chemsar
+cyrest
+geneseqtofamily
+buddysuite
+scmeth
+openhicamm
+xchemexplorer
+kronos
+taxmapper
+epigraph
+metashot
+kbase
+pygold
+pemer
+wft4galaxy
+musket
+chipchipnorm
+strand ngs
+iomics
+mousemine
+bio-jeti
+lims tools
+biouml
+moirai
+mgx
+straw
+wgs-structvar
+jflow
+cuneiform
+myexperiment
+guideseq
+hippie
+weblab
+bioextract
+ledpred
+mirnatap
+pipeline pilot
+pegasys
+pycogent
+mpiutils
+lab7
+butler
+msgfgui
+scipion web tools
+srna workflow
+orcid api
+ezimputer
+cogena
+grape
+phylogenetics_at_jst
+prokaryote rna sequence analysis workflow
+snakemake
+geoss
+metcirc
+tav4sb
+xip
+holovir
+molgenis compute
+compss
+sepia
+genomizer
+pri-cat
+tandem2
+biocworkflowtools
+biopartsdb
+avia
+amphoranet
+system biology platform
