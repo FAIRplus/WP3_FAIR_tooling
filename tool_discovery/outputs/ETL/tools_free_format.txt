@@ -1,3 +1,43 @@
+bedtoolsr
+qmcpack
+qgs
+qbed
+pyplif hippo
+pyhist
+pycurv
+hlassign 2.0
+hla-emma
+hive_panel_explorer
+gwas-vcf
+atomium
+protyquant
+ares-gt
+arbitr
+proin-fuse
+prap
+pplk+c
+bcftools
+gto
+gt-pro
+grip
+gridsolvate
+chemical checker
+graphein
+gpcr-pendb
+aperture
+aird
+plant 3d
+phisdetector
+pheri
+phelige
+phage commander
+ggroups
+peppan
+pep
+pdmethdb
+gen2vcf
+gear
+pangaea
 covtools
 plottwist
 vase
@@ -89,7 +129,6 @@ scope
 minerva platform
 easydockvina 2.0
 gatk
-samtools
 picard
 sam_to_bam
 seqtk
@@ -216,7 +255,6 @@ blannotator
 bagel3
 axima2analyze
 qcanvas
-bcftools
 varan
 bio-samtools
 ghostz

@@ -1,3 +1,9 @@
+atomium
+gretel
+pmparser
+glassesviewer
+geoboost2
+admixpipe
 tap
 pipe-t
 zombi

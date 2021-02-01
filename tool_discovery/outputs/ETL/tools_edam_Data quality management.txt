@@ -1,3 +1,5 @@
+autoclass
+giniqc
 amr
 gazevisual-lib
 amon

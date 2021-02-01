@@ -1,3 +1,28 @@
+pyomeroupload
+pyneal
+pymeshsim
+pyir
+pyfastx
+hops_tk
+hic-hiker
+haplotype explorer
+atomium
+proteosushi
+gretel
+glypniro
+pmparser
+phewas-me
+alphapart
+glassesviewer
+geoboost2
+pepatac
+pep
+ped_draw
+pdb-tools web
+gen2vcf
+alfie
+admixpipe
+absolute concentration robustness explorer (acre)
 a2a
 plottwist
 wikidata
@@ -68,7 +93,6 @@ aclimatise
 falcon server
 conet app
 genetests
-samtools
 goslin
 ngsrelatev2
 x2h

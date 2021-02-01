@@ -1,4 +1,29 @@
 name	description	type	topic	input	output
+qsiprep	"An integrative platform for preprocessing and reconstructing diffusion MRI.
+
+Data and Figures for the QSIPrep manuscript.
+
+Data and provenance for testing QSIPrep.
+
+This repository contains the code and data used to process the reconstructions and calculate the qc scores for the QSIPrep paper. It contains notes on how and where each data was processed."	[]	[{'term': 'MRI', 'uri': 'http://edamontology.org/topic_3444'}, {'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}, {'term': 'Data submission, annotation and curation', 'uri': 'http://edamontology.org/topic_0219'}, {'term': 'Neurobiology', 'uri': 'http://edamontology.org/topic_3304'}]	[]	[]
+argminer	ARGminer is a web platform dedicated to the validation of ARGs by using sequence alignment and evidence from multiple sources.	['Database portal']	[{'term': 'Gene and protein families', 'uri': 'http://edamontology.org/topic_0623'}, {'term': 'Small molecules', 'uri': 'http://edamontology.org/topic_0154'}, {'term': 'Data submission, annotation and curation', 'uri': 'http://edamontology.org/topic_0219'}, {'term': 'Ontology and terminology', 'uri': 'http://edamontology.org/topic_0089'}, {'term': 'Molecular interactions, pathways and networks', 'uri': 'http://edamontology.org/topic_0602'}]	[]	[]
+g-root	"Global Root Traits (GRooT) Database.
+
+Ready-to-use data by combining the expertise of root ecologist with data mobilization and curation.
+
+Global Root Trait (GRooT) Database.
+
+Our principal objective with GRooT is to contribute towards the inclusion of root traits in large-scale comparative studies and global models by offering standardized and curated data of key root traits."	['Library']	[{'term': 'Plant biology', 'uri': 'http://edamontology.org/topic_0780'}, {'term': 'Data submission, annotation and curation', 'uri': 'http://edamontology.org/topic_0219'}, {'term': 'Phylogenetics', 'uri': 'http://edamontology.org/topic_3293'}, {'term': 'Agricultural science', 'uri': 'http://edamontology.org/topic_3810'}, {'term': 'Ecology', 'uri': 'http://edamontology.org/topic_0610'}]	[]	[]
+grindb	"A unified and manually curated repertoire of GRIN variants.
+
+A CURATED DATABASE FOR GRIN VARIANTS."	['Database portal']	[{'term': 'Neurology', 'uri': 'http://edamontology.org/topic_3334'}, {'term': 'Data submission, annotation and curation', 'uri': 'http://edamontology.org/topic_0219'}, {'term': 'Genetic variation', 'uri': 'http://edamontology.org/topic_0199'}, {'term': 'Small molecules', 'uri': 'http://edamontology.org/topic_0154'}, {'term': 'Genotype and phenotype', 'uri': 'http://edamontology.org/topic_0625'}]	[]	[]
+pncstress	PncStress is a manually curated archive of experimentally validated stress-responsive ncRNAs in plant. The database contains that have been experimentally verified response to different kind of abiotic or biotic stress.	[]	[{'term': 'Functional, regulatory and non-coding RNA', 'uri': 'http://edamontology.org/topic_0659'}, {'term': 'Plant biology', 'uri': 'http://edamontology.org/topic_0780'}, {'term': 'Data submission, annotation and curation', 'uri': 'http://edamontology.org/topic_0219'}, {'term': 'Gene transcripts', 'uri': 'http://edamontology.org/topic_3512'}, {'term': 'Molecular biology', 'uri': 'http://edamontology.org/topic_3047'}]	[]	[]
+plantpepdb	PlantPepDB is a manually curated database of plant peptides having different functions and therapeutic activities. It contains 3848 peptide entries collected from 11 databases and 835 published research articles. Each entry provides comprehensive information about a peptide that includes its sequence, functional information, source, physicochemical properties, tertiary structure, etc. These peptides have been collected and complied from published databases and research articles. On the basis of their activities, we classified the peptides in 9 categories. Detailed information of these categories and sub-categories can be found on statistics page.	[]	[{'term': 'Small molecules', 'uri': 'http://edamontology.org/topic_0154'}, {'term': 'Plant biology', 'uri': 'http://edamontology.org/topic_0780'}, {'term': 'Data submission, annotation and curation', 'uri': 'http://edamontology.org/topic_0219'}, {'term': 'Proteomics', 'uri': 'http://edamontology.org/topic_0121'}, {'term': 'Literature and language', 'uri': 'http://edamontology.org/topic_3068'}]	[]	[]
+gag-db	"GAG-DB, the New Interface of the Three-Dimensional Landscape of Glycosaminoglycans.
+
+A database for curated glycosaminoglycan.
+
+GAG BUILDER : A user friendly tool to build 3D structures of GlycosAminoGlycans."	['Web application']	[{'term': 'NMR', 'uri': 'http://edamontology.org/topic_0593'}, {'term': 'X-ray diffraction', 'uri': 'http://edamontology.org/topic_2828'}, {'term': 'Data submission, annotation and curation', 'uri': 'http://edamontology.org/topic_0219'}, {'term': 'Protein interactions', 'uri': 'http://edamontology.org/topic_0128'}, {'term': 'Neutron diffraction', 'uri': 'http://edamontology.org/topic_3448'}]	[]	[]
 vdjdb	VDJdb is a database extension, new analysis infrastructure and a T-cell receptor motif compendium.	[]	[{'term': 'Immunoproteins and antigens', 'uri': 'http://edamontology.org/topic_2830'}, {'term': 'Sequence sites, features and motifs', 'uri': 'http://edamontology.org/topic_0160'}, {'term': 'Data submission, annotation and curation', 'uri': 'http://edamontology.org/topic_0219'}, {'term': 'Bioinformatics', 'uri': 'http://edamontology.org/topic_0091'}]	[]	[]
 varicarta	"A Comprehensive Database of Harmonized Genomic Variants Found in Autism Spectrum Disorder Sequencing Studies.
 

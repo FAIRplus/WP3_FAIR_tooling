@@ -1,4 +1,105 @@
 name	description	type	topic	input	output
+pyomeroupload	"A Python toolkit for uploading images and metadata to OMERO.
+
+Code snipets for updating whole properties of whole ISA tree, for example permissions settings.
+
+When building a distribution for release through BioConda, the Python setuptools are used.
+
+Library of artifacts for integration with Seek4Science using Seek's REST API.
+
+Example data, notebooks and scripts for demonstrating features of OMEROConnect and pyOmeroUpload."	[]	[{'term': 'Imaging', 'uri': 'http://edamontology.org/topic_3382'}, {'term': 'Biological databases', 'uri': 'http://edamontology.org/topic_3071'}]	[]	[]
+pyneal	"Pyneal is an open source software package to support real-time functional magnetic resonance imaging (fMRI). It is entirely Python-based and depends exclusively on free, open source neuroimaging libraries.
+
+This repository contains a set of tutorials to accompany the Pyneal real-time fMRI software package. For more information on Pyneal, please see Pyneal Docs.
+
+In order to help with the initial setup, as well as test any analysis scripts and network communications later on, Pyneal includes a suite of simulation tools that mimic various inputs and outputs along the data flow path.
+
+This respository contains representative data from GE, Siemens, and Philips scanning environments. For a detailed, step-by-step walk-through on setting up and running Pyneal across each of these environments, please see link above."	[]	[{'term': 'Medical imaging', 'uri': 'http://edamontology.org/topic_3384'}, {'term': 'MRI', 'uri': 'http://edamontology.org/topic_3444'}, {'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}, {'term': 'Neurobiology', 'uri': 'http://edamontology.org/topic_3304'}]	[]	[]
+pymeshsim	an integrative python package for biomedical named entity recognition, normalization, and comparison of MeSH terms.	[]	[{'term': 'Pathology', 'uri': 'http://edamontology.org/topic_0634'}, {'term': 'GWAS study', 'uri': 'http://edamontology.org/topic_3517'}, {'term': 'Genotype and phenotype', 'uri': 'http://edamontology.org/topic_0625'}]	[]	[]
+pyir	"PyIR is a scalable wrapper for processing billions of immunoglobulin and T cell receptor sequences using IgBLAST.
+
+PyIR is a minimally-dependent high-speed wrapper for the IgBLAST immunoglobulin and T-cell analyzer. This is achieved through chunking the input data set and running IgBLAST single-core in parallel to better utilize modern multi-core and hyperthreaded processors."	[]	[{'term': 'Immunoproteins and antigens', 'uri': 'http://edamontology.org/topic_2830'}, {'term': 'Sequencing', 'uri': 'http://edamontology.org/topic_3168'}, {'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}, {'term': 'Immunogenetics', 'uri': 'http://edamontology.org/topic_3930'}]	[]	[]
+pyfastx	"The pyfastx is a lightweight Python C extension that enables users to randomly access to sequences from plain and gzipped FASTA Q files.
+
+All tools support for random access were used to perform benchmark."	[]	[{'term': 'Sequence assembly', 'uri': 'http://edamontology.org/topic_0196'}, {'term': 'Sequencing', 'uri': 'http://edamontology.org/topic_3168'}, {'term': 'Transcription factors and regulatory sites', 'uri': 'http://edamontology.org/topic_0749'}]	[]	[]
+hops_tk	"High-performance library for (non-)uniform sampling of convex-constrained models.
+
+The Highly Optimized Polytope Sampling toolbox is an open-source C++17 library for efficient and scalable MCMC algorithms for sampling convex-constrained spaces possibly equipped with arbitrary target functions."	['Suite']	[{'term': 'Proteomics experiment', 'uri': 'http://edamontology.org/topic_3520'}, {'term': 'Sample collections', 'uri': 'http://edamontology.org/topic_3277'}, {'term': 'Bioinformatics', 'uri': 'http://edamontology.org/topic_0091'}]	[]	[]
+hic-hiker	"A probabilistic model to determine contig orientation in chromosome-length scaffolds with Hi-C.
+
+This will install the python package (and its cli command) hic_hiker."	['Command-line tool']	[{'term': 'Mapping', 'uri': 'http://edamontology.org/topic_0102'}, {'term': 'Model organisms', 'uri': 'http://edamontology.org/topic_0621'}, {'term': 'Sequence assembly', 'uri': 'http://edamontology.org/topic_0196'}, {'term': 'DNA', 'uri': 'http://edamontology.org/topic_0654'}, {'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}]	[]	[]
+haplotype explorer	"An infection cluster visualization tool for spatiotemporal dissection of the COVID-19 pandemic.
+
+HaplotypeExplorer is an interactive haplotype network viewer for spatiotemporal dissection of multimodal epidemic spectra."	['Command-line tool']	[{'term': 'Public health and epidemiology', 'uri': 'http://edamontology.org/topic_3305'}, {'term': 'Infectious disease', 'uri': 'http://edamontology.org/topic_3324'}, {'term': 'Phylogenetics', 'uri': 'http://edamontology.org/topic_3293'}]	[]	[]
+atomium	A Python library for parsing, manipulating and saving PDB, mmCIF and MMTF file formats.	['Library']	[{'term': 'NMR', 'uri': 'http://edamontology.org/topic_0593'}, {'term': 'Proteins', 'uri': 'http://edamontology.org/topic_0078'}]	[]	[]
+proteosushi	"a software tool to biologically annotate and quantify modification-specific, peptide-centric proteomics datasets.
+
+ProteoSushi transforms peptide-centric, PTM-enriched peptide data into condensed and annotated PTM site output that is easy to understand and analyze."	[]	[{'term': 'Protein modifications', 'uri': 'http://edamontology.org/topic_0601'}, {'term': 'Proteomics', 'uri': 'http://edamontology.org/topic_0121'}, {'term': 'Small molecules', 'uri': 'http://edamontology.org/topic_0154'}, {'term': 'Proteomics experiment', 'uri': 'http://edamontology.org/topic_3520'}, {'term': 'Sequence analysis', 'uri': 'http://edamontology.org/topic_0080'}]	[]	[]
+gretel	"On the complexity of haplotyping a microbial community.
+
+An algorithm for recovering haplotypes from metagenomes. Sister to Hansel.
+
+Gretel is a Python package providing a command line tool for the recovery of haplotypes from metagenomic data sets. Gretel parses an alignment of reads into a Hansel matrix and uses the evidence of SNP pairs observed to appear on the same reads to probabilistically reconstruct the most likely haplotypes."	['Command-line tool']	[{'term': 'Metagenomics', 'uri': 'http://edamontology.org/topic_3174'}, {'term': 'Microbial ecology', 'uri': 'http://edamontology.org/topic_3697'}, {'term': 'DNA polymorphism', 'uri': 'http://edamontology.org/topic_2885'}, {'term': 'Sequence assembly', 'uri': 'http://edamontology.org/topic_0196'}, {'term': 'Metatranscriptomics', 'uri': 'http://edamontology.org/topic_3941'}]	[]	[]
+glypniro	"An automated workflow for quantitative N- and O-linked glycoproteomic data analysis.
+
+A automated script for processing and combining Byonic and PD standard output.
+
+Pythons 3.4+ with the following packages installed.
+
+The program can be run from the location of the script using python main.py. The following parameters can be used for operating the script within the commandline."	['Command-line tool']	[{'term': 'Proteomics', 'uri': 'http://edamontology.org/topic_0121'}, {'term': 'Proteomics experiment', 'uri': 'http://edamontology.org/topic_3520'}, {'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}, {'term': 'Biomarkers', 'uri': 'http://edamontology.org/topic_3360'}, {'term': 'Small molecules', 'uri': 'http://edamontology.org/topic_0154'}]	[]	[]
+pmparser	"pmparser enables one to easily create and maintain a relational database of data from PubMed/MEDLINE. pmparser can download the publicly available XML files, parse them, incorporate PubMed’s regular updates, and combine the data with the NIH Open Citation Collection. PMDB, our implementation of the database, is available to download on Zenodo. For a detailed description of pmparser and PMDB, check out the preprint.
+
+The tar file contains a compressed dump of PMDB, which was created in PostgreSQL 12 using the pmparser R package."	[]	[{'term': 'Literature and language', 'uri': 'http://edamontology.org/topic_3068'}, {'term': 'Medicine', 'uri': 'http://edamontology.org/topic_3303'}, {'term': 'Biological databases', 'uri': 'http://edamontology.org/topic_3071'}]	[]	[]
+phewas-me	"PheWAS me is a web-app for interactive exploration of multimorbidity patterns in PheWAS.
+
+Electronic health records (EHRs) linked with a DNA biobank provide unprecedented opportunities for biomedical research in precision medicine.
+
+Should multiple-comparisons adjustment be done on P-Values of phewas results file?.
+
+Supplied are snps that have been preloaded."	[]	[{'term': 'Biobank', 'uri': 'http://edamontology.org/topic_3337'}, {'term': 'Phenomics', 'uri': 'http://edamontology.org/topic_3298'}, {'term': 'Personalised medicine', 'uri': 'http://edamontology.org/topic_3577'}, {'term': 'DNA polymorphism', 'uri': 'http://edamontology.org/topic_2885'}, {'term': 'Infectious disease', 'uri': 'http://edamontology.org/topic_3324'}]	[]	[]
+alphapart	R implementation of the method for partitioning genetic trends. Partition/Decomposition of Breeding Values by Paths of Information.	['Library']	[{'term': 'Genetics', 'uri': 'http://edamontology.org/topic_3053'}]	[]	[]
+glassesviewer	"Open-source software for viewing and analyzing data from the Tobii Pro Glasses 2 eye tracker.
+
+This matlab utility can parse recording files from the Tobii Glasses 2 as stored on the SD card (no need for intervening Tobii software). Once parsed, it will display this data in a MATLAB GUI. Optional eye videos are also supported. In this GUI, sync events can be shown, and data can be optionally annotated (e.g. as slow and fast phase intervals) by hand or by a classifier algorithm, or such annotations can be loaded from file."	['Library']	[{'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}, {'term': 'Sequencing', 'uri': 'http://edamontology.org/topic_3168'}, {'term': 'Proteomics experiment', 'uri': 'http://edamontology.org/topic_3520'}]	[]	[]
+geoboost2	"A natural languageprocessing pipeline for GenBank metadata enrichment for virus phylogeography.
+
+GeoBoost2 (part of the ZoDo project) is a system for extracting the location of infected hosts (LOIH) for a given set of GenBank metadata accessions. This involves API implementations that utilize NCBI API's for accessing and parsing information and delivering it to the researcher interested in investigating a set of sequences. You can also use this tool mine Geographic Locations in scientific articles (available as abstracts on PubMed or PMC-OA) or text files."	['Web application']	[{'term': 'Natural language processing', 'uri': 'http://edamontology.org/topic_0218'}, {'term': 'Public health and epidemiology', 'uri': 'http://edamontology.org/topic_3305'}, {'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}, {'term': 'Biotechnology', 'uri': 'http://edamontology.org/topic_3297'}, {'term': 'Infectious disease', 'uri': 'http://edamontology.org/topic_3324'}]	[]	[]
+pepatac	"An optimized ATAC-seq pipeline with serial alignments.
+
+PEPATAC is a pipeline designed to process ATAC-seq data. For more information see: http://pepatac.databio.org/.
+
+PEPATAC is an ATAC-seq pipeline. It trims adapters, maps reads, calls peaks, and creates bigwig tracks, TSS enrichment files, and other outputs. It is optimized on unique features of ATAC-seq data to be fast and accurate and provides several unique analytical approaches.
+
+An open structure and toolkit for organizing large-scale, sample-intensive biological research projects.
+
+PEP, or Portable Encapsulated Projects, is a community effort to make sample metadata reusable. PEPs decouple metadata from analysis-"	[]	[{'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}, {'term': 'Mapping', 'uri': 'http://edamontology.org/topic_0102'}, {'term': 'Sequence assembly', 'uri': 'http://edamontology.org/topic_0196'}]	[]	[]
+pep	"Linking big biomedical datasets to modular analysis with Portable Encapsulated Projects.
+
+Pipeline results reporting package.
+
+Project metadata manager for PEPs in Python.
+
+python interface reporting postgresql pipelines results reproducibility.
+
+PEP, or Portable Encapsulated Projects, is a community effort to make sample metadata reusable. PEPs decouple metadata from analysis by providing:.
+
+An open structure and toolkit for organizing large-scale, sample-intensive biological research projects.
+
+A PEP is written using a familiar yaml + csv format that can be read by our R and Python packages, and well as by workflow frameworks. PEP is your metadata solution for sample-intensive research projects."	[]	[{'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}, {'term': 'Model organisms', 'uri': 'http://edamontology.org/topic_0621'}, {'term': 'Bioinformatics', 'uri': 'http://edamontology.org/topic_0091'}, {'term': 'Sequencing', 'uri': 'http://edamontology.org/topic_3168'}]	[]	[]
+ped_draw	"pedigree drawing with ease.
+
+A simple python script to draw (complex and multi generation!) pedigrees with graphviz.
+
+ped_draw reads in a ped file (from a specified file or from /dev/stdin) and generates a dot file (to stdout). The subsequent dot output can be piped directly to dot/graphviz to generate png, svg, pdf, ps, or any other image option available in the graphviz documentation."	[]	[{'term': 'Imaging', 'uri': 'http://edamontology.org/topic_3382'}, {'term': 'Genetics', 'uri': 'http://edamontology.org/topic_3053'}, {'term': 'Bioinformatics', 'uri': 'http://edamontology.org/topic_0091'}]	[]	[]
+pdb-tools web	"A user-friendly interface for the manipulation of PDB files.
+
+A swiss army knife for manipulating and editing PDB files."	[]	[{'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}, {'term': 'Database management', 'uri': 'http://edamontology.org/topic_3489'}, {'term': 'Structural biology', 'uri': 'http://edamontology.org/topic_1317'}, {'term': 'Bioinformatics', 'uri': 'http://edamontology.org/topic_0091'}]	[]	[]
+gen2vcf	"A converter for human genome imputation output format to VCF format.
+
+BACKGROUND:For a genome-wide association study in humans, genotype imputation is an essential analysis tool for improving association mapping power. When IMPUTE software is used for imputation analysis, an imputation output (GEN format) should be converted to variant call format (VCF) with imputed genotype dosage for association analysis."	['Command-line tool']	[{'term': 'DNA polymorphism', 'uri': 'http://edamontology.org/topic_2885'}, {'term': 'Genotype and phenotype', 'uri': 'http://edamontology.org/topic_0625'}, {'term': 'GWAS study', 'uri': 'http://edamontology.org/topic_3517'}]	[]	[]
+alfie	Alfie is an alignment-free, kingdom level taxonomic classifier for DNA barcode data. Alfie classifies sequences using a neural network which takes k-mer frequencies (default k = 4) as inputs and makes kingdom level classification predictions.	['Command-line tool', 'Library']	[{'term': 'Machine learning', 'uri': 'http://edamontology.org/topic_3474'}, {'term': 'Biodiversity', 'uri': 'http://edamontology.org/topic_3050'}, {'term': 'Zoology', 'uri': 'http://edamontology.org/topic_3500'}, {'term': 'Metagenomics', 'uri': 'http://edamontology.org/topic_3174'}, {'term': 'Model organisms', 'uri': 'http://edamontology.org/topic_0621'}]	[]	[]
+admixpipe	A method for parsing and filtering VCF files for admixture analysis. The method is able to filters SNPs to allow the delineation of population structure in ADMIXTURE and parses the output for summarization and graphical representation via CLUMPAK.	['Command-line tool', 'Workflow']	[{'term': 'DNA polymorphism', 'uri': 'http://edamontology.org/topic_2885'}, {'term': 'Ecology', 'uri': 'http://edamontology.org/topic_0610'}, {'term': 'Population genomics', 'uri': 'http://edamontology.org/topic_3796'}, {'term': 'Mapping', 'uri': 'http://edamontology.org/topic_0102'}]	[]	[]
+absolute concentration robustness explorer (acre)	Absolute concentration robustness explorer (ACRE) explores combinatorial biochemical networks for the Absolute concentration robustness property.	['Desktop application']	[{'term': 'Molecular interactions, pathways and networks', 'uri': 'http://edamontology.org/topic_0602'}, {'term': 'Synthetic biology', 'uri': 'http://edamontology.org/topic_3895'}, {'term': 'Enzymes', 'uri': 'http://edamontology.org/topic_0821'}]	[]	[]
 a2a	A platform for research in biomedical literature search and benchmarking.	['Web application']	[{'term': 'Medicine', 'uri': 'http://edamontology.org/topic_3303'}, {'term': 'Literature and language', 'uri': 'http://edamontology.org/topic_3068'}, {'term': 'Preclinical and clinical studies', 'uri': 'http://edamontology.org/topic_3379'}]	[]	[]
 plottwist	PlotTwist (Plotting data from Time-lapse experiments With Indicators of conditions at Set Times) is an app for visualizing the data and statistics of continuous data, with a focus on time-dependent measurements. The philosophy of the approach is that plotting the raw data (instead of a summary) improves transparency and interpretation. To facilitate the visualization of individual measurements, the data can be shown as 'small mutliples' or in 'heatmap-style'. To further facilitate the comparison, the mean and 95% CI can be added. The user has full control over the visibility of the raw data and statistics by adjustment of the transparency (alpha). Several color blind friendly palettes are available to label the data. The comparison of multiple conditions is enabled by multiple file upload (csv or xls format), where each file represents a condition.	[]	[{'term': 'Imaging', 'uri': 'http://edamontology.org/topic_3382'}, {'term': 'Mapping', 'uri': 'http://edamontology.org/topic_0102'}, {'term': 'Neurobiology', 'uri': 'http://edamontology.org/topic_3304'}]	[]	[]
 wikidata	A Wikidata Python module integrating the MediaWiki API and the Wikidata SPARQL endpoint.	[]	[{'term': 'Phenomics', 'uri': 'http://edamontology.org/topic_3298'}, {'term': 'Transcription factors and regulatory sites', 'uri': 'http://edamontology.org/topic_0749'}, {'term': 'Molecular biology', 'uri': 'http://edamontology.org/topic_3047'}, {'term': 'Cell biology', 'uri': 'http://edamontology.org/topic_2229'}, {'term': 'Model organisms', 'uri': 'http://edamontology.org/topic_0621'}]	[]	[]
@@ -211,7 +312,6 @@ CoNet detects significant non-random patterns of co-occurrence (copresence and m
 
 12th January 2018: Thanks to Lisa Röttjers, there is now an R implementation of CoNet."	[]	[{'term': 'Microbial ecology', 'uri': 'http://edamontology.org/topic_3697'}, {'term': 'Metagenomics', 'uri': 'http://edamontology.org/topic_3174'}, {'term': 'Metatranscriptomics', 'uri': 'http://edamontology.org/topic_3941'}, {'term': 'Metabolomics', 'uri': 'http://edamontology.org/topic_3172'}, {'term': 'Model organisms', 'uri': 'http://edamontology.org/topic_0621'}]	[]	[]
 genetests	A medical genetics information resource developed for physicians, other healthcare providers, and researchers, available at no cost to all interested persons.	['Database portal']	[{'term': 'Genetics', 'uri': 'http://edamontology.org/topic_3053'}, {'term': 'Medical informatics', 'uri': 'http://edamontology.org/topic_3063'}, {'term': 'Molecular interactions, pathways and networks', 'uri': 'http://edamontology.org/topic_0602'}]	[]	[]
-samtools	A software package with various utilities for processing alignments in the SAM format, including variant calling and alignment viewing.	['Suite']	[{'term': 'Mapping', 'uri': 'http://edamontology.org/topic_0102'}, {'term': 'Sequence analysis', 'uri': 'http://edamontology.org/topic_0080'}, {'term': 'Sequencing', 'uri': 'http://edamontology.org/topic_3168'}, {'term': 'Rare diseases', 'uri': 'http://edamontology.org/topic_3325'}]	[{'data': {'term': 'sequence trace', 'uri': 'http://edamontology.org/data_0924'}, 'format': {'term': 'cram', 'uri': 'http://edamontology.org/format_3462'}}]	[{'data': {'term': 'sequence trace', 'uri': 'http://edamontology.org/data_0924'}, 'format': {'term': 'cram', 'uri': 'http://edamontology.org/format_3462'}}]
 goslin	Goslin is the Grammar of succinct lipid nomenclature project. It defines multiple grammers compatible with ANTLRv4 for different sources of shorthand lipid nomenclature. This allows to generate parsers based on the defined grammars, which provide immediate feedback whether a processed lipid shorthand notation string is compliant with a particular grammar, or not.	['Bioinformatics portal']	[{'term': 'Lipids', 'uri': 'http://edamontology.org/topic_0153'}, {'term': 'Computational chemistry', 'uri': 'http://edamontology.org/topic_3332'}, {'term': 'Metabolomics', 'uri': 'http://edamontology.org/topic_3172'}, {'term': 'Bioinformatics', 'uri': 'http://edamontology.org/topic_0091'}, {'term': 'Ontology and terminology', 'uri': 'http://edamontology.org/topic_0089'}, {'term': 'Cheminformatics', 'uri': 'http://edamontology.org/topic_2258'}]	[{'data': {'term': 'molecule name', 'uri': 'http://edamontology.org/data_0984'}, 'format': {'term': 'tsv', 'uri': 'http://edamontology.org/format_3475'}}]	[{'data': {'term': 'molecule name', 'uri': 'http://edamontology.org/data_0984'}, 'format': {'term': 'tsv', 'uri': 'http://edamontology.org/format_3475'}}]
 ngsrelatev2	Fast and accurate relatedness estimation from high-throughput sequencing data in the presence of inbreeding.	['Command-line tool']	[{'term': 'Genotype and phenotype', 'uri': 'http://edamontology.org/topic_0625'}, {'term': 'Sequencing', 'uri': 'http://edamontology.org/topic_3168'}, {'term': 'Population genetics', 'uri': 'http://edamontology.org/topic_3056'}]	[]	[]
 x2h	Massive XML-based biological data management platform.	['Command-line tool']	[{'term': 'Database management', 'uri': 'http://edamontology.org/topic_3489'}]	[]	[]

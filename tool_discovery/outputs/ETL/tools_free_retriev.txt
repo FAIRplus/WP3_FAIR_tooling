@@ -1,3 +1,7 @@
+prot2hg
+pmidcite
+piano
+anddigest
 vapor
 ippi-db
 plantcircnet

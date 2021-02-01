@@ -1,3 +1,33 @@
+bedtk
+pyrice
+hpastainr
+harp
+hamap_sparql
+gwas-vcf
+avian immunome db
+psi-mouse
+protrack
+atav
+ares-gt
+pronetview-ccrcc
+profkin
+prodmx
+geneva
+g-root
+greg
+gpsno
+gpcr-pendb
+ppai
+pmparser
+plangexq
+phytebyte
+phonbank
+phage commander
+pewo
+peryton
+gdbchembl
+gcanno
+panomicon
 vdjdb
 rpgenet
 robokop kg

@@ -1,3 +1,13 @@
+pyneal
+pygenometracks
+pybedgraph
+h4concur
+atomium
+prokseq
+prap
+aird
+pgs catalog
+genodive
 2passtools
 trans-nanosim
 phylogenize
@@ -20,7 +30,6 @@ antholigo
 tfanalysis
 msconvert
 fconverter
-samtools
 sam_to_bam
 seq-annot
 ciona robusta anatomy and development ontology

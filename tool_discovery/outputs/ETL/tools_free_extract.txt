@@ -1,3 +1,30 @@
+pytrack
+pyhist
+hisif
+avian immunome db
+autogenes
+asap-sml
+protac-db
+priori-t
+presa2i
+pperturb
+gomcl
+aprbind
+morpheus
+pmlipred
+plant 3d
+pine
+pi-net
+anddigest
+allestm
+glutantbase
+geoboost2
+pedl
+genepy3d
+pathext
+gdbchembl
+partseg
+pangaea
 abcmodeller
 xflow
 utrome

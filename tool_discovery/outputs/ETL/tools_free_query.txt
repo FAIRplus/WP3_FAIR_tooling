@@ -1,3 +1,17 @@
+bartweb
+pyrice
+hpastainr
+protrack
+atav
+argonaut
+ares-gt
+prot2hg
+prodmx
+presa2i
+ppai
+amazonforest
+phage commander
+aging atlas
 sumrep
 sparql
 repic

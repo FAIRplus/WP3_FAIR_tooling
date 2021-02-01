@@ -1,4 +1,29 @@
 name	description	type	topic	input	output
+pmidcite	"Evaluating retrieval qualities of Google Scholar and PubMed.
+
+Augment your PubMed literature search from the command-line by linking data downloaded from NIH's Open Citation Collection (NIH-OCC), which includes scientific influence, translation, and citation counts, with PubMed IDs (PMIDs), rather than clicking and clicking and clicking on Google Scholar Cited by N links.
+
+1) Get citation counts, given PMIDs.
+
+Command-line users can immediately augment their PubMed search results using the pmidcite scripts and library, which download citation data from the National Institutes of Health Open Citation Collection (NIH-OCC) database using NIH's ""iCite"" Application Programming Interface (API). We have found PubMed plus NIH-OCC citation data combined using pmidcite is a ""Better"" experience than using Google Scholar if your research is in the health sciences and you are amenable to consider working from the command line.
+
+2) Sort citation counts, given PMIDs."	[]	[{'term': 'Literature and language', 'uri': 'http://edamontology.org/topic_3068'}, {'term': 'Chemistry', 'uri': 'http://edamontology.org/topic_3314'}, {'term': 'Database management', 'uri': 'http://edamontology.org/topic_3489'}]	[]	[]
+geoboundaries	"A global database of political administrative boundaries.
+
+geoBoundaries by the William & Mary geoLab.
+
+Create dynamic maps, analyze and build location-aware and geospatial applications with your data using the power of PostGIS in the cloud."	['Web application']	[{'term': 'Database management', 'uri': 'http://edamontology.org/topic_3489'}, {'term': 'Quality affairs', 'uri': 'http://edamontology.org/topic_3393'}, {'term': 'Transcription factors and regulatory sites', 'uri': 'http://edamontology.org/topic_0749'}, {'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}, {'term': 'Physics', 'uri': 'http://edamontology.org/topic_3318'}]	[]	[]
+peskaas	"A near-real-time, open-source monitoring and analytics system for small-scale fisheries.
+
+PESKAAS: fisheries automated analytics system."	[]	[{'term': 'Model organisms', 'uri': 'http://edamontology.org/topic_0621'}, {'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}, {'term': 'Database management', 'uri': 'http://edamontology.org/topic_3489'}]	[]	[]
+pdm_utils	"a SEA-PHAGES MySQL phage database management toolkit.
+
+MySQL phage genomics database management utilities.
+
+The pdm_utils repository provides the source code for pdm_utils Python package, developed in the SEA-PHAGES program to create, update, and maintain MySQL phage genomics databases."	[]	[{'term': 'Database management', 'uri': 'http://edamontology.org/topic_3489'}, {'term': 'Genomics', 'uri': 'http://edamontology.org/topic_0622'}, {'term': 'Bioinformatics', 'uri': 'http://edamontology.org/topic_0091'}, {'term': 'Protein interaction experiment', 'uri': 'http://edamontology.org/topic_3957'}]	[]	[]
+pdb-tools web	"A user-friendly interface for the manipulation of PDB files.
+
+A swiss army knife for manipulating and editing PDB files."	[]	[{'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}, {'term': 'Database management', 'uri': 'http://edamontology.org/topic_3489'}, {'term': 'Structural biology', 'uri': 'http://edamontology.org/topic_1317'}, {'term': 'Bioinformatics', 'uri': 'http://edamontology.org/topic_0091'}]	[]	[]
 pmbd	PMBD is a Comprehensive Plastics Microbial Biodegradation Database.	[]	[{'term': 'Natural language processing', 'uri': 'http://edamontology.org/topic_0218'}, {'term': 'Microbial ecology', 'uri': 'http://edamontology.org/topic_3697'}, {'term': 'Database management', 'uri': 'http://edamontology.org/topic_3489'}, {'term': 'Enzymes', 'uri': 'http://edamontology.org/topic_0821'}, {'term': 'Biotechnology', 'uri': 'http://edamontology.org/topic_3297'}]	[]	[]
 plasmo	PlaSMo stands for Plant Systems-biology Modelling and the mission of the project was ensuring the achievements of yesterday's Mathematical Modellers will be available for the Systems Biologists of tomorrow.	[]	[{'term': 'Plant biology', 'uri': 'http://edamontology.org/topic_0780'}, {'term': 'Database management', 'uri': 'http://edamontology.org/topic_3489'}, {'term': 'Systems biology', 'uri': 'http://edamontology.org/topic_2259'}]	[]	[]
 u-ant	Semantic Microaggregation-based Anonymization Tool.	[]	[{'term': 'Data security', 'uri': 'http://edamontology.org/topic_3263'}, {'term': 'Database management', 'uri': 'http://edamontology.org/topic_3489'}]	[]	[]
@@ -142,7 +167,7 @@ CRISPRCasdb: database for CRISPRs and associated Cas genes.
 MICAS: Microsatellite Analysis Server."	['Database portal']	[{'term': 'DNA polymorphism', 'uri': 'http://edamontology.org/topic_2885'}, {'term': 'Public health and epidemiology', 'uri': 'http://edamontology.org/topic_3305'}, {'term': 'Database management', 'uri': 'http://edamontology.org/topic_3489'}, {'term': 'Mapping', 'uri': 'http://edamontology.org/topic_0102'}, {'term': 'Model organisms', 'uri': 'http://edamontology.org/topic_0621'}]	[]	[]
 toff	"database of traits of fish to promote advances in fish aquaculture.
 
-toff-project – Database of Traits OF Fish.
+toff-project â€“ Database of Traits OF Fish.
 
 TOFF (i.e. Traits OF Fish) is a curated database focusing on functional trait information for fish that aims at bringing together behavioral, morphological, phenological, and physiological traits coupled to environmental measurement context into a single open-source access repository. TOFF hosts data from published field and experimental studies. We ultimately aim to provide an inclusive and accessible data resource to facilitate advances in fish research"	[]	[{'term': 'Model organisms', 'uri': 'http://edamontology.org/topic_0621'}, {'term': 'Database management', 'uri': 'http://edamontology.org/topic_3489'}, {'term': 'Physiology', 'uri': 'http://edamontology.org/topic_3300'}, {'term': 'Genotype and phenotype', 'uri': 'http://edamontology.org/topic_0625'}, {'term': 'Transcription factors and regulatory sites', 'uri': 'http://edamontology.org/topic_0749'}]	[]	[]
 mimic-cxr	"De-identified publicly available database of chest radiographs with free-text reports.

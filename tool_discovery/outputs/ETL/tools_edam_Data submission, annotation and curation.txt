@@ -1,3 +1,10 @@
+qsiprep
+argminer
+g-root
+grindb
+pncstress
+plantpepdb
+gag-db
 vdjdb
 varicarta
 scoc database

@@ -1,3 +1,10 @@
+base
+qmcpack
+pyrice
+grall
+pixy
+glyco3d
+geoboost2
 oncowiki
 mubd-decoymaker 2.0
 toff

@@ -1,3 +1,4 @@
+autoclass
 ptrbc
 coil
 ewastools

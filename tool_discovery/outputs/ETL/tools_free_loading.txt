@@ -1,3 +1,9 @@
+hpastainr
+pi-net
+alpsnmr
+glycopost
+glassesviewer
+adenita
 acep
 pymol
 phobos
