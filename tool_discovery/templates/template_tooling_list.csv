@@ -1,0 +1,7 @@
+The template starts from row5. Please remove R1-4 in your data. ,,,,,,,,
+This template should be saved as tab-separated csv file, rather than .xlsx or .ods,,,,,,,
+,,,,,,,,
+Corresponding FAIRification topics,,,,if available,"what type this resource is. 
+Select from this list [tool, vocabulory, database, package]",“commercial” or “others”,"how this tool was discovered
+“manual” or “bio.tools”",For auto-discovered tools.
+FAIRification process,Tool,Description,Website,License,ResourceType,Type,Source,Confidence
