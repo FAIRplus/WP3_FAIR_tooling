@@ -1,3 +1,8 @@
+brian2genn
+retip
+repeatfs
+iodata
+reactioncode
 pyneal
 pygenometracks
 pybedgraph

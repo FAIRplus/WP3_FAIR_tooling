@@ -1,3 +1,5 @@
+rescript
+biosounds
 pmidcite
 geoboundaries
 peskaas

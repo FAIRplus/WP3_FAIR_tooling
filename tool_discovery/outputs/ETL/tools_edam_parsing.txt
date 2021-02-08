@@ -1,3 +1,15 @@
+ribominer
+ribodipa
+revercsp
+repeatfs
+ipcoal
+iot-stream
+iodata
+bmrb
+bioviz connect
+biopax-parser
+bigdataprocessor2
+icrf generator
 pyomeroupload
 pyneal
 pymeshsim

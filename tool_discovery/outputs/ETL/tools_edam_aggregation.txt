@@ -1,3 +1,16 @@
+cabnet
+rmea
+breedbase
+reactioncode
+rawr
+biologer
+bioentity2vec
+bigo
+qubils-midas
+igd
+iedea
+i2dash
+hrnet
 belg
 batchbench
 pytrack

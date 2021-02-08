@@ -1,3 +1,48 @@
+cardiopy
+capturecompendium
+rnaprobe
+rmta
+rmsiproc
+campp
+camitax
+ribo-pop
+ribo-oddr
+breedbase
+brain predictability toolbox
+bp4rnaseq
+reprobe
+reploc
+ip4m
+iot-stream
+instantdl
+bmtk
+bivartect
+receem
+gplas
+biotracs
+biosounds
+bioseqzip
+rbcnet
+biokc
+biogitflow
+vessmorphovis
+arpeggio
+rascore
+rainbowstorm
+radsex
+rabbitqc
+iliski
+idcov
+icrf generator
+icer
+i2dash
+hyperquant
+hypercluster
+hylength
+hybridmine
+hybphaser
+humir
+hribo
 bedshift
 beadnet
 bco app
@@ -159,7 +204,6 @@ pepfunk
 rnaseqr
 zirmi
 yaps
-gplas
 pathflowai
 pastmus
 opencravat

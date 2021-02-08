@@ -1,3 +1,7 @@
+ribbon
+rgcop
+reindeer
+bingleseq
 hpastainr
 pi-net
 alpsnmr

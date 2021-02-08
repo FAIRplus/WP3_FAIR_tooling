@@ -1,4 +1,5 @@
 name	description	type	topic	input	output
+biokc	BioKC platform is in constant development and its roadmap foresees support for defining and annotation of complexes, and handling of SBML extensions such as the Multistate and Multicomponent species package.	['Web API']	[{'term': 'Systems biology', 'uri': 'http://edamontology.org/topic_2259'}, {'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}, {'term': 'Molecular interactions, pathways and networks', 'uri': 'http://edamontology.org/topic_0602'}, {'term': 'Data submission, annotation and curation', 'uri': 'http://edamontology.org/topic_0219'}, {'term': 'Literature and language', 'uri': 'http://edamontology.org/topic_3068'}]	[]	[]
 qsiprep	"An integrative platform for preprocessing and reconstructing diffusion MRI.
 
 Data and Figures for the QSIPrep manuscript.

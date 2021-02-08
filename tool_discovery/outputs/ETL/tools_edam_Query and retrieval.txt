@@ -1,3 +1,14 @@
+cancervar
+rmdisease
+brain predictability toolbox
+iot-stream
+invacost
+indigenomes
+blastfrost
+bifrost
+quartataweb
+ildgdb
+idhs-dasts
 bedtk
 pyrice
 hpastainr

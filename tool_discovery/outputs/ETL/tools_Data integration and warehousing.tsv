@@ -1,4 +1,9 @@
 name	description	type	topic	input	output
+imubac	"Multibatch Cytometry Data Integration for Optimal Immunophenotyping.
+
+iMUBAC: Integration of Multi-Batch Cytometry Datasets.
+
+The 'iMUBAC' package provides a structured framework for objective inter-batch comparisons and unbiased immunophenotyping of high-dimentional cytometry datasets."	['Command-line tool', 'Library']	[{'term': 'Cytometry', 'uri': 'http://edamontology.org/topic_3934'}, {'term': 'Data integration and warehousing', 'uri': 'http://edamontology.org/topic_3366'}, {'term': 'Data quality management', 'uri': 'http://edamontology.org/topic_3572'}]	[]	[]
 mint	Molecular interaction Database (MINT) - public repository for protein-protein interactions (PPI) reported in peer-reviewed journals. The web interface allows the users to search, visualize and download interactions data	['Web application', 'Database portal']	[{'term': 'Protein interactions', 'uri': 'http://edamontology.org/topic_0128'}, {'term': 'Molecular interactions, pathways and networks', 'uri': 'http://edamontology.org/topic_0602'}, {'term': 'Data integration and warehousing', 'uri': 'http://edamontology.org/topic_3366'}, {'term': 'Rare diseases', 'uri': 'http://edamontology.org/topic_3325'}]	[{'data': {'term': 'text data', 'uri': 'http://edamontology.org/data_2526'}}]	[{'data': {'term': 'text data', 'uri': 'http://edamontology.org/data_2526'}}]
 amon	"annotation of metabolite origins via networks to integrate microbiome and metabolome data.
 
