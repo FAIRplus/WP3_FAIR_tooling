@@ -1,4 +1,8 @@
 name	description	type	topic	input	output
+receem	"A graph-based method for reconstructing entities from coordination ellipsis in medical text.
+
+Coordination ellipsis is a linguistic phenomenon particularly abundant in science jargon and in medical text. We aim to contribute a generalizable unsupervised method to reconstruct concepts from medical coordination elliptical expressions."	[]	[{'term': 'Natural language processing', 'uri': 'http://edamontology.org/topic_0218'}, {'term': 'Gene expression', 'uri': 'http://edamontology.org/topic_0203'}, {'term': 'Preclinical and clinical studies', 'uri': 'http://edamontology.org/topic_3379'}, {'term': 'Medicine', 'uri': 'http://edamontology.org/topic_3303'}, {'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}]	[]	[]
+biokc	BioKC platform is in constant development and its roadmap foresees support for defining and annotation of complexes, and handling of SBML extensions such as the Multistate and Multicomponent species package.	['Web API']	[{'term': 'Systems biology', 'uri': 'http://edamontology.org/topic_2259'}, {'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}, {'term': 'Molecular interactions, pathways and networks', 'uri': 'http://edamontology.org/topic_0602'}, {'term': 'Data submission, annotation and curation', 'uri': 'http://edamontology.org/topic_0219'}, {'term': 'Literature and language', 'uri': 'http://edamontology.org/topic_3068'}]	[]	[]
 hare	"A Flexible Highlighting Annotator for Ranking and Exploration.
 
 HARE: Highlighting Annotator for Ranking and Exploration.

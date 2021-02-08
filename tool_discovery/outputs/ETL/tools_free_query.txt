@@ -1,3 +1,14 @@
+capipy
+cammiq
+bsnet
+reindeer
+blur
+blastfrost
+bifrost
+ratspub
+rasp
+idhs-dasts
+i-lbr
 bartweb
 pyrice
 hpastainr

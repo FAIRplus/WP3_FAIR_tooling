@@ -1,4 +1,47 @@
 name	description	type	topic	input	output
+ribominer	"a toolset for mining multi-dimensional features of the translatome with ribosome profiling data.
+
+A python toolset for mining multi-dimensional features of the translatome with ribosome profiling data.
+
+The RiboMiner is a python toolset for mining multi-dimensional features of the translatome with ribosome profiling data. This package has four function parts:.
+
+
+RiboMiner could offer other useful functions that would help users analyze ribosome profiling data, such as statistics of read coverage, visualization of read density for a single transcript or some transcript sets."	[]	[{'term': 'Cell biology', 'uri': 'http://edamontology.org/topic_2229'}, {'term': 'Gene transcripts', 'uri': 'http://edamontology.org/topic_3512'}, {'term': 'Gene expression', 'uri': 'http://edamontology.org/topic_0203'}, {'term': 'Protein expression', 'uri': 'http://edamontology.org/topic_0108'}, {'term': 'RNA-Seq', 'uri': 'http://edamontology.org/topic_3170'}]	[]	[]
+ribodipa	A Novel tool for differential pattern analysis in Ribo-seq data.	[]	[{'term': 'Gene expression', 'uri': 'http://edamontology.org/topic_0203'}, {'term': 'Cell biology', 'uri': 'http://edamontology.org/topic_2229'}, {'term': 'Gene transcripts', 'uri': 'http://edamontology.org/topic_3512'}, {'term': 'Protein expression', 'uri': 'http://edamontology.org/topic_0108'}, {'term': 'Model organisms', 'uri': 'http://edamontology.org/topic_0621'}]	[]	[]
+revercsp	"Time-Travelling in CSP Computations.
+
+reverCSP is a tool that allows us to evaluate a CSP specification in both directions: forwards (traditional computation) and backwards (using our reversible computation framework). reverCSP uses internally csp_tracker to produce tracks of the computation so one can better follows what is being computed so far (or henceforth if going backwards)."	[]	[{'term': 'Zoology', 'uri': 'http://edamontology.org/topic_3500'}, {'term': 'Imaging', 'uri': 'http://edamontology.org/topic_3382'}]	[]	[]
+repeatfs	"a file system providing reproducibility through provenance and automation.
+
+RepeatFS is a Python, FUSE-based file system with the goal of promoting scientific informatics reproducibility by recording all file and IO operations during analysis. This provenance record can then be exported and used to replicate the analysis on other systems. During replication, RepeatFS will verify that all software versions, command line parameters, and other relevant attributes match, and will report out any deviation from the original record. While other provenance software often involves learning scripting languages or migrating your workflow to a confined platform, RepeatFS operates invisibily at the file system level, and is compatible with virtually all Linux command-line software."	[]	[{'term': 'Informatics', 'uri': 'http://edamontology.org/topic_0605'}, {'term': 'Transcription factors and regulatory sites', 'uri': 'http://edamontology.org/topic_0749'}, {'term': 'Sequence assembly', 'uri': 'http://edamontology.org/topic_0196'}]	[]	[]
+ipcoal	"An interactive Python package for simulating and analyzing genealogies and sequences on a species tree or network.
+
+Python package to interactively simulate genealogies and sequence data under the multispecies coalescent.
+
+Full documentation here: https://ipcoal.readthedocs.io.
+
+Welcome to ipcoal’s documentation! — ipcoal documentation.
+
+Free document hosting provided by Read the Docs."	['Command-line tool', 'Library']	[{'term': 'Phylogeny', 'uri': 'http://edamontology.org/topic_0084'}, {'term': 'Phylogenomics', 'uri': 'http://edamontology.org/topic_0194'}, {'term': 'DNA polymorphism', 'uri': 'http://edamontology.org/topic_2885'}]	[]	[]
+iot-stream	"A Lightweight Ontology for Internet of Things Data Streams and Its Use with Data Analytics and Event Detection Services.
+
+A Lightweight Ontology for IoT Data Streams.
+
+T. Elsaleh, M. Bermudez-Edo, S. Enshaeifar, S. T. Acton, R. Rezvani and P. Barnaghi, ""IoT-Stream: A Lightweight Ontology for Internet of Things Data Streams,"" 2019 Global IoT Summit (GIoTS), Aarhus, Denmark, 2019, pp. 1-6.
+
+||| CORRECT NAME OF TOOL COULD ALSO BE 'IoT' (bio.tools/IoT)"	['Web service']	[{'term': 'Ontology and terminology', 'uri': 'http://edamontology.org/topic_0089'}, {'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}, {'term': 'Model organisms', 'uri': 'http://edamontology.org/topic_0621'}]	[]	[]
+iodata	"A python library for reading, writing, and converting computational chemistry file formats and generating input files.
+
+IOData is a HORTON 3 module for input/output of quantum chemistry file formats. Documentation is here: https://iodata.readthedocs.io/en/latest/index.html."	['Command-line tool']	[{'term': 'Chemistry', 'uri': 'http://edamontology.org/topic_3314'}, {'term': 'Molecular dynamics', 'uri': 'http://edamontology.org/topic_0176'}, {'term': 'Cheminformatics', 'uri': 'http://edamontology.org/topic_2258'}]	[]	[]
+bmrb	The Biological Magnetic Resonance Data Bank (BioMagResBank or BMRB) is a repository for data from NMR Spectroscopy on proteins, peptides, nucleic acids, and other biomolecules.	['Database portal']	[{'term': 'NMR', 'uri': 'http://edamontology.org/topic_0593'}, {'term': 'Small molecules', 'uri': 'http://edamontology.org/topic_0154'}, {'term': 'Metabolomics', 'uri': 'http://edamontology.org/topic_3172'}, {'term': 'Biophysics', 'uri': 'http://edamontology.org/topic_3306'}, {'term': 'Chemistry', 'uri': 'http://edamontology.org/topic_3314'}]	[]	[]
+bioviz connect	BioViz Connect is a web application linking CyVerse science gateway resources to genomic visualization in the Integrated Genome Browser.	['Web application']	[{'term': 'RNA-Seq', 'uri': 'http://edamontology.org/topic_3170'}, {'term': 'Probes and primers', 'uri': 'http://edamontology.org/topic_0632'}, {'term': 'Plant biology', 'uri': 'http://edamontology.org/topic_0780'}, {'term': 'Gene transcripts', 'uri': 'http://edamontology.org/topic_3512'}, {'term': 'RNA splicing', 'uri': 'http://edamontology.org/topic_3320'}]	[]	[]
+biopax-parser	"BioPAX Parser is graphical tool to perform pathway enrichment analysis using
+BioPAX files. In addition BiP enable user to extract and save pathway information
+in a tabular format."	['Desktop application']	[{'term': 'Molecular interactions, pathways and networks', 'uri': 'http://edamontology.org/topic_0602'}, {'term': 'Pathology', 'uri': 'http://edamontology.org/topic_0634'}, {'term': 'Endocrinology and metabolism', 'uri': 'http://edamontology.org/topic_3407'}]	[]	[]
+bigdataprocessor2	BigDataProcessor2 (BDP2) is a Fiji plugin for interactive processing of TB-sized image data. BDP2 uses BigDataViewer for rendering and the ImgLib2 library for image processing.	['Desktop application', 'Plug-in']	[{'term': 'Bioimaging', 'uri': 'http://edamontology.org/topic_3383'}, {'term': 'Light microscopy', 'uri': 'http://edamontology.org/topic_3385'}, {'term': 'Electron microscopy', 'uri': 'http://edamontology.org/topic_0611'}]	[]	[]
+icrf generator	"Generating interoperable electronic case report forms using online codebooks.
+
+Semantic interoperability of clinical data requires the use of a common vocabulary, such as SNOMED-CT. Unfortunately, mapping data to such a terminology is time-consuming and requires expert knowledge of both the dataset and the terminology. A viable alternative can be the reuse of codebooks - published dataset definitions which, in some cases, have already been mapped to a terminology. We designed the iCRF Generator, a tool which makes it easy to generate interoperable electronic Case Report Forms for (currently) three major EDCs: OpenClinica 3, Castor and REDCap. The tool currently provides access to several codebooks stored online in Art-Decor, such as:."	['Command-line tool', 'Script']	[{'term': 'Ontology and terminology', 'uri': 'http://edamontology.org/topic_0089'}, {'term': 'Tomography', 'uri': 'http://edamontology.org/topic_3452'}, {'term': 'Pathology', 'uri': 'http://edamontology.org/topic_0634'}, {'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}]	[]	[]
 pyomeroupload	"A Python toolkit for uploading images and metadata to OMERO.
 
 Code snipets for updating whole properties of whole ISA tree, for example permissions settings.

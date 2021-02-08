@@ -1,3 +1,30 @@
+canopus
+rnawre
+rnasnap2
+cancerliver
+buan
+btyper3
+bsm-arc
+ripplenet
+brassicaedb
+bp4rnaseq
+reuma.pt
+retip
+rescript
+regals
+intertads
+icscb
+bmrb
+bioswitch
+biomodels parameter
+biomedisa
+bioafmviewer
+ikaptive
+icellr
+ibiodegpred
+sitk-ibex
+huskindb
+humir
 bcl::conf
 bioactive conformational ensemble
 bbsbayes

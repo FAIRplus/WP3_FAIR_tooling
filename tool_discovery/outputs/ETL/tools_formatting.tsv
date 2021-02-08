@@ -1,4 +1,21 @@
 name	description	type	topic	input	output
+brian2genn	Brian2GeNN is a software package that enables the users to make use of GeNN GPU acceleration when developing their models in Brian, without requiring any technical knowledge about GPUs, C++ or GeNN. The new Brian2GeNN software uses a pipeline of code generation to translate Brian scripts into C++ code that can be used as input to GeNN, and subsequently can be run on suitable NVIDIA GPU accelerators.	[]	[{'term': 'Machine learning', 'uri': 'http://edamontology.org/topic_3474'}, {'term': 'Neurobiology', 'uri': 'http://edamontology.org/topic_3304'}, {'term': 'Literature and language', 'uri': 'http://edamontology.org/topic_3068'}]	[]	[]
+retip	"Retention Time Prediction for Compound Annotation in Untargeted Metabolomics.
+
+Retip is an R package for predicting Retention Time (RT) for small molecules in a high pressure liquid chromatography (HPLC) Mass Spectrometry analysis.
+
+Retip - Retention Time prediction for Metabolomics.
+
+Retip: Retention Time Prediction for Compound Annotation in Untargeted Metabolomics Paolo Bonini, Tobias Kind, Hiroshi Tsugawa, Dinesh Kumar Barupal, and Oliver Fiehn Analytical Chemistry 2020 92 (11), 7515-7522 DOI: 10.1021/acs.analchem.9b05765."	[]	[{'term': 'Metabolomics', 'uri': 'http://edamontology.org/topic_3172'}, {'term': 'Proteomics experiment', 'uri': 'http://edamontology.org/topic_3520'}, {'term': 'Machine learning', 'uri': 'http://edamontology.org/topic_3474'}, {'term': 'Cheminformatics', 'uri': 'http://edamontology.org/topic_2258'}, {'term': 'Chemistry', 'uri': 'http://edamontology.org/topic_3314'}]	[]	[]
+repeatfs	"a file system providing reproducibility through provenance and automation.
+
+RepeatFS is a Python, FUSE-based file system with the goal of promoting scientific informatics reproducibility by recording all file and IO operations during analysis. This provenance record can then be exported and used to replicate the analysis on other systems. During replication, RepeatFS will verify that all software versions, command line parameters, and other relevant attributes match, and will report out any deviation from the original record. While other provenance software often involves learning scripting languages or migrating your workflow to a confined platform, RepeatFS operates invisibily at the file system level, and is compatible with virtually all Linux command-line software."	[]	[{'term': 'Informatics', 'uri': 'http://edamontology.org/topic_0605'}, {'term': 'Transcription factors and regulatory sites', 'uri': 'http://edamontology.org/topic_0749'}, {'term': 'Sequence assembly', 'uri': 'http://edamontology.org/topic_0196'}]	[]	[]
+iodata	"A python library for reading, writing, and converting computational chemistry file formats and generating input files.
+
+IOData is a HORTON 3 module for input/output of quantum chemistry file formats. Documentation is here: https://iodata.readthedocs.io/en/latest/index.html."	['Command-line tool']	[{'term': 'Chemistry', 'uri': 'http://edamontology.org/topic_3314'}, {'term': 'Molecular dynamics', 'uri': 'http://edamontology.org/topic_0176'}, {'term': 'Cheminformatics', 'uri': 'http://edamontology.org/topic_2258'}]	[]	[]
+reactioncode	"Format for Reaction Searching, Analysis, Classification, Transform, and Encoding/Decoding.
+
+ReactionCode is a new versatile format for searching, analysis, classification, transform, and encoding decoding of reactions."	[]	[{'term': 'Machine learning', 'uri': 'http://edamontology.org/topic_3474'}, {'term': 'Chemistry', 'uri': 'http://edamontology.org/topic_3314'}, {'term': 'Molecular biology', 'uri': 'http://edamontology.org/topic_3047'}, {'term': 'Small molecules', 'uri': 'http://edamontology.org/topic_0154'}]	[]	[]
 pyneal	"Pyneal is an open source software package to support real-time functional magnetic resonance imaging (fMRI). It is entirely Python-based and depends exclusively on free, open source neuroimaging libraries.
 
 This repository contains a set of tutorials to accompany the Pyneal real-time fMRI software package. For more information on Pyneal, please see Pyneal Docs.

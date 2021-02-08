@@ -1,6 +1,42 @@
 name	description	type	topic	input	output
+retina	"Design, development and deployment of a web-based interoperable registry for inherited retinal dystrophies in Portugal.
+
+Design, Development and Deployment of a Web-Based Interoperable Registry for Inherited Retinal Dystrophies in Portugal – the IRD-PT.
+
+Em manutenção...por favor tente mais tarde!.
+
+If you want to know what will expect you here shortly, check out the reel:.
+
+||| COMMON LINK WITH (PUB. & NAME DIFFERENT) bio.tools/Ribopeaks (COM.)
+
+||| CORRECT NAME OF TOOL COULD ALSO BE 'retina.pt', 'Retina Study Group', 'registries increases', 'Retina Study'"	[]	[{'term': 'Public health and epidemiology', 'uri': 'http://edamontology.org/topic_3305'}, {'term': 'Rare diseases', 'uri': 'http://edamontology.org/topic_3325'}, {'term': 'Genotype and phenotype', 'uri': 'http://edamontology.org/topic_0625'}, {'term': 'Surgery', 'uri': 'http://edamontology.org/topic_3421'}, {'term': 'Ontology and terminology', 'uri': 'http://edamontology.org/topic_0089'}]	[]	[]
+response	"Framework for Enforcing Risk-Aware Security Policies in Constrained Dynamic Environments.
+
+Multi-criteria decision making algorithm based on TOPSIS."	[]	[{'term': 'Ontology and terminology', 'uri': 'http://edamontology.org/topic_0089'}, {'term': 'Mathematics', 'uri': 'http://edamontology.org/topic_3315'}]	[]	[]
+iot-stream	"A Lightweight Ontology for Internet of Things Data Streams and Its Use with Data Analytics and Event Detection Services.
+
+A Lightweight Ontology for IoT Data Streams.
+
+T. Elsaleh, M. Bermudez-Edo, S. Enshaeifar, S. T. Acton, R. Rezvani and P. Barnaghi, ""IoT-Stream: A Lightweight Ontology for Internet of Things Data Streams,"" 2019 Global IoT Summit (GIoTS), Aarhus, Denmark, 2019, pp. 1-6.
+
+||| CORRECT NAME OF TOOL COULD ALSO BE 'IoT' (bio.tools/IoT)"	['Web service']	[{'term': 'Ontology and terminology', 'uri': 'http://edamontology.org/topic_0089'}, {'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}, {'term': 'Model organisms', 'uri': 'http://edamontology.org/topic_0621'}]	[]	[]
+bipom	BiPOm is a rule-based ontology to represent and infer molecule knowledge from a biological process-centered viewpoint.	['Ontology']	[{'term': 'Ontology and terminology', 'uri': 'http://edamontology.org/topic_0089'}, {'term': 'Endocrinology and metabolism', 'uri': 'http://edamontology.org/topic_3407'}, {'term': 'Enzymes', 'uri': 'http://edamontology.org/topic_0821'}, {'term': 'Molecular biology', 'uri': 'http://edamontology.org/topic_3047'}, {'term': 'Machine learning', 'uri': 'http://edamontology.org/topic_3474'}]	[]	[]
+biont	BiOnt performs relation extraction using a deep learning system. It employs four types of biomedical ontologies, namely, the Gene Ontology, the Human Phenotype Ontology, the Human Disease Ontology, and the Chemical Entities of Biological Interest, regarding gene-products, phenotypes, diseases, and chemical compounds, respectively.	['Command-line tool']	[{'term': 'Ontology and terminology', 'uri': 'http://edamontology.org/topic_0089'}, {'term': 'Genotype and phenotype', 'uri': 'http://edamontology.org/topic_0625'}, {'term': 'Pathology', 'uri': 'http://edamontology.org/topic_0634'}, {'term': 'Natural language processing', 'uri': 'http://edamontology.org/topic_0218'}, {'term': 'Machine learning', 'uri': 'http://edamontology.org/topic_3474'}]	[]	[]
+bio-answerfinder	A system to find answers to questions from biomedical texts. The system is configured by a configuration file.	[]	[{'term': 'Natural language processing', 'uri': 'http://edamontology.org/topic_0218'}, {'term': 'Machine learning', 'uri': 'http://edamontology.org/topic_3474'}, {'term': 'Medicine', 'uri': 'http://edamontology.org/topic_3303'}, {'term': 'Ontology and terminology', 'uri': 'http://edamontology.org/topic_0089'}, {'term': 'Data mining', 'uri': 'http://edamontology.org/topic_3473'}]	[]	[]
+ratspub	"a webservice aided by deep learning to mine PubMed for addiction-related genes.
+
+RatsPub: Relationship with Addiction Through Searches of PubMed.
+
+RatsPub searches PubMed to find sentences that contain the query terms (e.g., gene symbols) and a drug addiction related keyword. Over 300 of these keywords are organized into six categories:.
+
+RatsPub is a tool to efficiently and comprehensively answer the question ""What do we know about these genes and addiction?"".
+
+RatsPub answers this question by searching PubMed to find sentences containing the query terms (i.e., gene symbols) and over 300 drug addiction-related keywords that are organized into six categories. Data from NHGRI-EBI GWAS catalog are also included in the search. These gene-keyword relationships are presented as an interactive graph and a table."	[]	[{'term': 'GWAS study', 'uri': 'http://edamontology.org/topic_3517'}, {'term': 'Natural language processing', 'uri': 'http://edamontology.org/topic_0218'}, {'term': 'Machine learning', 'uri': 'http://edamontology.org/topic_3474'}, {'term': 'Metabolomics', 'uri': 'http://edamontology.org/topic_3172'}, {'term': 'Ontology and terminology', 'uri': 'http://edamontology.org/topic_0089'}]	[]	[]
+icrf generator	"Generating interoperable electronic case report forms using online codebooks.
+
+Semantic interoperability of clinical data requires the use of a common vocabulary, such as SNOMED-CT. Unfortunately, mapping data to such a terminology is time-consuming and requires expert knowledge of both the dataset and the terminology. A viable alternative can be the reuse of codebooks - published dataset definitions which, in some cases, have already been mapped to a terminology. We designed the iCRF Generator, a tool which makes it easy to generate interoperable electronic Case Report Forms for (currently) three major EDCs: OpenClinica 3, Castor and REDCap. The tool currently provides access to several codebooks stored online in Art-Decor, such as:."	['Command-line tool', 'Script']	[{'term': 'Ontology and terminology', 'uri': 'http://edamontology.org/topic_0089'}, {'term': 'Tomography', 'uri': 'http://edamontology.org/topic_3452'}, {'term': 'Pathology', 'uri': 'http://edamontology.org/topic_0634'}, {'term': 'Workflows', 'uri': 'http://edamontology.org/topic_0769'}]	[]	[]
 bibliome variant database	The Bibliome Variant Database is a collection of variants mined from open-access primary literature. All variants included in the database have been mapped to the human genome and are presented in a manner ordered by genomic location. The goal of this database is to provide a searchable structured resource listing variant-containing references.	['Database portal']	[{'term': 'Literature and language', 'uri': 'http://edamontology.org/topic_3068'}, {'term': 'Mapping', 'uri': 'http://edamontology.org/topic_0102'}, {'term': 'Ontology and terminology', 'uri': 'http://edamontology.org/topic_0089'}, {'term': 'Genomics', 'uri': 'http://edamontology.org/topic_0622'}, {'term': 'Gene expression', 'uri': 'http://edamontology.org/topic_0203'}]	[]	[]
-hig2vec	"Hierarchical Representations of Gene Ontology and Genes in the PoincarÃ© Ball.
+hig2vec	"Hierarchical Representations of Gene Ontology and Genes in the Poincaré Ball.
 
 Preprint version available here https://www.biorxiv.org/content/10.1101/2020.07.14.195750v1.
 
