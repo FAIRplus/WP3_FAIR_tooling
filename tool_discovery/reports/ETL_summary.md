@@ -19,10 +19,12 @@ A commercial tool for information extraction
 For information extraction
 
 |name|description|link|
-|--|--|
+|--|--|--|
 |bridgedbr|Use BridgeDb functions and load identifier mapping databases in R.|
 |identifiers.org|Resolver of URIs.|
 |...|...|
+
+
 Complete list here.
 https://github.com/FAIRplus/WP3_FAIR_tooling/blob/main/tool_discovery/outputs/ETL/tools_Data%20identity%20and%20mapping.tsv#L1
 
@@ -33,7 +35,7 @@ A commercial software for data parsing
 Metadata management
 
 #### Aggreation
-- [TriFacta]|()
+- [TriFacta]()
 A commercial tool for data quality managment
 
 
