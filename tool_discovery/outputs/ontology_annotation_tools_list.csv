@@ -1,9 +1,5 @@
-The template starts from row5. Please remove R1-4 in your data. ,,,,,,,,
-This template should be saved as tab-separated csv file, rather than .xlsx or .ods,,,,,,,
+,,last update:2021-02-08,,,,,,
 ,,,,,,,,
-Corresponding FAIRification topics,,,,if available,"what type this resource is. 
-Select from this list [tool, vocabulory, database, package]",“commercial” or “others”,"how this tool was discovered
-“manual” or “bio.tools”",For auto-discovered tools.
 FAIRification process,Tool,Description,Website,License,ResourceType,Type,Source,Confidence
 ontology annotation,Aber-OWL,"Type any term or phrase to search the AberOWL ontology repository for a class with label (try pancreas), class description containing searched phrase or part of it (try sugar binding GO), using class OBO ID (try PATO:0001234), for ontologies by acronym (try ECO) or by phrase part of ontology description (try integrated upper ontology,infectious disease, or pathology), or perform a Description Logic query (try 'part of' some 'apoptotic process' ):",http://aber-owl.net/#/,,,,,
 ontology annotation,Alation,,https://www.alation.com/,,,,,
@@ -53,7 +49,8 @@ Where mappings are not found in the curated respository one or more ontologies c
 Use the text box to find possible ontology mappings for free text terms in the ZOOMA repository of curated annotation knowledge. You can add one term (e.g. 'Homo sapiens') per line. If you also have a type for your term (e.g. 'organism'), put this after the term, separated by a tab.
 If you are new to ZOOMA, take a look at our getting started guide.",https://www.ebi.ac.uk/spot/zooma/,,,,,
 ontology annotation,beere,"Tool for Biomedical Entity Expansion, Ranking, and Exploration.",http://discovery.informatics.uab.edu/BEERE/,,,,,
-ontology annotation,biocaddie,Leveraging word embeddings and medical entity extraction for biomedical dataset retrieval using unstructured texts. Mayo's Data for the bioCADDIE 2016 Dataset Retrieval Challenge,https://github.com/yanshanwang/biocaddie2016mayodata,,,,,
-ontology annotation,onclass,Unifying single-cell annotations based on the Cell Ontology. Single cell typing based on cell ontology. please see the document of OnClass at https://onclass.readthedocs.io/en/latest/,https://onclass.readthedocs.io/en/latest/,,,,,
-,hpo2go,"Prediction of human phenotype ontology term associations using cross ontology annotation co-occurrences. Mapping between HPO and GO terms. If you find HPO2GO useful, please consider citing this publication:. Mapping between Human Phenotype Ontology (HPO) and Gene Ontology (GO) terms for the prediction of gene/protein - function - phenotype - disease associations. In this study, a novel approach is proposed for the identification of relationships between biomedical entities by automatically mapping phenotypic abnormality defining HPO terms with biomolecular function defining GO terms, where each association indicates the occurrence of the abnormality due to the loss of the biomolecular function expressed by the corresponding GO term",https://github.com/cansyl/HPO2GO,,,,,
-,ontobrowser,"The tool was developed to manage ontologies (and controlled terminologies e.g. CDISC SEND). The primary goal of the tool is to provide an online collaborative solution for expert curators to map code list terms (sourced from multiple systems/databases) to preferred ontology terms. Other key features include visualisation of ontologies in hierarchical/graph format, advanced search capabilities, peer review/approval workflow and web service access to data.",https://bio.tools/ontobrowser,,,,,
+ontology annotation,UML enterprise model,"Interfaces to Collibra to use the modelling information for classification in the enterprise cataloge, Generate schema ontologies consistent with the UML enterprise model",https://sparxsystems.com/,Commercial,,,,
+"ontology, semantic modelling",Innovator,"With Innovator, you depict all information and architecture views of your company consistently in a single tool. Transparency and impact analysis at the touch of a button allow you to make precise analyses of connections at all times.",https://www.mid.de/en/business-activities/tools/innovator,Commercial,,,,
+ontology editor,VocBench,"a web-based, multilingual, collaborative development platform for managing OWL ontologies, SKOS(/XL) thesauri, Ontolex-lemon lexicons and generic RDF datasets.",http://vocbench.uniroma2.it/,,,,,
+"Ontology annotation, annotation",Prodigy,"An annotation tool for AI, Machine Learning & NLP",https://prodi.gy,,,,,
+entity name recognition,SpaCu,Industrial-strength Natural Language Processing in Python,https://spacy.io/,,,,,
