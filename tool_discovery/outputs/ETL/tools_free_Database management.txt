@@ -1,9 +1,0 @@
-rescript
-pdm_utils
-biospytial
-phosida
-database manager
-phplabware
-bisa
-pacsy
-homolens

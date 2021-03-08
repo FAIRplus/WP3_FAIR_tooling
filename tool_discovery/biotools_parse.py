@@ -683,7 +683,7 @@ class biotoolsToolsGenerator(toolGenerator):
             newInst.version = self.parse_versions(tool)
             newInst.description = tool.get('description')
             newInst.homepage = tool.get('homepage')
-            newInst.publication = len(tool['publication'])
+            newInst.publication = tool['publication']
             newInst.download = self.parse_download(tool)
             newInst.src = self.parse_src(tool)
             newInst.os = tool.get('operatingSystem')

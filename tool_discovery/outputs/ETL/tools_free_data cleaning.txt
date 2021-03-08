@@ -1,8 +1,0 @@
-autoclass
-ptrbc
-coil
-ewastools
-fairifier
-gwastools
-a5
-wgcna

@@ -1,7 +1,0 @@
-ape
-umlsmapper
-calchas
-sapp
-phaedra
-qtl tableminer++(qtm)
-semantic body browser
