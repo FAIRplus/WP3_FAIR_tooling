@@ -121,9 +121,9 @@ def parse_zooma_results(input_file):
         if type(row['iri']) == str:
             term = row['iri'].split('http://edamontology.org/')[1].strip('\n')
             terms.append(term)
-            terms_label[term] = row['label'].strip('\n')
+            terms_label[term] = str(row['label']).strip('\n')
         else:
-            free_terms.append(row['keyword'].strip('\n'))
+            free_terms.append(str(row['keyword']).strip('\n'))
                 
     return(terms, terms_label, free_terms)
 
