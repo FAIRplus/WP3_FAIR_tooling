@@ -1,5 +1,3 @@
-Tools for Data Extraction, transformation, and loading.md
----
 # Tools for Data Extraction, transformation, and loading
 
 # Main Objectives
