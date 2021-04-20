@@ -52,9 +52,238 @@ The table below is an overview of ontology strategies tools identified. Details 
 The process of mapping or translating identifiers from one database or system to another.
 
 __Manually curated tools__ 
-|Tool|Description|License|Topics|Resource type|
-|---|--|--|--|--|
-||||| 
+<table>
+  <tr>
+   <td><strong>Tool</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+   <td><strong>License</strong>
+   </td>
+   <td><strong>Topics</strong>
+   </td>
+   <td><strong>Resource type</strong>
+   </td>
+   <td><strong>Implementation Examples</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>minid
+   </td>
+   <td>create a persistent, globally unique and resolvable identifier using the Minid client
+   </td>
+   <td>
+   </td>
+   <td>identifier generation
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>groovy
+   </td>
+   <td>Generating InChI identifiers
+   </td>
+   <td>
+   </td>
+   <td>identifier generation,
+<p>
+Chemical data
+   </td>
+   <td>
+   </td>
+   <td>See complete recipe
+   </td>
+  </tr>
+  <tr>
+   <td><a href="http://purl.org/">purl.org</a>
+   </td>
+   <td>a service of the Internet Archive, which provides an interface to administer domain. For more information about the service, visit https://archive.org/services/purl/help
+   </td>
+   <td>
+   </td>
+   <td>identifier resolution
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>CURIE
+   </td>
+   <td>defined by a World Wide Web Consortium Working Group Note CURIE Syntax 1.0, and provide a human readable shortening of IRIs.
+<p>
+The CURIE consists of a namespace prefix followed by the local identifier.
+   </td>
+   <td>
+   </td>
+   <td>identifier standards
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>UUID
+   </td>
+   <td>A python package for generating UUID
+   </td>
+   <td>
+   </td>
+   <td>identifier generation
+   </td>
+   <td>python library
+   </td>
+   <td>import uuid
+<p>
+id = uuid.uuid4()
+<p>
+print(id)
+<p>
+5b6d0be2-d47f-11e8-9f9d-ccaf789d94a0
+   </td>
+  </tr>
+  <tr>
+   <td>hashlib
+   </td>
+   <td>A python package for generating hash-based identfier
+   </td>
+   <td>
+   </td>
+   <td>identifier generation
+   </td>
+   <td>python library
+   </td>
+   <td>A: curl https://fairplus.github.io/cookbook-dev/intro | b2sum --length 256 --binary
+<p>
+24d470987fda1278c63c3f97ab30869b821906449f3ecf290ee48086b8215668
+<p>
+B: import hashlib
+<p>
+# encode it to bytes using UTF-8 encoding
+<p>
+message = "creating globally unique identifiers for FAIR data".encode()
+<p>
+# hash with MD5 (not recommended)
+<p>
+print("MD5:", hashlib.md5(message).hexdigest())
+<p>
+# hash with SHA-2 (SHA-256 bits & SHA-512 bits long)
+<p>
+print("SHA-256:", hashlib.sha256(message).hexdigest())
+<p>
+print("SHA-512:", hashlib.sha512(message).hexdigest())
+<p>
+# hash with SHA-3
+<p>
+print("SHA-3-256:", hashlib.sha3_256(message).hexdigest())
+<p>
+print("SHA-3-512:", hashlib.sha3_512(message).hexdigest())
+<p>
+# hash with BLAKE2 (256-bits BLAKE2s & 512-bits BLAKE2c)
+<p>
+print("BLAKE2s:", hashlib.blake2s(message).hexdigest())
+<p>
+print("BLAKE2b:", hashlib.blake2b(message).hexdigest())
+   </td>
+  </tr>
+  <tr>
+   <td>bridgeDB
+   </td>
+   <td>a framework for identifier mapping within the life sciences which covers genes, proteins, genetic variants, metabolites, and metabolic reactions. It is provided as a web service, a standalone application that can be installed locally, a Java library or an R Package.
+   </td>
+   <td>
+   </td>
+   <td>Identifier mapping
+   </td>
+   <td>
+   </td>
+   <td>A: bridgeDB complete recipe
+<p>
+B: Retrieving equivalent identifiers for the EntrezGene ‘L’ identifier ‘1234’ for the Human gene CCR5
+<p>
+curl -X GET "https://webservice.bridgedb.org/Human/xrefs/L/1234" -H "accept: */*"
+   </td>
+  </tr>
+  <tr>
+   <td>UniChem
+   </td>
+   <td><a href="https://www.ebi.ac.uk/">a specialised identifier mapping service for chemical structures. For a chemical structure -- specified as an identifier, InChI, or InChI Key -- it will equivalent structures found in the EMBL-EBI</a><span style="text-decoration:underline;"> chemistry resources.</span>
+   </td>
+   <td>
+   </td>
+   <td>Identifier mapping
+   </td>
+   <td>
+   </td>
+   <td><a href="https://www.ebi.ac.uk/chembl/compound_report_card/CHEMBL12/">Retrieves the equivalent database identifiers for the ChEMBL identifier CHEMBL12 DIAZEPAM</a><span style="text-decoration:underline;"> and returns the result as a JSON object</span>
+<p>
+<span style="text-decoration:underline;">curl -X GET "https://www.ebi.ac.uk/unichem/rest/src_compound_id/CHEMBL12/1" -H "accept: */*"</span>
+   </td>
+  </tr>
+  <tr>
+   <td><a href="https://sameas.org/">sameas.org</a>
+   </td>
+   <td>a general purpose service that will return a set of equivalent URLs for a given URL. The equivalences are based on an incomplete set of owl:sameAs statements contained in data available on the web.
+   </td>
+   <td>
+   </td>
+   <td>Identifier mapping
+   </td>
+   <td>
+   </td>
+   <td><a href="https://rdf.ebi.ac.uk/resource/chembl/molecule/CHEMBL12">retrieves the equivalent URLs for EBI RDF Platform representation of ChEMBL DIAZEPAM</a><span style="text-decoration:underline;"> as a JSON object.</span>
+<p>
+<span style="text-decoration:underline;">curl -iLH "Accept: application/json" "http://sameas.org/?uri=http://rdf.ebi.ac.uk/resource/chembl/molecule/CHEMBL12"</span>
+   </td>
+  </tr>
+  <tr>
+   <td>Name2Things
+   </td>
+   <td>a Resolution Service, maintained at the California Digital Library (CDL) within the University of California (UC) Office of the President.
+   </td>
+   <td>
+   </td>
+   <td>identifier resolution
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>w3ids
+   </td>
+   <td>Permanent Identifiers for the Web. Secure, permanent URLs for your Web application that will stand the test of time.
+   </td>
+   <td>
+   </td>
+   <td>identifier standards
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td><a href="http://identifier.org/">identifier.org</a>
+   </td>
+   <td>a Resolution Service that provides access to alternative mirrors of the same database which are located at different URLs on the web. For example, the UniProt database is based as the Swiss Institute of Bioinformatics but is also mirrored on the NCBI in the States.
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>N/A
+   </td>
+  </tr>
+</table>
 
 __Tools discovered from [Bio.Tools](https://bio.tools).__
 <table>
