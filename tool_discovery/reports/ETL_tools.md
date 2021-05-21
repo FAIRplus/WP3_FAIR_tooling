@@ -1,5 +1,3 @@
-Tools for Data Extraction, transformation, and loading.md
----
 # Tools for Data Extraction, transformation, and loading
 
 # Main Objectives
@@ -277,10 +275,8 @@ To show how these tools can be used in real life examples, please check the rela
 |---|--|--|--|
 |Fuqi Xu|EMBL-EBI|0000-0002-5923-3859|Original draft|
 |Eva Martin|BSC|0000-0001-8324-2897|Original draft
-|Sukhi||Tool curation|
-|Nick||Reviewing|
-|Peter|||Reviewing |
-|Philippe||
+|Sukhi Singh|||Tool curation|
+
 
 # References: 
 1. https://en.wikipedia.org/wiki/Extract,_transform,_load
