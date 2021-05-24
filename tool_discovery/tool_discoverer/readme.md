@@ -1,7 +1,15 @@
 ## Introduction 
 This is a Python program makes a search in [bio.tools](https://bio.tools) given a table of keywords (free text terms) and matching [EDAM](https://edamontology.org/page) terms (`terms_file`). It returns a list of tools ranked by the number of keywords and [EDAM](https://edamontology.org/page) terms in their metadata. This number is normalized to calculate the 'score' associated to each tool in the results table. 
 Moreover, keywords can be assigned a weight relative to its importance to modulate their impact in the tools ranking. To do so, the corresponding file containing keyword-weight association (`ranked_terms_file`) must be provided. 
-It is assumed that the `terms_file` is a result of running [ZOOMA](https://www.ebi.ac.uk/spot/zooma/) on a list of free text terms.
+It is assumed that the `terms_file` is a result of running [ZOOMA](https://www.ebi.ac.uk/spot/zooma/) on a list of free text terms. 
+
+**Why using *tool_discoverer* over bio.tools?** 
+*tool_discoverer* is a suitable alternative to bio.tools search for users that want:
+* More sophisticated searches, including weight assignment to keywords.
+* Further search and ranking of results set in a visual and intuituve way.
+* To save the results of the search.
+* Reproducibility of search.
+
 
 ## Requirements
 ```
@@ -49,11 +57,17 @@ output_directory = results
 name = example
 ```
 **Required parameters**
-* `terms_file`: path of file that contains keywords and matching EDAM terms and IRIs.
-**Optional parameters**
+
+* `terms_file`: path of file that contains keywords and matching EDAM terms and IRIs. 
+
+  **Optional parameters**
+
 * `ranked_terms_file`: path of file that contains the scores assigned to each keyword. If empty, all keywords will be assigned a weight = 1.
+
 * `default_unspecified_keyword_weight`: the weight automatically assigned to keywords that are not included in the 'ranked_terms_file'. If empty, 0.7 will be assigned.
+
 * `output_directory`: directory where results are stored. If empty, results will be saved in the working directory.
+
 * `name`: name associated to the execution and is used to name the result files.
 
 ### `terms_file` file format
