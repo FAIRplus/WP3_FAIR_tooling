@@ -4,7 +4,7 @@ Moreover, keywords can be assigned a weight relative to its importance to modula
 It is assumed that the `terms_file` is a result of running [ZOOMA](https://www.ebi.ac.uk/spot/zooma/) on a list of free text terms. 
 
 **Why using *tool_discoverer* over bio.tools?** 
-*tool_discoverer* is a suitable alternative to bio.tools search for users that want:
+*ToolDiscoverer* is a suitable alternative to bio.tools search for users that want:
 * More sophisticated searches, including weight assignment to keywords.
 * Further search and ranking of results set in a visual and intuituve way.
 * To save the results of the search.
