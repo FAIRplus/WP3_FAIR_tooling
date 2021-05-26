@@ -3,7 +3,7 @@ This is a Python program makes a search in [bio.tools](https://bio.tools) given 
 Moreover, keywords can be assigned a weight relative to its importance to modulate their impact in the tools ranking. To do so, the corresponding file containing keyword-weight association (`ranked_terms_file`) must be provided. 
 It is assumed that the `terms_file` is a result of running [ZOOMA](https://www.ebi.ac.uk/spot/zooma/) on a list of free text terms. 
 
-**Why using *tool_discoverer* over bio.tools?** 
+**Why using *ToolDiscoverer* over bio.tools.com?** 
 *ToolDiscoverer* is a suitable alternative to bio.tools search for users that want:
 * More sophisticated searches, including weight assignment to keywords.
 * Further search and ranking of results set in a visual and intuituve way.
