@@ -39,7 +39,7 @@ urllib3==1.26.4
 ## Usage
 
 ```bash
-python3 tool_discoverer.py <configuration_file> [-v] [-h]
+python3 tool_discoverer <configuration_file> [-v] [-h]
 ```
 * `configuration_file`: path of configuration file.
 * `-v, --verbose`: print detail information about the program progress to prompt.
