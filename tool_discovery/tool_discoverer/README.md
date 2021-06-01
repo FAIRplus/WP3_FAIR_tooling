@@ -62,9 +62,9 @@ name = example
 
   **Optional parameters**
 
-* `ranked_terms_file`: path of file that contains the scores assigned to each keyword. If empty, all keywords will be assigned a weight = 1.
+* `ranked_terms_file`: path of file that contains the scores assigned to each keyword. If empty, all keywords will be assigned a weight = 1 (100%).
 
-* `default_unspecified_keyword_weight`: the weight automatically assigned to keywords that are not included in the 'ranked_terms_file'. If empty, 0.7 will be assigned.
+* `default_unspecified_keyword_weight`: the weight automatically assigned to keywords that are not included in the 'ranked_terms_file'. If empty, 0.7 (70%) will be assigned.
 
 * `output_directory`: directory where results are stored. If empty, results will be saved in the working directory.
 
@@ -78,5 +78,5 @@ CSV file of three columns: `keyword`, `label` and `iri`. Each row corresponds to
 
 ### `ranked_terms_file` file format
 CSV file of two columns: `keyword`, `weight`. Each row correspond to a keyword.
-* `kyeword`: term to be included in the search.
-* `weight`: weight assigned the keyword. In order for the maximum score to be 1, weights must be in the interval [0,1].
+* `keyword`: term to be included in the search.
+* `weight`: weight assigned the keyword. In order for the maximum score to be 1, weights must be in the interval [0,100].
