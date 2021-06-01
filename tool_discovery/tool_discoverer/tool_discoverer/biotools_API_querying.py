@@ -72,9 +72,13 @@ class tools_discoverer(object):
             raise
 
         else:
-            ranked_keywords['weight'] = ranked_keywords["weight"].apply(lambda x: float(x.strip('%'))*0.01)
-            trim_strings = lambda x: x.strip() if isinstance(x, str) else x
-            self.ranked_keywords = ranked_keywords.applymap(trim_strings)
+            if True in list(ranked_keywords.duplicated(subset=['keyword'])):
+                print(f"{bcolors.FAIL}ERROR: Duplicated keywords in {self.ranked_file}. Please, fix it and run again.{bcolors.ENDC}")
+                exit()
+            else:
+                ranked_keywords['weight'] = ranked_keywords["weight"].apply(lambda x: float(x.strip('%'))*0.01)
+                trim_strings = lambda x: x.strip() if isinstance(x, str) else x
+                self.ranked_keywords = ranked_keywords.applymap(trim_strings)
 
     def check_output_directory(self):
         if len(self.out_path)==0:
@@ -310,6 +314,9 @@ class tools_discoverer(object):
 
 
     def process_results(self):
+        if self.edam_results_general == {} and self.edam_results_detailed == {}:
+            print(f"{bcolors.WARNING}No results found. Exiting...{bcolors.ENDC}")
+            exit()
         # arrange by term
         self.tools_per_term = self.compute_tools_per_term(self.edam_results_general, True)
         self.tools_per_term_free = self.compute_tools_per_term(self.free_results_general, False)
