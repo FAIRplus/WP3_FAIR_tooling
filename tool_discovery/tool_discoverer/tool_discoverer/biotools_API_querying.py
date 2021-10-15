@@ -4,6 +4,7 @@ import os
 import pandas as pd
 
 import biotools_parse as bp
+import zooma_api as za
 
 class bcolors:
     HEADER = '\033[95m'
@@ -28,7 +29,9 @@ class tools_discoverer(object):
             print(f"{bcolors.OKBLUE}{prompt_text}{bcolors.ENDC}")    
 
         self.terms_file = terms_file
-        self.parse_zooma_results()
+        self.parse_keywords()
+        self.query_zooma()
+        #self.parse_zooma_results()
 
         self.ranked_file = ranked
         if self.ranked_file:
@@ -43,6 +46,48 @@ class tools_discoverer(object):
         self.check_output_directory()
 
 
+    def query_zooma(self):
+        '''
+        keywords is a set of strings to look up in zooma
+        '''
+        self.edam_terms = []
+        self.free_terms = []
+        self.terms_label = {}
+
+        if self.verbosity:
+            print("Looking up terms in ZOOMA")
+
+        for keyword in self.keywords:
+            if self.verbosity:
+                print(f"{bcolors.BOLD}{keyword}{bcolors.ENDC}")
+            confident_matches = za.zooma_single_lookup(keyword)
+            if confident_matches:
+                if self.verbosity:
+                    print(f"\tMatches found in EDAM:")
+                    [print(f"\\tt{match['label']} - {match['confidence']} - {match['edam_term']}") for match in confident_matches]
+                
+                for match in confident_matches:
+                        term = match['edam_term'].split('http://edamontology.org/')[1].strip('\n')
+                        self.edam_terms.append(term)
+                        self.terms_label[term] = str(match['label']).strip('\n')
+
+            else:
+                self.free_terms.append(keyword)
+
+    def parse_keywords(self):
+        try:
+            keywords_df = pd.read_csv(self.terms_file)
+        except Exception as err:
+            error_text = f"ERROR: Something went wrong while opening and parsing keywords file '{self.terms_file}'."
+            print(f"{bcolors.FAIL}{error_text}{bcolors.ENDC}")
+            raise
+        else:
+            self.keywords = set()
+            # Do zooma loockup
+            for index, row in keywords_df.iterrows():
+                self.keywords.add(row['keyword'])
+
+                    
     def parse_zooma_results(self):
         try:
             zooma_terms_df = pd.read_csv(self.terms_file)
