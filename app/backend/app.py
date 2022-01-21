@@ -30,10 +30,10 @@ class unique_run(object):
             for line in self.request.json['textarea_content'].split('\n'):
                 if line:
                     if ',' in line:
-                        k = line.split(',')[0]
+                        k = line.split(',')[0].lower()
                         w = float(line.split(',')[1])
                     else:
-                        k = line.lstrip()
+                        k = line.lstrip().lower()
                         w = 1.00
                         missing_weights_n += 1
                     inputs_kw.append({'keyword':k, 'weight':w})
@@ -94,13 +94,15 @@ def run_discoverer():
             # run query
             this_run = unique_run(request)
             result = this_run.run_tool_discoverer_query()
+            input_parameters = this_run.inputs_kw
+            data = {'result':result, 'input_parameters':input_parameters}
         except Exception as err:
             data = {'message': "something went wrong", 'code': 'ERROR'}
             resp = make_response('', 400)
             print(err)
         else:
             #prepare response
-            data = {'message': result, 'code': 'SUCCESS'}
+            data = {'message': data, 'code': 'SUCCESS'}
             resp = make_response(jsonify(data), 201)
         finally:
             resp.set_cookie('same-site-cookie', 'foo', samesite='Lax');

@@ -8,9 +8,9 @@
       <b-nav class="col-12 col-md-auto mb-2 justify-content-center mb-md-0" active-class="active">
         <b-nav-item to="/">Home</b-nav-item>
         <b-nav-item to="/run">Run</b-nav-item>
-        <b-nav-item to="/FAIRification" >FAIRification</b-nav-item>
-        <b-nav-item to="/Help" >Help</b-nav-item>
-        <b-nav-item to="/About" >About</b-nav-item>
+        <b-nav-item to="/fairification" >FAIRification</b-nav-item>
+        <b-nav-item to="/help" >Help</b-nav-item>
+        <b-nav-item to="/about" >About</b-nav-item>
       </b-nav>
       <div class="col-md-2 text-end">
         <a href="#" class="nav-link px-2 link-dark"><i class="fab fa-github fa-lg"></i></a>

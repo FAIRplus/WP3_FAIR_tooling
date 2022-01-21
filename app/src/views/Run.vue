@@ -29,7 +29,7 @@
             :query="true"
           ></v-progress-linear>
         </div>
-        <Results v-if="resultsVisible" :tools="results" :inputParameters="inputParameters" />
+        <Results v-if="resultsVisible" :tools="results.result" :inputParameters="results.input_parameters" />
       </div>
 </div>
 </template>

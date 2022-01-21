@@ -50,57 +50,61 @@
               <tbody>
                 <tr 
                   @click="rowSelect(key)" 
-                  v-for="(item, key) in items" :key="item.Tool"
+                  v-for="(item, key) in items" :key="item.name"
                 >
                   <td>
-                    <i  v-if="arrowsDownShow(key, item.Tool)" class="fas fa-angle-down cell-arrow"></i>
-                    <i  v-if="arrowsUpShow(key, item.Tool)" class="fas fa-angle-up cell-arrow"></i>
+                    <i  v-if="arrowsDownShow(key, item.name)" class="fas fa-angle-down cell-arrow"></i>
+                    <i  v-if="arrowsUpShow(key, item.name)" class="fas fa-angle-up cell-arrow"></i>
                   </td>
                   <td>
-                    <a :href="item.URL">{{ item.Tool }}</a>
+                    <b><big>{{ item.name }}</big></b>
                   </td>
                   <td>
-                    <div v-for="type in item.Type" :key="type">
-                      {{ dictGet(type)['text'] }}
-                    <!-- Complete dictionary of types-->
-                    </div>
+                      {{ dictGet(item.type).hover }}
                   </td>
                   <td>
-                    <SourceAvatar :avatarProps='avatars.biotools'/>
-                    <SourceAvatar :avatarProps='avatars.bioconda'/>
-                    <SourceAvatar :avatarProps='avatars.github'/>
-                    <SourceAvatar :avatarProps='avatars.bioconductor'/>
-                    <SourceAvatar :avatarProps='avatars.galaxy'/>
-                    </td>
+                    <SourceAvatar :avatarProps='avatars.biotools' :sources_labels='item.sources_labels'/>
+                    <SourceAvatar :avatarProps='avatars.bioconda' :sources_labels='item.sources_labels'/>
+                    <SourceAvatar :avatarProps='avatars.github' :sources_labels='item.sources_labels'/>
+                    <SourceAvatar :avatarProps='avatars.bioconductor' :sources_labels='item.sources_labels'/>
+                    <SourceAvatar :avatarProps='avatars.galaxy' :sources_labels='item.sources_labels'/>
+                    <SourceAvatar :avatarProps='avatars.other' :sources_labels='item.sources_labels'/>
+                  </td>
                   <td>
-                    {{ trimIfNotSelected(item.Description, key) }}
+                    {{ trimIfNotSelected(item.description[0], key) }}
                   </td>
                   <td>
                     <ul>
-                      <li v-for="(topic, Tool) in trimListIfNotSelected(item.Topics, key)" :key="Tool">
-                        {{ topic }}
+                      <li v-for="(topic, name) in trimListIfNotSelected(item.edam_topics, key)" :key="name">
+                        {{ topic.label }}
                       </li>
-                      <span v-if="item.Topics.length > 3">...</span>
+                      <span v-if="item.edam_topics.length > 5 && arrowsUpShow(key, item.name) == false">...</span>                      
                     </ul>
                   </td>
                   <td>
                     <ul>
-                      <li v-for="(operation, Tool) in trimListIfNotSelected(item.Operations, key)" :key="Tool">
-                        {{ operation }}
+                      <li v-for="(operation, name) in trimListIfNotSelected(item.edam_operations, key)" :key="name">
+                        {{ operation.label }}
                       </li>
-                      <span v-if="item.Operations.length > 3">...</span>
+                      <span v-if="item.edam_operations.length > 5 && arrowsUpShow(key, item.name) == false">...</span>
                     </ul>
                   </td>
-                  <td id="gd">
-                    {{ item.Citations }}
-                    <!-- Add publication in hover or icon next to number that opens the paper -->
+                  <td>
+                    <ul>
+                      <div v-for="(pdata, year) in build_pubs(item, key)" :key="year">
+                        <v-icon class='fas fa-circle' :color = 'pdata.color' size="10"></v-icon>  {{ pdata['title'] }} ({{ pdata['year'] }})
+                      </div>
+                    </ul>
                   </td>
                   <td>
-                    {{ item.License }}
-                    <!-- Match license to spdx -->
+                    <PubPlot :pubPlotProps='item' />
                   </td>
                   <td>
-                    {{ item.keywords_score }}
+                    {{ item.license[0] }}
+                    <!-- Match license to spdx-->
+                  </td>
+                  <td>
+                    {{ item.score }}
                   </td>
                 </tr>
               </tbody>
@@ -139,130 +143,136 @@
   margin-right: 0.2em;
 }
 
-.gd{
-  padding: 0%;
-  margin: 0%
-}
-.gd .modebar{
-      display: none !important;
-}
 </style>
 
 <script>
 import SourceAvatar from './SourceAvatar.vue'
-import Plotly from 'plotly.js-dist-min'
-var layout = {title:false,
-              showlegend: false,
-              margin: { l:10, t:10, b:14, r:10}}
-var trace1 = {
-  x: [2017, 2018, 2019, 2020],
-  y: [2, 14, 23, 35],
-  type: 'scatter'
-};
-
-var trace2 = {
-  x: [2017, 2018, 2019, 2020],
-  y: [0, 0, 3, 15],
-  type: 'scatter'
-};
-
-var data = [trace1, trace2];
+import PubPlot from './PubPlot.vue'
 
 export default {
   name: 'Results',
   props: ['tools', 'inputParameters'],
   components: {
-    SourceAvatar
+    SourceAvatar,
+    PubPlot
   },
   data () {
     return {
       activeResults: true,
-      avatars: {
-        biotools: {
-          src:'elixir-logo.svg',
-          color:'orange',
-          content:'bio.tools',
-          url:'bio.tools'
-        },
-        bioconda: {
-          src:'bioconda-logo.svg',
-          color:'#005500',
-          content:'bioconda',
-          url:''
-        },
-        github: {
-          src:'github-logo.svg',
-          color:'black',
-          content:'GitHub',
-          url:'github.org'
-        },
-        bioconductor: {
-          src:'bioconductor-logo.svg',
-          color:'#2f93ba',
-          content:'Bioconductor',
-          url:''
-        },
-        galaxy: {
-          src: 'galaxy-logo.svg',
-          color: '#134798',
-          content: 'Galaxy Eu',
-          url:''
-        }
-      },
       panel: 0,
       search: '',
       selected: null,
       isHovering: false,
       longResults:[],
+      avatars: {
+        biotools: {
+          src:'elixir-logo.svg',
+          color:'orange',
+          content:'bio.tools',
+          url:'bio.tools',
+          label: 'biotools',
+        },
+        bioconda: {
+          src:'bioconda-logo.svg',
+          color:'#005500',
+          content:'bioconda',
+          url:'',
+          label:'bioconda'
+        },
+        github: {
+          src:'github-logo.svg',
+          color:'black',
+          content:'GitHub',
+          url:'github.org',
+          label:'github'
+        },
+        bioconductor: {
+          src:'bioconductor-logo.svg',
+          color:'#2f93ba',
+          content:'Bioconductor',
+          url:'',
+          label:'bioconductor'
+        },
+        galaxy: {
+          src: 'galaxy-logo.svg',
+          color: '#134798',
+          content: 'Galaxy Eu',
+          url:'',
+          label: 'galaxy'
+        },
+        other: {
+          src: 'other.svg',
+          color: '#535682',
+          content: 'Homepage',
+          url:'',
+          label: 'other'
+        }
+      },
       headers: [
         {text: '', align: 'start', sortable: false, value: 'down', width: '1em'},
-        {text: 'Tool', align: 'start', sortable: false, value: 'Tool'},
-        {text: 'Type of Software', value: 'Type'},
-        {text: 'Sources', value: 'sources'},
-        {text: 'Description', value: 'Description', width: '20rem'},
-        {text: 'Related Topics', value: 'Topics', width: '12rem'},
-        {text: 'Functionality', value: 'Operations', width: '12rem'},
-        {text: 'Number of Citations', value: 'Citations',  width: '12rem'},
-        {text: 'License', value: 'License'},
-        {text: 'Score', value: 'keywords_score'}
+        {text: 'Tool Name', align: 'start', sortable: false, value: 'name'},
+        {text: 'Type of Software', value: 'type'},
+        {text: 'Availavility', value: 'source'},
+        {text: 'Description', value: 'description', width: '20rem'},
+        {text: 'Related Topics', value: 'edam_topics', width: '12rem'},
+        {text: 'Functionality', value: 'edam_operations', width: '12rem'},
+        {text: 'Publications', value: 'publications', width: '12rem'},
+        {text: 'Number of Citations', value: 'publications',  width: '15rem'},
+        {text: 'License', value: 'license'},
+        {text: 'Score', value: 'score'}
       ],
       inputsHeaders: [
         {text: 'Keyword', value: 'keyword'},
         {text: 'Weight', value: 'weight'}
       ],
       typesAbb: {
-        'Command-line tool' : {
+        'cmd' : {
           'text': 'CMD',
           'hover': 'Command-line Tool'
         },
-        'Web application': {
+        'web': {
           'text': 'Web',
           'hover': 'Web Application'
+        },
+        'db' : {
+          'text': 'DB',
+          'hover': 'Database'
+        },
+        'lib' : {
+          'text': 'Lib',
+          'hover': 'Library'
         },
         'unknown': {
           'text': 'Unknown',
           'hover': 'Unknown'
         }
-      }
+      },
+      plot_colors: [
+      '#1f77b4',
+      '#ff7f0e',
+      '#2ca02c',
+      '#d62728',
+      '#9467bd',
+      '#8c564b',
+      '#e377c2',
+      '#7f7f7f',
+      '#bcbd22',
+      '#17becf' 
+      ]   
     }
   },
   mounted() {
     this.tools.forEach((item) => {
-      if(item.Description.length>200){
-        this.longResults.push(item.Tool)
-        return
+      if(item.description[0].length>320){
+        this.longResults.push(item.name)
       }
-      if(item.Topics.length>3){
-        this.longResults.push(item.Tool)
-        return
+      if(item.edam_operations.length>5){
+        this.longResults.push(item.name)
       }
-    }),
-    Plotly.newPlot("gd", /* JSON object */ {
-      "data": data,
-      "config": { "displayModeBar": false  },
-      "layout": layout
-    })
-  },
+      if(item.edam_topics.length>5){
+        this.longResults.push(item.name)
+      }
+    })},
   methods:{
     rowSelect(idx) {
       console.log('selected', idx)
@@ -290,8 +300,8 @@ export default {
       if(this.selected === idx){
         return(value)
       }else{
-        if(value.length > 255){
-          var short = `${value.substring(0,200)}...`
+        if(value.length > 320){
+          var short = `${value.substring(0,320)} ...`
         }else{
           return(value)
         }
@@ -302,13 +312,31 @@ export default {
       if(this.selected === idx){
         return(list)
       }else{
-        var short_list = list.slice(0,3)
+        var short_list = list.slice(0,5)
         return(short_list)
       }
     },
     dictGet(key) {
-      var result = this.typesAbb[key] || {'text':'', "hover":''}
+      var result = this.typesAbb[key] || {'text':key, "hover":key}
       return(result)
+    },
+    build_pubs(item){
+      var labels = []
+      for (let i = 0; i < item.citations.length; i++) {
+        labels.push({'title': item.citations[i]['title'], 'year': item.citations[i]['year'], 'color':this.plot_colors[i]})
+      }
+      return(labels)
+    },
+    formats(formats){
+      var string = ''
+      for (let i = 0; i < formats.length; i++) {
+        if(i>0){
+          string= string + ', ' + formats[i]
+        }else{
+          string= string + ': ' + formats[i]
+        }
+      }
+      return(string)
     }
   }
 }

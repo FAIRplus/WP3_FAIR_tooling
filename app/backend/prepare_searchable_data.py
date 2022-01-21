@@ -19,6 +19,16 @@ connection = MongoClient(DBHOST, int(DBPORT))
 collection = connection[DATABASE][COLLECTION]
 tools_discov_collection = connection[DATABASE][DISCOV_COLLECTION]
 
+edam_df = pd.read_csv('EDAM_1.25.csv')
+edam_dict = dict(zip(edam_df['Class ID'], edam_df['Preferred Label']))
+
+def match_edam_label(uri):
+    # following id changed in last version
+    if uri == 'http://edamontology.org/topic_3557':
+        uri = 'http://edamontology.org/operation_3557'
+
+    return(edam_dict[uri])
+
 def clean_text(text):
     # split into words
     tokens = word_tokenize(text)
@@ -56,15 +66,19 @@ def searchable_data_prep():
                 for n3g in n3grams:
                     discoverer_tool['description_n3gram'].append(n3g)
         
-        
-        if tool['semantics']: #only entries from bio.tools have this field
-            discoverer_tool['edam'] = []
+        discoverer_tool['edam'] = []
+        edam_topics = []
+        edam_operations = []
+        if tool['semantics']: #only entries from bio.tools have this field    
             if tool['semantics']['topics']:
-                discoverer_tool['edam'] = tool['semantics']['topics']
+                [edam_topics.append({'uri':item, 'label':match_edam_label(item)}) for item in tool['semantics']['topics']]
+                [discoverer_tool['edam'].append(item) for item in tool['semantics']['topics']]
+            discoverer_tool['edam_topics'] = edam_topics
 
             if tool['semantics']['operations']:
-                discoverer_tool['edam'] = tool['semantics']['operations'] 
-
+                [edam_operations.append({'uri':item, 'label':match_edam_label(item)}) for item in tool['semantics']['operations']]
+                [discoverer_tool['edam'].append(item) for item in tool['semantics']['operations']]
+            discoverer_tool['edam_operations'] = edam_operations          
 
         tools_discov_collection.insert(discoverer_tool)
 

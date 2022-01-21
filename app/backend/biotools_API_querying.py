@@ -65,32 +65,35 @@ class tools_discoverer(object):
         '''
         if self.verbosity:
             print("Looking up terms in ZOOMA")
-        print(self.keywords_weights)
         for keyword in list(self.keywords_weights['keyword']):
             if self.verbosity:
                 print(f"{bcolors.BOLD}{keyword}{bcolors.ENDC}")
             confident_matches = za.zooma_single_lookup(keyword)
             if confident_matches:
                 if self.verbosity:
-                    print(f"\tMatches found in EDAM:")
-                    [print(f"\\tt{match['label']} - {match['confidence']} - {match['edam_term']}") for match in confident_matches]
+                    print(f"Matches found in EDAM:")
+                    [print(f"{match['label']} - {match['confidence']} - {match['edam_term']}") for match in confident_matches]
                 
+                w = self.keywords_weights.loc[self.keywords_weights['keyword']==keyword]['weight'].values[0]
                 for match in confident_matches:
-                        term = match['edam_term'].split('http://edamontology.org/')[1].strip('\n')
-                        self.edam_terms.append(term)
-                        self.terms_label[term] = str(match['label']).strip('\n')
-
+                    term = match['edam_term'].strip('\n')
+                    self.edam_terms.append(term)
+                    #self.terms_label[match] = str(match['label']).strip('\n')
+                    self.keywords_weights = self.keywords_weights.append({'keyword':term, 'weight':w}, ignore_index=True)
+                self.free_terms.append(keyword)
             else:
                 self.free_terms.append(keyword)
-        print('zooma done')
+        print(self.keywords_weights)
+        print('Zooma lookup done')
 
 
     def query_terms(self):
+        print('edam terms: ' + str(self.edam_terms))
+        print('free terms' + str(self.free_terms))
         search_performed = False
         query = db_retrieval.query(self.edam_terms, self.free_terms)
         query.getData() # perform db search
         self.results = query.results
-        print(self.results)
 
     def rank_tools(self):
         if self.verbosity:
@@ -98,7 +101,6 @@ class tools_discoverer(object):
             print(f'{bcolors.OKBLUE}{promp_text}{bcolors.ENDC}')
 
         # sorting
-        print('sorting')
         self.results['raw_score'] = self.results.apply (lambda row: self.compute_score(row), axis=1)
         max_score = max(self.results['raw_score'])
         self.results['score'] = self.results.apply (lambda row: row['raw_score']/max_score, axis=1)
@@ -108,24 +110,21 @@ class tools_discoverer(object):
 
     def compute_score(self, row):
         if self.custom_weights == False:
-            print(float(len([x for x in list(row['matches'])])))
             return(float(len([x for x in row['matches']])))
         else:
             scores = []
             for match in list(row['matches']):
-                w = self.keywords_weights.loc[self.keywords_weights['keyword']=='Ontology annotation']['weight'].values[0]
+                w = self.keywords_weights.loc[self.keywords_weights['keyword']==match]['weight'].values[0]
                 scores.append(w)
             summ = sum(scores)
-            print(summ)
             return(float(summ))
 
 
     def generate_outputs(self):
         try:
-            self.results.pop('_id')
-            result = self.results.to_json(orient="records")
-            print('hey')
+            result = self.results.head(100).to_json(orient="records")
             self.json_result_parsed = json.loads(result)
+            #[ print( x['edam_topics']) for x in self.json_result_parsed ]
             return(self.json_result_parsed)
 
         except Exception as err:
