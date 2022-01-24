@@ -27,6 +27,8 @@
           ></v-progress-linear>
         </div>
         <Results v-if="resultsVisible" :tools="results.result" :inputParameters="results.input_parameters" />
+        <div v-if="results_not_found" class='center_img'><img src="@/assets/img/not_found.png" width="50px"> No results found</div>
+        <div v-if="error" class='center_img'><img src="@/assets/img/error.png" width="50px"> Something went wrong</div>
       </div>
 </div>
 </template>
@@ -52,9 +54,8 @@ export default {
       query: false,
       show: true,
       interval: 0,
-      /**
-     * tools should come from an axios.get(), it is hard coded for demonstration purposes
-     */
+      results_not_found: false,
+      error: false,
       inputParameters: [
         {
           keyword: 'ontology mapping',
@@ -83,6 +84,8 @@ export default {
         this.formatErrorVisible = false
         this.querying = true
         this.query = true
+        this.results_not_found = false
+        this.error = false
         this.ToolDiscovererCall()
         console.log('done')
       } else {
@@ -119,11 +122,20 @@ export default {
           (response) => {
             this.results = response.data.message
             this.querying = false
-            this.resultsVisible = true
-          })
-        .then(
-          (error) => {
-            console.log(error)
+            if(response.data.code==='ERROR'){
+              this.resultsVisible = false
+              this.results_not_found = false
+              this.error = true
+
+              console.log('ERROR:')
+              console.log(response.data.message)
+            }
+            else{
+              console.log('NO ERROR HERE')
+              this.resultsVisible = this.results.result_found
+              this.results_not_found = !this.results.result_found
+              this.error = false
+              }
           })
     }
   }
@@ -162,6 +174,16 @@ export default {
   margin-bottom: 2em;
   font-size: smaller;
   width: 100%;
+}
+.center_img img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+.center_img{
+  text-align: center;
 }
 
 </style>

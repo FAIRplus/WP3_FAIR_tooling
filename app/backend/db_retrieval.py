@@ -52,6 +52,7 @@ class query(object):
         self.results.set_index('@id')
 
     def extract_citations(self, tool):
+        #print('Extracting citations ...')
         citations = []
         if tool['publication']:
             for pub in tool['publication']:
@@ -66,6 +67,7 @@ class query(object):
         return(citations)
     
     def aggregate_sources_labels(self,tool):
+        #print('Aggregating sources labels ...')
         labels = set()
         if 'biotools' in tool['source']:
             labels.add('biotools')
@@ -83,7 +85,7 @@ class query(object):
             labels.add('sourceforge')
         if 'bitbucket' in tool['source']:
             labels.add('bitbucket')
-        
+       
         labels_links = {}
         valid = {'github':'github',
                 'biotools':'bio.tools',
@@ -92,16 +94,18 @@ class query(object):
                 'galaxy':['galaxy','toolshed'],
                 'bioconda':'bioconda',
                 'bioconductor':'bioconductor'}
-        hit = False
-        for label in labels:
-            labels_links[label] = ''
-            for link in tool['links']:
-                if valid[label] in link:
-                    labels_links[label] = link
-                    hit =True
-                    break
-        if hit == False:
-            labels_links['other'] = tool['links'][0]
+        
+        if tool['links']:
+            hit = False
+            for label in labels:
+                labels_links[label] = ''
+                for link in tool['links']:
+                    if valid[label] in link:
+                        labels_links[label] = link
+                        hit =True
+                        break
+            if hit == False:
+                labels_links['other'] = tool['links'][0]
 
         if 'biotools' in labels:
             link = f"https://bio.tools/{tool['name']}"
@@ -110,6 +114,7 @@ class query(object):
             return(labels_links)
 
     def match_edam_label(self, uri):
+        #print('Matching EDAM label')
         if uri == 'http://edamontology.org/topic_3557':
             uri = 'http://edamontology.org/operation_3557'
         try:
@@ -119,6 +124,7 @@ class query(object):
         return(label)
 
     def match_data(self, doc, td):
+        #print('Data types matching ...')
         newd = []
         if td in doc.keys():
             for data in doc[td]:
@@ -134,7 +140,9 @@ class query(object):
 
 
     def add_to_results(self, matches, topic):
+        #print(f'Adding to results ...')
         for doc in matches:
+            #print(f"- {doc['name']}")
             doc['_id'] = str(doc['_id'])
             doc['citations'] = self.extract_citations(doc)
             doc['sources_labels'] = self.aggregate_sources_labels(doc)
@@ -150,6 +158,7 @@ class query(object):
                     self.results_ids.add(doc_id)
 
     def query_edam(self):
+        #print('EDAM query ...')
         for term in self.edam_terms:
             matches = self.collection.find({
                 'edam' : term
@@ -157,6 +166,7 @@ class query(object):
             self.add_to_results(matches, term)
 
     def full_text_query(self, term):
+        #print('Full text query ...')
         matches = []
         description_docs = self.collection.find({
             'description' : {'$gt' : [] }

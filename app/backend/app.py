@@ -49,9 +49,7 @@ class unique_run(object):
             print(inputs_kw)
             self.inputs_kw = inputs_kw
             
-            
-                
-
+    ''' 
     def build_results_html(self):
         html=render_template('results.html', 
                               input=self.inputs_kw, 
@@ -62,6 +60,7 @@ class unique_run(object):
     def write_inputs_disk(self):
         path = f"temp/{self.request_ID}_input.csv"
         self.tools_discov.ranked_keywords.to_csv(path, index=False)  
+    '''
 
     def run_tool_discoverer_query(self):
         ## run tool:
@@ -74,8 +73,8 @@ class unique_run(object):
                                             True) #verbosity
 
         self.tools_discov.run_pipeline()
-        json_result = self.tools_discov.generate_outputs()
-        return(json_result)
+        self.json_result = self.tools_discov.generate_outputs()
+        self.result_found = self.tools_discov.result_found
 
 
 app = Flask(__name__,
@@ -93,20 +92,21 @@ def run_discoverer():
         try:
             # run query
             this_run = unique_run(request)
-            result = this_run.run_tool_discoverer_query()
-            input_parameters = this_run.inputs_kw
-            data = {'result':result, 'input_parameters':input_parameters}
+            this_run.run_tool_discoverer_query()
+            data = {'result':this_run.json_result, 
+                    'input_parameters':this_run.inputs_kw, 
+                    'result_found':this_run.result_found}
         except Exception as err:
             data = {'message': "something went wrong", 'code': 'ERROR'}
-            resp = make_response('', 400)
+            resp = make_response(data, 400)
             print(err)
         else:
             #prepare response
             data = {'message': data, 'code': 'SUCCESS'}
             resp = make_response(jsonify(data), 201)
         finally:
-            resp.set_cookie('same-site-cookie', 'foo', samesite='Lax');
-            resp.set_cookie('cross-site-cookie', 'bar', samesite='Lax', secure=True);
+            resp.set_cookie('same-site-cookie', 'foo', samesite='Lax')
+            resp.set_cookie('cross-site-cookie', 'bar', samesite='Lax', secure=True)
             return resp
     else:
       return(make_response('', 400))

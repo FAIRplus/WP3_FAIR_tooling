@@ -48,16 +48,20 @@ class tools_discoverer(object):
 
         self.out_path = out_path
 
-        
-
         # results will be here
         self.results = []
 
     def run_pipeline(self):
         self.query_terms()
-        print('query done')
-        self.rank_tools()
-        print('tools ranked')
+        print('Query done')
+        if self.results.empty:
+            print('No tools found')
+            self.result_found = False
+        else:
+            self.rank_tools()
+            print('Tools ranked')
+            self.result_found = True
+            
 
     def query_zooma(self):
         '''
@@ -90,7 +94,6 @@ class tools_discoverer(object):
     def query_terms(self):
         print('edam terms: ' + str(self.edam_terms))
         print('free terms' + str(self.free_terms))
-        search_performed = False
         query = db_retrieval.query(self.edam_terms, self.free_terms)
         query.getData() # perform db search
         self.results = query.results
@@ -114,6 +117,7 @@ class tools_discoverer(object):
         else:
             scores = []
             for match in list(row['matches']):
+                print(match)
                 w = self.keywords_weights.loc[self.keywords_weights['keyword']==match]['weight'].values[0]
                 scores.append(w)
             summ = sum(scores)
@@ -124,14 +128,9 @@ class tools_discoverer(object):
         try:
             result = self.results.head(100).to_json(orient="records")
             self.json_result_parsed = json.loads(result)
-            #[ print( x['edam_topics']) for x in self.json_result_parsed ]
             return(self.json_result_parsed)
 
         except Exception as err:
-            '''
-            error_text = f"Something went wrong while saving results to {path}"
-            print(f'{bcolors.FAIL}{error_text}{bcolors.ENDC}')
-            '''
             raise(err)
 
         
