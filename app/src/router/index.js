@@ -15,9 +15,10 @@ const routes = [
       component: Home
     },
     {
-      path: '/run',
+      path: '/run/:id',
       name: 'Run',
-      component: Run
+      component: Run,
+      props: true
     },
     {
       path: '/help',
@@ -29,17 +30,18 @@ const routes = [
       name: 'FAIRification',
       component: FAIRification
     },
-    {
+    { 
       path: '/about',
       name: 'About',
       component: About
     }
   ]
-
+  
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
 })
+
 
 export default router

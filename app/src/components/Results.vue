@@ -1,10 +1,16 @@
 <template>
 <div>
+  <div id='url'>
+        <h5>URL:</h5>
+        <pre>
+        <a :v-bind="ref=build_url(run_id)" target='_blank'>{{ build_url(run_id) }}</a>
+        </pre>
+  </div>
   <v-expansion-panels flat>
     <v-expansion-panel>
       <v-expansion-panel-header><h5>Input parameters</h5></v-expansion-panel-header>
       <v-expansion-panel-content>
-        <div style="width:60%">
+        <div style="width:70%">
           <v-data-table
             :headers="inputsHeaders"
             :items="inputParameters"
@@ -20,7 +26,9 @@
       <v-expansion-panel
       expand
       v-model="panel">
-      <v-expansion-panel-header><h4>Results</h4></v-expansion-panel-header>
+      <v-expansion-panel-header>
+        <h4>Results</h4>
+      </v-expansion-panel-header>
       <v-expansion-panel-content>
         <div>
           <v-data-table
@@ -143,6 +151,13 @@
   margin-right: 0.2em;
 }
 
+#url{
+  width: 97%;
+  text-align: left;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 </style>
 
 <script>
@@ -151,7 +166,7 @@ import PubPlot from './PubPlot.vue'
 
 export default {
   name: 'Results',
-  props: ['tools', 'inputParameters'],
+  props: ['tools', 'inputParameters', 'run_id'],
   components: {
     SourceAvatar,
     PubPlot
@@ -337,6 +352,10 @@ export default {
         }
       }
       return(string)
+    },
+    build_url(id){
+      var url = 'http://192.168.1.34:8080/results/' + id
+      return(url)
     }
   }
 }

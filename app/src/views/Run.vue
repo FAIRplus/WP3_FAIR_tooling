@@ -1,6 +1,7 @@
 <template>
   <div class="container run_main">
     <div class="row">
+        ID: {{ this.$route.params.id }}
         <h4>Input</h4>
         <p>Enter keywords and their respective weights (optionally) to discover tools.</p>
         <div class="col-sm-8 d-flex">
@@ -26,7 +27,7 @@
             :query="true"
           ></v-progress-linear>
         </div>
-        <Results v-if="resultsVisible" :tools="results.result" :inputParameters="results.input_parameters" />
+        <Results v-if="resultsVisible" :tools="results.result" :inputParameters="results.input_parameters" :run_id="results.run_id" />
         <div v-if="results_not_found" class='center_img'><img src="@/assets/img/not_found.png" width="50px"> No results found</div>
         <div v-if="error" class='center_img'><img src="@/assets/img/error.png" width="50px"> Something went wrong</div>
       </div>
@@ -82,6 +83,7 @@ export default {
       if (fCorrect === true) {
         console.log('Correct format, RUN!')
         this.formatErrorVisible = false
+        this.resultsVisible = false
         this.querying = true
         this.query = true
         this.results_not_found = false
@@ -126,7 +128,6 @@ export default {
               this.resultsVisible = false
               this.results_not_found = false
               this.error = true
-
               console.log('ERROR:')
               console.log(response.data.message)
             }

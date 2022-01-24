@@ -9,6 +9,7 @@ from flask_cors import CORS
 from flask_socketio import SocketIO, emit
 
 import biotools_API_querying as bAq
+import db_results
 
 
 class unique_run(object):
@@ -76,6 +77,12 @@ class unique_run(object):
         self.json_result = self.tools_discov.generate_outputs()
         self.result_found = self.tools_discov.result_found
 
+        self.run_id=db_results.push(self.json_result, self.inputs_kw)
+
+def send_from_db(id_):
+    results = db_results.query_by_id(id_)
+    print(results)
+
 
 app = Flask(__name__,
             static_url_path='',
@@ -95,10 +102,12 @@ def run_discoverer():
             this_run.run_tool_discoverer_query()
             data = {'result':this_run.json_result, 
                     'input_parameters':this_run.inputs_kw, 
-                    'result_found':this_run.result_found}
+                    'result_found':this_run.result_found,
+                    'run_id':this_run.run_id}
         except Exception as err:
             data = {'message': "something went wrong", 'code': 'ERROR'}
             resp = make_response(data, 400)
+            print('ERROR HAPPENED')
             print(err)
         else:
             #prepare response
@@ -111,46 +120,10 @@ def run_discoverer():
     else:
       return(make_response('', 400))
 
-@app.route('/path:filename')
-def send_misc(path,filename):
-    return send_from_directory("/".join(app.static_folder,path),filename)
+@app.route('/result:id', methods = ['GET'])
+def send_misc(id):
+    return send_from_db(id)
 
-
-@app.route('/getInputCSV/<results_id>', methods=['GET'])
-def getInputCSV(results_id):
-    path = f"temp/{results_id}_input.csv"
-    with open(path) as fp:
-         csv = fp.read()
-    return Response(
-        csv,
-        mimetype="text/csv",
-        headers={"Content-disposition":
-                 "attachment; filename=tool_discoverer_input.csv"})
-
-
-@app.route('/getResultsCSV/<results_id>', methods=['GET'])
-def getResultsCSV(results_id):
-    path = f"temp/{results_id}_ranked_tools.csv"
-    with open(path) as fp:
-         csv = fp.read()
-    return Response(
-        csv,
-        mimetype="text/csv",
-        headers={"Content-disposition":
-                 "attachment; filename=tool_discoverer_results.csv"})
-
-
-@app.route("/help")
-def template_help():
-    return render_template('help.html', help="active")
-
-@app.route("/fairification")
-def template_fairification():
-    return render_template('fairification.html', fairification="active")
-
-@app.route("/about")
-def template_about():
-    return render_template('about.html', about="active")
 
 if __name__ == '__main__':
     app.run(debug=True)
