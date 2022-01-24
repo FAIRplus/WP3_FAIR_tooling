@@ -1,31 +1,4 @@
-.card{
-    text-align: center;
-}
 
-.card-image-top{
-    padding-top: 5%;
-    width: 30%;
-    margin: auto;
-}
-
-.card-image-top .fas{
-    color: grey;
-}
-
-#card-one .btn{
-    background-color: #300761;
-    color: white;
-}
-
-#card-two .btn{
-    background-color: #4f4b49;
-    color:white;
-}
-
-#card-three .btn{
-    background-color: #900048;
-    color:white;
-}
 
 /* Run */
 
@@ -48,7 +21,6 @@ textarea {
     width: auto;
     color: grey;
 }
-
 
 
 #input_textarea{

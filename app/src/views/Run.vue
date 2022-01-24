@@ -12,12 +12,9 @@
                 <span v-if=formatErrorVisible id="errorFormat"><i class="fas fa-times"></i> Error: invalid format detected in line <span v-html="lineNum"></span></span>
             </form>
         </div>
-        <div class="col-sm-2 d-flex">
-            <div class="btn-group-vertical">
-                <button type="button" class="input-aid-btn" id="input_example_button" v-on:click=sampleInput>Show an example</button>
-                <button type="button" class="input-aid-btn" id="input_clear_button" v-on:click=clearInput>Clear</button>
-            </div>
-        </div>
+        <div class="col-sm-4 d-flex">
+          <ExamplesKeywords @click='sampleInput'/>
+       </div>
     </div>
       <div>
         <div v-if=querying style="min-height: 4px;">
@@ -35,11 +32,13 @@
 </template>
 <script>
 import Results from '../components/Results.vue'
+import ExamplesKeywords from '../components/ExamplesKeywords.vue'
 import axios from 'axios'
 export default {
   name: 'Run',
   components: {
-    Results
+    Results,
+    ExamplesKeywords
   },
   data () {
     return {
@@ -69,8 +68,8 @@ export default {
     }
   },
   methods: {
-    sampleInput () {
-      this.inputTextarea = 'Ontology annotation, 1\nsemantic annotation, 0.8\nText mining, 0.5\nText annotation, 0.5\nEntity tagging, 0.5\nEntity recognition, 0.75\nNamed-entity and concept recognition, 0.75\nontology and terminology, 1\nQuery expansion, 0.75\nFree text mapping, 1\nText Annotation, 1\nAnnotation, 0.5'
+    sampleInput (text) {
+      this.inputTextarea = text
       this.resultsVisible = false
     },
     clearInput () {

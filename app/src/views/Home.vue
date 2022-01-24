@@ -24,7 +24,7 @@
             <div class="card-body" id="card-two">
               <h5 class="card-title">Explore FAIRification keywords</h5>
               <p class="card-text">We have prepared list of keywords to aid the dicovery of tools that can be used in different steps of a data FAIRification proccess.</p>
-              <a href="#" class="btn">Go</a>
+              <a href="/fairification" class="btn">Go</a>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@
             <div class="card-body" id="card-three">
               <h5 class="card-title">Know more</h5>
               <p class="card-text">Find all the features and details of the the Tool Discoverer.</p>
-              <a href="#" class="btn">Go</a>
+              <a href="/help" class="btn">Go</a>
             </div>
         </div>
       </div>
@@ -46,6 +46,34 @@
   font-size: small;
   margin-bottom: 3%;
   width: 98%;
+}
+
+.card-image-top .fas{
+    color: grey;
+}
+
+#card-one .btn{
+    background-color: #300761;
+    color: white;
+}
+
+#card-two .btn{
+    background-color: #4f4b49;
+    color:white;
+}
+
+#card-three .btn{
+    background-color: #900048;
+    color:white;
+}
+.card{
+    text-align: center;
+}
+
+.card-image-top{
+    padding-top: 5%;
+    width: 30%;
+    margin: auto;
 }
 
 </style>

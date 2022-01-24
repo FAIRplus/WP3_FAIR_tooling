@@ -13,7 +13,7 @@
         <b-nav-item to="/about" >About</b-nav-item>
       </b-nav>
       <div class="col-md-2 text-end">
-        <a href="#" class="nav-link px-2 link-dark"><i class="fab fa-github fa-lg"></i></a>
+        <a href="https://github.com/FAIRplus/WP3_FAIR_tooling/tree/app" target='_blank' class="nav-link px-2 link-dark"><i class="fab fa-github fa-lg"></i></a>
       </div>
     </header>
   </div>
