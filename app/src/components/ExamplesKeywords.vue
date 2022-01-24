@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="btn-group-vertical">
-      <button type="button" class="input-aid-btn" id="input_clear_button" v-on:click=clearInput>Clear</button>
+      <button type="button" class="input-aid-btn" id="input_clear_button" @click="sampleInput('')">Clear</button>
   </div>
 </div>
 </template>
