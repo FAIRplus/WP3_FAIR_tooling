@@ -6,6 +6,7 @@ import Help from '../views/Help.vue'
 import FAIRification from '../views/FAIRification.vue'
 import About from '../views/About.vue'
 
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -15,10 +16,14 @@ const routes = [
       component: Home
     },
     {
-      path: '/run/:id',
+      path: '/run',
       name: 'Run',
       component: Run,
-      props: true
+    },
+    {
+      path: '/run/:run_id',
+      name: 'Run',
+      component: Run,
     },
     {
       path: '/help',

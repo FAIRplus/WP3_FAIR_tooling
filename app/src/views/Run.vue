@@ -1,7 +1,6 @@
 <template>
   <div class="container run_main">
     <div class="row">
-        ID: {{ this.$route.params.id }}
         <h4>Input</h4>
         <p>Enter keywords and their respective weights (optionally) to discover tools.</p>
         <div class="col-sm-8 d-flex">
@@ -27,9 +26,9 @@
             :query="true"
           ></v-progress-linear>
         </div>
-        <Results v-if="resultsVisible" :tools="results.result" :inputParameters="results.input_parameters" :run_id="results.run_id" />
-        <div v-if="results_not_found" class='center_img'><img src="@/assets/img/not_found.png" width="50px"> No results found</div>
-        <div v-if="error" class='center_img'><img src="@/assets/img/error.png" width="50px"> Something went wrong</div>
+        <div v-if="results"><Results :tools="results.result" :inputParameters="results.input_parameters" :run_id="results.run_id" /></div>
+        <div v-if="results_not_found" class='center_img' id="not_foundm"><img src="@/assets/img/not_found.svg" width="50px"> No tools found for those keywords</div>
+        <div v-if="error" class='center_img' id="errorm"><img src="@/assets/img/error.svg" width="50px"> Something went wrong while fetching results</div>
       </div>
 </div>
 </template>
@@ -43,47 +42,76 @@ export default {
     Results,
     ExamplesKeywords
   },
+  created() {
+    // watch the params of the route to fetch the data again
+    this.$watch(
+      () => this.$route.params,
+      () => {
+        this.fetchDataRes()
+      },
+      // fetch the data when the view is created and the data is
+      // already being observed
+      { immediate: true }
+    )
+  },
   data () {
     return {
       inputTextarea: '',
       formatErrorVisible: false,
       lineNum: 0,
-      results: [],
+      results: null,
       querying: false,
-      resultsVisible: false,
       value: 0,
       query: false,
       show: true,
       interval: 0,
       results_not_found: false,
-      error: false,
-      inputParameters: [
-        {
-          keyword: 'ontology mapping',
-          weight: '0.8'
-        },
-        {
-          keyword: 'ontology crosswalk',
-          weight: '0.9'
-        }
-      ]
+      error: false
     }
   },
   methods: {
+    fetchDataRes() {
+      if(this.$route.params.run_id){
+        this.query = true
+        this.querying = true
+        axios.get('http://127.0.0.1:5000/result/fetch', {
+        params : {
+          id : this.$route.params.run_id
+        },
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
+      })
+      .then((response) => {
+        console.log(response.data.message.results);
+        this.results_not_found = !this.results.result_found
+        this.results = response.data.message
+        this.query = false
+        this.querying = false
+      })
+      .catch((error) => {
+        console.log(error);
+        this.query = false
+        this.error = true
+        this.querying = false
+      });
+      }else{
+        this.results = null
+      }
+    },
     sampleInput (text) {
       this.inputTextarea = text
-      this.resultsVisible = false
     },
     clearInput () {
       this.inputTextarea = ''
     },
     async runDiscoverer () {
-      this.results = []
+      this.results = null
       var fCorrect = this.formatCorrect()
       if (fCorrect === true) {
         console.log('Correct format, RUN!')
         this.formatErrorVisible = false
-        this.resultsVisible = false
         this.querying = true
         this.query = true
         this.results_not_found = false
@@ -125,7 +153,6 @@ export default {
             this.results = response.data.message
             this.querying = false
             if(response.data.code==='ERROR'){
-              this.resultsVisible = false
               this.results_not_found = false
               this.error = true
               console.log('ERROR:')
@@ -133,7 +160,6 @@ export default {
             }
             else{
               console.log('NO ERROR HERE')
-              this.resultsVisible = this.results.result_found
               this.results_not_found = !this.results.result_found
               this.error = false
               }
@@ -186,5 +212,10 @@ export default {
 .center_img{
   text-align: center;
 }
-
+#errorm{
+  color: #900048
+}
+#not_foundm{
+  color: #300761
+}
 </style>

@@ -5,6 +5,7 @@ import pandas as pd
 import io
 import time
 import uuid
+import json
 from flask_cors import CORS
 from flask_socketio import SocketIO, emit
 
@@ -49,19 +50,6 @@ class unique_run(object):
         else:
             print(inputs_kw)
             self.inputs_kw = inputs_kw
-            
-    ''' 
-    def build_results_html(self):
-        html=render_template('results.html', 
-                              input=self.inputs_kw, 
-                              tools_results=self.tools_discov.html_df, 
-                              results_id=self.request_ID)
-        return(html)
-
-    def write_inputs_disk(self):
-        path = f"temp/{self.request_ID}_input.csv"
-        self.tools_discov.ranked_keywords.to_csv(path, index=False)  
-    '''
 
     def run_tool_discoverer_query(self):
         ## run tool:
@@ -77,11 +65,12 @@ class unique_run(object):
         self.json_result = self.tools_discov.generate_outputs()
         self.result_found = self.tools_discov.result_found
 
-        self.run_id=db_results.push(self.json_result, self.inputs_kw)
+        self.run_id=db_results.push(self.json_result, self.inputs_kw, self.result_found)
 
-def send_from_db(id_):
+def fetch_from_db(id_):
     results = db_results.query_by_id(id_)
-    print(results)
+    results.pop('_id')
+    return(results)
 
 
 app = Flask(__name__,
@@ -120,10 +109,33 @@ def run_discoverer():
     else:
       return(make_response('', 400))
 
-@app.route('/result:id', methods = ['GET'])
-def send_misc(id):
-    return send_from_db(id)
+@app.route('/result/fetch')
+def send_misc():
+    id_ = request.args.get('id')
+    try:
+        data = fetch_from_db(id_)
+    except Exception as err:
+        data = {'message': "something went wrong", 'code': 'ERROR'}
+        resp = make_response(data, 400)
+        print(err)
+    else:
+        data = {'message': data, 'code': 'SUCCESS'}
+        resp = make_response(jsonify(data), 201)
+    finally:
+        resp.set_cookie('same-site-cookie', 'foo', samesite='Lax')
+        resp.set_cookie('cross-site-cookie', 'bar', samesite='Lax', secure=True)
+        return resp
 
+@app.route('/dummy')
+def send_dummy():
+    print('Processing dummy')
+    print(request.args)
+    data = {'original':request.args.get('id'), 'new':'Server was accessed succesfully'}
+    data = {'message': data, 'code': 'SUCCESS'}
+    resp = make_response(jsonify(data), 201)
+    resp.set_cookie('same-site-cookie', 'foo', samesite='Lax')
+    resp.set_cookie('cross-site-cookie', 'bar', samesite='Lax', secure=True)
+    return resp
 
 if __name__ == '__main__':
     app.run(debug=True)

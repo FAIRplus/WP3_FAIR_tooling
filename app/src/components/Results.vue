@@ -1,10 +1,8 @@
 <template>
 <div>
   <div id='url'>
-        <h5>URL:</h5>
-        <pre>
-        <a :v-bind="ref=build_url(run_id)" target='_blank'>{{ build_url(run_id) }}</a>
-        </pre>
+    <h5>URL:</h5>
+    <p><a :href="build_url(run_id) " target='_blank'>{{ build_url(run_id) }}</a></p>
   </div>
   <v-expansion-panels flat>
     <v-expansion-panel>
@@ -152,10 +150,13 @@
 }
 
 #url{
-  width: 97%;
+  width: 96%;
   text-align: left;
   margin-right: auto;
   margin-left: auto;
+}
+#url p{
+  text-indent: .7rem;
 }
 
 </style>
@@ -354,8 +355,12 @@ export default {
       return(string)
     },
     build_url(id){
-      var url = 'http://192.168.1.34:8080/results/' + id
-      return(url)
+      if(this.tools.length===0){
+        return('')
+      }else{
+        var url = 'http://192.168.1.34:8080/run/' + id
+        return(url)
+      }
     }
   }
 }
