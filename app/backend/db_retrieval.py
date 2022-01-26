@@ -87,7 +87,7 @@ class query(object):
         if 'bitbucket' in tool['source']:
             labels.add('bitbucket')
        
-        labels_links = {}
+        labels_links = {label:'' for label in labels}
         valid = {'github':['github'],
                 'biotools':['bio.tools'],
                 'bitbucket':['bitbucket'],
@@ -95,7 +95,6 @@ class query(object):
                 'galaxy':['galaxy','toolshed'],
                 'bioconda':['bioconda'],
                 'bioconductor':['bioconductor']}
-        print(valid)
         if tool['links']:
             hit = False
             for label in labels:
@@ -113,7 +112,7 @@ class query(object):
             link = f"https://bio.tools/{tool['name']}"
             labels_links['biotools'] = link
             
-            return(labels_links)
+        return(labels_links)
 
     def match_edam_label(self, uri):
         #print('Matching EDAM label')

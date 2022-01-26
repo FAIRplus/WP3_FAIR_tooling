@@ -84,15 +84,15 @@ export default {
         }
       })
       .then((response) => {
-        console.log(response.data.message.results);
-        this.results_not_found = !this.results.result_found
+        console.log(response.data.message.results)
         this.results = response.data.message
+        this.results_not_found = !this.results.result_found
         this.query = false
         this.querying = false
         this.error = false
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error)
         this.query = false
         this.error = true
         this.querying = false
