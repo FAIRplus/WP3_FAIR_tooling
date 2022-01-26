@@ -96,13 +96,15 @@ def run_discoverer():
         except Exception as err:
             data = {'message': "something went wrong", 'code': 'ERROR'}
             resp = make_response(data, 400)
-            print('ERROR HAPPENED')
+            resp.set_cookie('same-site-cookie', 'foo', samesite='Lax')
+            resp.set_cookie('cross-site-cookie', 'bar', samesite='Lax', secure=True)
             print(err)
+            print('ERROR HAPPENED')
+            return(resp)
         else:
             #prepare response
             data = {'message': data, 'code': 'SUCCESS'}
             resp = make_response(jsonify(data), 201)
-        finally:
             resp.set_cookie('same-site-cookie', 'foo', samesite='Lax')
             resp.set_cookie('cross-site-cookie', 'bar', samesite='Lax', secure=True)
             return resp
@@ -126,16 +128,6 @@ def send_misc():
         resp.set_cookie('cross-site-cookie', 'bar', samesite='Lax', secure=True)
         return resp
 
-@app.route('/dummy')
-def send_dummy():
-    print('Processing dummy')
-    print(request.args)
-    data = {'original':request.args.get('id'), 'new':'Server was accessed succesfully'}
-    data = {'message': data, 'code': 'SUCCESS'}
-    resp = make_response(jsonify(data), 201)
-    resp.set_cookie('same-site-cookie', 'foo', samesite='Lax')
-    resp.set_cookie('cross-site-cookie', 'bar', samesite='Lax', secure=True)
-    return resp
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -153,21 +153,20 @@ export default {
           (response) => {
             this.results = response.data.message
             this.querying = false
-            if(response.data.code==='ERROR'){
-              this.results_not_found = false
-              this.error = true
-              console.log('ERROR:')
-              console.log(response.data.message)
-            }
-            else{
-              console.log('NO ERROR HERE')
-              this.results_not_found = !this.results.result_found
-              this.error = false
-              }
+            console.log('NO ERROR HERE')
+            this.results_not_found = !this.results.result_found
+            this.error = false
+            })
+        .catch((error) => {
+          console.log(error)
+          this.query = false
+          this.querying = false
+          this.error = true
+          this.results = null
           })
     }
+    }
   }
-}
 </script>
 <style>
 #errorFormat{

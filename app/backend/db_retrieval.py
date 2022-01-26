@@ -57,18 +57,19 @@ class query(object):
         if tool['publication']:
             for pub in tool['publication']:
                 new_trace = {'x':[], 'y':[]}
-                if 'entries' in pub.keys():
-                    for entry in pub['entries']:
-                        if 'citations' in entry.keys():
-                            [(new_trace['x'].append(item['year']), new_trace['y'].append(item['count'])) for item in entry['citations']]
-                            entry['trace'] = new_trace
-                            citations.append(entry)
-
+                if type(pub) == dict:
+                    if 'entries' in pub.keys():
+                        for entry in pub['entries']:
+                            if 'citations' in entry.keys():
+                                [(new_trace['x'].append(item['year']), new_trace['y'].append(item['count'])) for item in entry['citations']]
+                                entry['trace'] = new_trace
+                                citations.append(entry)
         return(citations)
     
     def aggregate_sources_labels(self,tool):
         #print('Aggregating sources labels ...')
         labels = set()
+        print(tool['source'])
         if 'biotools' in tool['source']:
             labels.add('biotools')
         if 'bioconductor' in tool['source']:
@@ -87,23 +88,24 @@ class query(object):
             labels.add('bitbucket')
        
         labels_links = {}
-        valid = {'github':'github',
-                'biotools':'bio.tools',
-                'bitbucket':'bitbucket',
-                'sourceforge':'sourceforge',
+        valid = {'github':['github'],
+                'biotools':['bio.tools'],
+                'bitbucket':['bitbucket'],
+                'sourceforge':['sourceforge'],
                 'galaxy':['galaxy','toolshed'],
-                'bioconda':'bioconda',
-                'bioconductor':'bioconductor'}
-        
+                'bioconda':['bioconda'],
+                'bioconductor':['bioconductor']}
+        print(valid)
         if tool['links']:
             hit = False
             for label in labels:
                 labels_links[label] = ''
                 for link in tool['links']:
-                    if valid[label] in link:
-                        labels_links[label] = link
-                        hit =True
-                        break
+                    for valid_label in valid[label]:
+                        if valid_label in link:
+                            labels_links[label] = link
+                            hit =True
+                            break
             if hit == False:
                 labels_links['other'] = tool['links'][0]
 
