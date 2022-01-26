@@ -228,7 +228,7 @@ export default {
         {text: '', align: 'start', sortable: false, value: 'down', width: '1em'},
         {text: 'Tool Name', align: 'start', sortable: false, value: 'name'},
         {text: 'Type of Software', value: 'type'},
-        {text: 'Availavility', value: 'source'},
+        {text: 'Availability', value: 'source'},
         {text: 'Description', value: 'description', width: '20rem'},
         {text: 'Related Topics', value: 'edam_topics', width: '12rem'},
         {text: 'Functionality', value: 'edam_operations', width: '12rem'},

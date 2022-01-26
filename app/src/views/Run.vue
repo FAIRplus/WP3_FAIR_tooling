@@ -89,6 +89,7 @@ export default {
         this.results = response.data.message
         this.query = false
         this.querying = false
+        this.error = false
       })
       .catch((error) => {
         console.log(error);

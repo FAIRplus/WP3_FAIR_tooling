@@ -70,9 +70,9 @@ export default {
     return {
       texts : [
         {'label':'Extract, Transform, Load', 
-        'keywords':'Ontology annotation, 1\nsemantic annotation, 0.8\nText mining, 0.5\nText annotation, 0.5\nEntity tagging, 0.5\nEntity recognition, 0.75\nNamed-entity and concept recognition, 0.75\nontology and terminology, 1\nQuery expansion, 0.75\nFree text mapping, 1\nText Annotation, 1\nAnnotation, 0.5'},
+        'keywords':'Ontology annotation, 1\nsemantic annotation, 0.8\nText mining, 0.5'},
         {'label':'Ontology Annotation',
-         'keywords':'Ontology annotation, 1\nsemantic annotation, 0.8\nText mining, 0.5\nText annotation, 0.5\nEntity  1\nQuery expansion, 0.75'},
+         'keywords':'Ontology annotation, 1\nsemantic annotation, 0.8\nText mining, 0.5\nText annotation, 0.5\nEntity, 1\nQuery expansion, 0.75'},
         {'label':'Identifier minting',
          'keywords':'k1, 1\nk2, 0.5'}
       ]
