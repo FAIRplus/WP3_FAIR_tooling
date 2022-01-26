@@ -77,7 +77,7 @@
                     <SourceAvatar :avatarProps='avatars.other' :sources_labels='item.sources_labels'/>
                   </td>
                   <td>
-                    {{ trimIfNotSelected(item.description[0], key) }}
+                    <span v-html="descriptionSpan(trimIfNotSelected(item.description[0], key))"></span>
                   </td>
                   <td>
                     <ul>
@@ -97,8 +97,12 @@
                   </td>
                   <td>
                     <ul>
-                      <div v-for="(pdata, year) in build_pubs(item, key)" :key="year">
-                        <v-icon class='fas fa-circle' :color = 'pdata.color' size="10"></v-icon> <span v-html="span(pdata['title'], pdata['year'])" />
+                      <div v-for="(pdata, year) in build_pubs(item, key)" :key="year" class='publications'>
+                        <v-icon class='fas fa-circle' :color = 'pdata.color' size="10"></v-icon> 
+                        <span v-html="span(pdata['title'], pdata['year'])" />
+                          <a v-for="(link, year) in pdata['links']" :key="year"  :href="link" target="_blank">  
+                            <i class='fas fa-external-link-alt' size="3"></i>
+                            </a>
                       </div>
                     </ul>
                   </td>
@@ -157,6 +161,12 @@
 }
 #url p{
   text-indent: .7rem;
+}
+
+.publications >>> .fas{
+  padding-right: .15em;
+  padding-left: .15em;
+  padding-bottom: .4em;
 }
 
 </style>
@@ -224,6 +234,11 @@ export default {
           label: 'other'
         }
       },
+      linksURLs: [
+        {id : 'doi',  template : 'https://doi.org/'},
+        {id : 'pmcid', template : 'https://www.ncbi.nlm.nih.gov/pmc/articles/'},
+        {id : 'pmid', template :'https://pubmed.ncbi.nlm.nih.gov/'}
+        ],
       headers: [
         {text: '', align: 'start', sortable: false, value: 'down', width: '1em'},
         {text: 'Tool Name', align: 'start', sortable: false, value: 'name'},
@@ -339,7 +354,17 @@ export default {
     build_pubs(item){
       var labels = []
       for (let i = 0; i < item.citations.length; i++) {
-        labels.push({'title': item.citations[i]['title'], 'year': item.citations[i]['year'], 'color':this.plot_colors[i]})
+        const links = []
+        for(var k = 0; k < this.linksURLs.length; k++){
+          const idType = this.linksURLs[k]['id']
+          if(item.citations[i][idType]!=undefined){
+            links.push(this.linksURLs[k]['template']+item.citations[i][idType]) 
+          }
+        }
+        labels.push({'title': item.citations[i]['title'], 
+                     'year': item.citations[i]['year'], 
+                     'color':this.plot_colors[i],
+                     'links':links})
       }
       return(labels)
     },
@@ -365,6 +390,10 @@ export default {
     span(title, year){
       const span = `${title} (${year})`
       return(span)
+    },
+    descriptionSpan(description){
+      const html = `<span>${description}</span>`
+      return(html)
     }
   }
 }
