@@ -98,7 +98,7 @@
                   <td>
                     <ul>
                       <div v-for="(pdata, year) in build_pubs(item, key)" :key="year">
-                        <v-icon class='fas fa-circle' :color = 'pdata.color' size="10"></v-icon>  {{ pdata['title'] }} ({{ pdata['year'] }})
+                        <v-icon class='fas fa-circle' :color = 'pdata.color' size="10"></v-icon> <span v-html="span(pdata['title'], pdata['year'])" />
                       </div>
                     </ul>
                   </td>
@@ -229,7 +229,7 @@ export default {
         {text: 'Tool Name', align: 'start', sortable: false, value: 'name'},
         {text: 'Type of Software', value: 'type'},
         {text: 'Availability', value: 'source'},
-        {text: 'Description', value: 'description', width: '20rem'},
+        {text: 'Description', value: 'description', width: '15rem'},
         {text: 'Related Topics', value: 'edam_topics', width: '12rem'},
         {text: 'Functionality', value: 'edam_operations', width: '12rem'},
         {text: 'Publications', value: 'publications', width: '12rem'},
@@ -361,6 +361,10 @@ export default {
         var url = 'http://192.168.1.34:8080/run/' + id
         return(url)
       }
+    },
+    span(title, year){
+      const span = `${title} (${year})`
+      return(span)
     }
   }
 }
