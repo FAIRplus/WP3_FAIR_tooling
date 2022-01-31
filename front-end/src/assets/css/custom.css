@@ -1,0 +1,65 @@
+
+
+/* Run */
+
+textarea {
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: scroll;
+  }
+
+#input_text{
+    width: 100%;
+}
+
+#input_w{
+    margin-left: .5em;
+    margin-right: .5em;
+}
+
+#input_example_button{
+    width: auto;
+    color: grey;
+}
+
+
+#input_textarea{
+    height: 270px;
+    margin-top: 1em;
+    font-size: smaller;
+    border: 1px solid grey;
+    outline:none;
+}
+
+.input-aid-btn{
+    border: 1px solid grey; 
+    color: grey;
+    background-color: white;
+    padding: 2%;
+    font-size: smaller;
+    margin: 2px;
+    width: 100%;
+    margin-top: 1em;
+}
+
+input div.inner-input {
+    border: 1px black;
+ }
+ 
+input:focus div.inner-input {
+    border: 1px orange;
+ }
+
+
+
+#results_table_section{
+    padding-top: 2em;
+}
+
+/* Results */
+/* Query details*/
+#k_w_table{
+    font-size: smaller;
+    width: 30%;
+}
+
