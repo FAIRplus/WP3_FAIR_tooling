@@ -69,7 +69,6 @@ class query(object):
     def aggregate_sources_labels(self,tool):
         #print('Aggregating sources labels ...')
         labels = set()
-        print(tool['source'])
         if 'biotools' in tool['source']:
             labels.add('biotools')
         if 'bioconductor' in tool['source']:
