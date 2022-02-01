@@ -2,8 +2,8 @@
   <div class="container">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
       <a class="d-flex align-items-center text-dark text-decoration-none">
-        <img src="@/assets/img/FAIRplus_logo.svg" width="20px">
-        <h5 class='brand-name'>Tool Discoverer</h5>
+        <span class="logo"><img src="@/assets/img/FAIRplus_logo.svg" width="20px"></span>
+        <span class='brand-name'>FAIRification  <br>Tool Discoverer</span>
       </a>
       <b-nav class="col-12 col-md-auto mb-2 justify-content-center mb-md-0" active-class="active">
         <b-nav-item to="/">Home</b-nav-item>
@@ -37,8 +37,12 @@
     font-weight: bolder;
     color: grey;
     text-align: left;
-    padding-left: 2px;
+    padding-left: .9em;
     padding-top: .4em;
+    font-size: 1rem;
+  }
+  .logo{
+    margin-left: .7em
   }
 
 </style>

@@ -168,7 +168,7 @@ export default {
     }
   }
 </script>
-<style>
+<style scoped>
 #errorFormat{
   color: darkred;
   font-size: small;
