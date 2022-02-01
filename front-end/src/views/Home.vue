@@ -1,8 +1,9 @@
 <template>
   <div class="container" id="index-main">
-    <h4>Overview</h4>
+    <h4>The FAIRification tool discoverer</h4>
     <p>
-    This is a biref description of what the Tool Discoverer is and what it does.
+    Discovering tools for your FAIRification tasks
+
     </p>
     <br>
     <h4>What do you want to do?</h4>

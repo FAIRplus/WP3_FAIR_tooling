@@ -3,14 +3,8 @@
     <div class="row">
         <h4>Input</h4>
         <p>Enter keywords and their respective weights (optionally) to discover tools.</p>
-        <div class="col-sm-8 d-flex">
-            <form action="" method="post" id="input_text">
-                <textarea v-model=inputTextarea name="input_data" class="form-control" id="input_textarea" aria-label=""></textarea>
-                <!--div name="input_data" contenteditable="true" id="input_textarea"></div-->
-                <small id="" class="form-text text-muted">For further axplanation on input format, see <a href="/help">here</a>.<br></small>
-                <button type="button" name="run" value="Run" v-on:click=runDiscoverer class="input-run-btn" id="run_button">Run</button>
-                <span v-if=formatErrorVisible id="errorFormat"><i class="fas fa-times"></i> Error: invalid format detected in line <span v-html="lineNum"></span></span>
-            </form>
+        <div class="col-sm-8 d-flex" id="inputdiv">
+            <InputArea />
         </div>
         <div class="col-sm-4 d-flex">
           <ExamplesKeywords @click='sampleInput'/>
@@ -35,12 +29,14 @@
 <script>
 import Results from '../components/Results.vue'
 import ExamplesKeywords from '../components/ExamplesKeywords.vue'
+import InputArea from '../components/InputArea.vue'
 import axios from 'axios'
 export default {
   name: 'Run',
   components: {
     Results,
-    ExamplesKeywords
+    ExamplesKeywords,
+    InputArea
   },
   created() {
     // watch the params of the route to fetch the data again
@@ -217,5 +213,9 @@ export default {
 }
 #not_foundm{
   color: #300761
+}
+#inputdiv{
+  margin-top: 0%;
+  padding-top: 0%
 }
 </style>

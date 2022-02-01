@@ -64,7 +64,7 @@
 
 <script>
 export default {
-  name: 'SourceAvatar',
+  name: 'ExamplesKeywords',
   props: [],
   data() {
     return {
