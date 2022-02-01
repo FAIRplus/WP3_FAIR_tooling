@@ -99,7 +99,7 @@
                     <ul>
                       <div v-for="(pdata, year) in build_pubs(item, key)" :key="year" class='publications'>
                         <v-icon class='fas fa-circle' :color = 'pdata.color' size="10"></v-icon> 
-                        <span v-html="span(pdata['title'], pdata['year'])" />
+                        <span v-html="pdata['label']" />
                           <a v-for="(link, year) in pdata['links']" :key="year"  :href="link" target="_blank">  
                             <i class='fas fa-external-link-alt' size="3"></i>
                             </a>
@@ -107,7 +107,7 @@
                     </ul>
                   </td>
                   <td>
-                    <PubPlot :pubPlotProps='item' />
+                    <PubPlot :pubPlotProps='item' v-if="item.citations.length!=0"/>
                   </td>
                   <td>
                     {{ item.license[0] }}
@@ -237,7 +237,8 @@ export default {
       linksURLs: [
         {id : 'doi',  template : 'https://doi.org/'},
         {id : 'pmcid', template : 'https://www.ncbi.nlm.nih.gov/pmc/articles/'},
-        {id : 'pmid', template :'https://pubmed.ncbi.nlm.nih.gov/'}
+        {id : 'pmid', template :'https://pubmed.ncbi.nlm.nih.gov/'},
+        {id : 'url', template: ''}
         ],
       headers: [
         {text: '', align: 'start', sortable: false, value: 'down', width: '1em'},
@@ -361,11 +362,38 @@ export default {
             links.push(this.linksURLs[k]['template']+item.citations[i][idType]) 
           }
         }
-        labels.push({'title': item.citations[i]['title'], 
-                     'year': item.citations[i]['year'], 
+        var label
+        if(item.citations[i]['year'] == undefined){
+          if(item.citations[i]['title'] == undefined){
+            label = 'link'
+          }else{
+            label = item.citations[i]['title']
+          }
+        }else{
+          label = `<span>${item.citations[i]['title']}(${item.citations[i]['year']})</span>`
+        }
+        labels.push({'label':label, 
                      'color':this.plot_colors[i],
+                     'year':item.citations[i]['year'],
                      'links':links})
       }
+      for (let e = 0; e < item.citations_other.length; e++) {
+        const links = []
+        for(var j = 0; j < this.linksURLs.length; j++){
+          const idType = this.linksURLs[j]['id']
+          if(item.citations_other[e][idType]!=undefined){
+            links.push(this.linksURLs[j]['template']+item.citations_other[e][idType]) 
+          }
+        }
+        label = ''
+        if(item.citations_other[e]['title'] != '' && item.citations_other[e]['title'] != undefined){
+          labels.push({'label': item.citations_other[e]['title'],
+                     'color': 'black',
+                     'year': null,
+                     'links': links})
+        }
+      }
+      console.log(labels)
       return(labels)
     },
     formats(formats){

@@ -118,7 +118,6 @@ class tools_discoverer(object):
         else:
             scores = []
             for match in list(row['matches']):
-                print(match)
                 w = self.keywords_weights.loc[self.keywords_weights['keyword']==match]['weight'].values[0]
                 scores.append(w)
             summ = sum(scores)

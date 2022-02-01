@@ -1,6 +1,7 @@
 import configparser
 from pymongo import MongoClient
 import pandas as pd
+import bibtexparser
 
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -48,23 +49,72 @@ class query(object):
                                               'edam_operations',
                                               'matches',
                                               'citations',
+                                              'citations_other',
                                               'sources_labels'])
         self.results.set_index('@id')
 
     def extract_citations(self, tool):
         #print('Extracting citations ...')
+        ids = set()
         citations = []
+        citations_other = []
         if tool['publication']:
             for pub in tool['publication']:
                 new_trace = {'x':[], 'y':[]}
+                remain_pubs=[]
                 if type(pub) == dict:
                     if 'entries' in pub.keys():
                         for entry in pub['entries']:
+                            new_entry=entry
                             if 'citations' in entry.keys():
-                                [(new_trace['x'].append(item['year']), new_trace['y'].append(item['count'])) for item in entry['citations']]
-                                entry['trace'] = new_trace
-                                citations.append(entry)
-        return(citations)
+                                if True not in [entry.get(ID) in ids for ID in ['doi', 'pmcid', 'pmid']]:
+                                    for item in entry['citations']:
+                                        new_trace['x'].append(item['year'])
+                                        new_trace['y'].append(item['count'])
+                                        [ids.add(entry.get(ID)) for ID in ['doi', 'pmcid', 'pmid'] if entry.get(ID) != None]
+                                    new_entry['trace'] = new_trace
+                                    citations.append(new_entry)
+                            else:
+                                citations.append(new_entry)
+                    else:
+                        remain_pubs.append(pub)
+
+                if type(pub) == list:
+                    for entry in pub:
+                        if entry.get('type') == 'bibtex':
+                            bibtexdb = bibtexparser.loads(entry.get('citation'))
+                            for entry in bibtexdb.entries:
+                                if entry['ENTRYTYPE'].lower() != 'misc':
+                                    single_entry = {}
+                                    single_entry['url'] = entry.get('url')
+                                    single_entry['title'] = entry.get('title')
+                                    single_entry['year'] = entry.get('year')
+                                    citations_other.append(single_entry)
+
+
+            for pub in remain_pubs:
+                if type(pub) == dict:
+                    if 'entries' not in pub.keys():
+                        if pub == {'url':None, 'title':''}:
+                            break
+                        if True not in [pub.get(ID) in ids for ID in ['doi', 'pmcid', 'pmid','url', 'citation']]:
+                            new_entry = {}
+                            if 'doi' in pub.keys():
+                                new_entry['doi'] = pub['doi']
+                            if 'pmcid' in pub.keys():
+                                new_entry['pmcid'] = pub['pmcid']
+                            if 'pmid' in pub.keys():
+                                new_entry['pmid'] = pub['pmid']
+                            if 'citation' in pub.keys():
+                                if 'error occured' not in pub['citation']:
+                                    new_entry['title'] = pub['citation']
+                                else:
+                                   break
+
+                            [ids.add(pub.get(ID)) for ID in ['doi', 'pmcid', 'pmid', 'url', 'citation'] if pub.get(ID) != None]
+                            citations_other.append(new_entry)
+
+        return(citations, citations_other)
     
     def aggregate_sources_labels(self,tool):
         #print('Aggregating sources labels ...')
@@ -144,7 +194,7 @@ class query(object):
         for doc in matches:
             #print(f"- {doc['name']}")
             doc['_id'] = str(doc['_id'])
-            doc['citations'] = self.extract_citations(doc)
+            doc['citations'], doc['citations_other'] = self.extract_citations(doc)
             doc['sources_labels'] = self.aggregate_sources_labels(doc)
             if '@id' in doc.keys():
                 if doc['@id'] in self.results_ids:
