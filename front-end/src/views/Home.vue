@@ -1,9 +1,5 @@
 <template>
   <div class="container" id="index-main">
-    <h4>Overview</h4>
-    <p>
-    This is a biref description of what the Tool Discoverer is and what it does.
-    </p>
     <br>
     <h4>What do you want to do?</h4>
     <br>

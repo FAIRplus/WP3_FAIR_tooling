@@ -74,6 +74,8 @@
                     <SourceAvatar :avatarProps='avatars.github' :sources_labels='item.sources_labels'/>
                     <SourceAvatar :avatarProps='avatars.bioconductor' :sources_labels='item.sources_labels'/>
                     <SourceAvatar :avatarProps='avatars.galaxy' :sources_labels='item.sources_labels'/>
+                    <SourceAvatar :avatarProps='avatars.sourceforge' :sources_labels='item.sources_labels'/>
+                    <SourceAvatar :avatarProps='avatars.bitbucket' :sources_labels='item.sources_labels'/>
                     <SourceAvatar :avatarProps='avatars.other' :sources_labels='item.sources_labels'/>
                   </td>
                   <td>
@@ -114,7 +116,7 @@
                     <!-- Match license to spdx-->
                   </td>
                   <td>
-                    {{ item.score }}
+                    {{ formatNumber(item.score) }} 
                   </td>
                 </tr>
               </tbody>
@@ -225,6 +227,20 @@ export default {
           content: 'Galaxy Eu',
           url:'',
           label: 'galaxy'
+        },
+        sourceforge: {
+          src: 'sourceforge-logo.svg',
+          color: '#ff6602',
+          content: 'SourceForge',
+          url:'',
+          label: 'sourceforge'
+        },
+        bitbucket: {
+          src: 'bitbucket-logo.svg',
+          color: '#005ed9',
+          content: 'Bitbucket',
+          url:'',
+          label: 'bitbucket'
         },
         other: {
           src: 'other.svg',
@@ -422,7 +438,10 @@ export default {
     descriptionSpan(description){
       const html = `<span>${description}</span>`
       return(html)
-    }
+    },
+    formatNumber (num) {
+      return parseFloat(num).toFixed(2)
+  }
   }
 }
 </script>

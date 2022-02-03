@@ -76,8 +76,12 @@ export default {
   data () {
     return {
       keyw_lists : [
-        {'label':'Data vocabulary/ontology','terms': [1,2,3,4]},
-        {'label':'ETL process','terms': [1,2,3,4,5]}
+        {'label':'Data vocabulary/ontology','terms': ['Ontology annotation','Semantic annotation','Text mining',
+'Text annotation','Entity tagging','Entity recognition','Named-entity and concept recognition',
+'Ontology and terminology','Query expansion','Free text mapping','Text Annotation','Annotation','NLP']},
+        {'label':'ETL process','terms': ['Data integration and warehousing','Data governance',
+        'Data identity and mapping','Database management','Data quality management','Query and retrieval',
+        'Information extraction','Format validation']}
       ]
     }
   }

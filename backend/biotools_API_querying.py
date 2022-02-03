@@ -84,7 +84,7 @@ class tools_discoverer(object):
                     term = match['edam_term'].strip('\n')
                     self.edam_terms.append(term)
                     #self.terms_label[match] = str(match['label']).strip('\n')
-                    self.keywords_weights = self.keywords_weights.append({'keyword':term, 'weight':w}, ignore_index=True)
+                    self.keywords_weights = self.keywords_weights.append({'keyword':term, 'weight':w+1}, ignore_index=True)
                 self.free_terms.append(keyword)
             else:
                 self.free_terms.append(keyword)

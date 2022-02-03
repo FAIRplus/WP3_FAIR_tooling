@@ -25,6 +25,16 @@
       <h6><span class="question-icon"><i class="fas fa-question-circle"></i></span>
         Input format</h6>   
       <v-col cols="12" class="column">
+        Keywords and weights must be introduced as CSV format, where the first column are terms 
+        or keywords and second column weights associated to them. 
+        Each row has the form (term,weight) 
+        <v-card
+        elevation=0>
+          <img src="@/assets/img/screenshot.png">
+          <br><br><small style="align-text:center">See example keyword lists next to input box.</small>
+          <br><br>
+          </v-card>
+        Weights are optional and, if specified, they are recommended to be in the range (0,1).
       </v-col>
     </v-row>
     <v-row>
@@ -32,6 +42,8 @@
       Troubleshooting
       </h6>
       <v-col  cols="12" class="column">
+        Empty lines and extra spaces are the main cause of input parsing errors. 
+        If no tools match the query, a specific message will be displayed.
       </v-col>
     </v-row>
   </div>
