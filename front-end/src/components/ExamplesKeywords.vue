@@ -2,14 +2,13 @@
 <div>
   <v-col cols="14" id='main-col'>
     <v-card elevation="0" id="examples-cont">
-      <h6>Example keyword lists</h6>
+      <p><b>Example keyword lists</b></p>
       <v-btn 
       v-for="item in texts" 
       :key="item.PreferredLabel"
-      rounded
+      dark
       outlined
-      small
-      color="#300761"
+      color="#ad6911"
       @click="sampleInput(item.keywords)">
         {{ item.label }}
       </v-btn>
@@ -23,18 +22,15 @@
   margin-top: 0;
   border-width: 1px;
 }
-#examples-cont h6{
-  color: black
-}
+
 #main-col{
   padding: 0;
 }
 .v-btn{
   text-transform: unset !important;
   margin: .5em;
-  font-size: .75rem;
+  font-size: .85rem;
   padding: .2em;
-  color: #300761
 }
 .text {
   color: black;
@@ -47,6 +43,10 @@
   padding-right: 0%;
   padding-left: 0%;
   text-align: center;
+}
+.v-card > p{
+  font-size: 1.1rem;
+  color: #454545
 }
 .row {
   display: flex;
@@ -86,9 +86,12 @@ export default {
   data() {
     return {
       IDminting : IDminting,
-      texts: [{'label':'Ontology Annotation', 'keywords': IDminting},
-      {'label':'Identifier minting', 'keywords': IDminting},
-      {'label':'Extract, Transform, Load', 'keywords': IDminting}],
+      texts: [{'label':'Ontology Annotation', 'keywords': []},
+      {'label':'Ontology Management', 'keywords': []},
+      {'label':'Ontology Engineering', 'keywords': []},
+      {'label':'Identifier Minting', 'keywords': IDminting},
+      {'label':'Identifier Mapping', 'keywords': []},
+      {'label':'Extract, Transform, Load', 'keywords': []}],
       texts__ : [
         {'label':'Extract, Transform, Load', 
         'keywords':'Data integration and warehousing, 1\n\

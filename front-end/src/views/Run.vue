@@ -1,11 +1,11 @@
 <template>
   <div class="container run_main">
-    <div class="row">
+    <v-row class='first-parag'>
         <h4>Input</h4>
         <p>Enter keywords and their respective weights (optionally) to discover tools.</p>
-    </div>
+    </v-row >
     <InputArea @click='runDiscoverer'/>
-      <div>
+      <div class="main-results">
         <div v-if=querying style="min-height: 4px;">
           <!-- query progress bar, see eaxample https://github.com/vuetifyjs/vuetify/blob/master/packages/docs/src/examples/v-progress-linear/prop-query.vue -->
           <v-progress-linear
@@ -181,8 +181,11 @@ export default {
   text-align: left;
   align-items: left;
   margin-bottom: 2em;
-  font-size: smaller;
+  font-size: .9rem;
   width: 100%;
+}
+.first-parag{
+  margin-bottom: 2em
 }
 .center_img img{
   display: block;
@@ -203,5 +206,8 @@ export default {
 #inputdiv{
   margin-top: 0%;
   padding-top: 0%
+}
+.main-results{
+  margin-top: 3em
 }
 </style>

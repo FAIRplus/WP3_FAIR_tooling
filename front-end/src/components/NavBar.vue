@@ -25,7 +25,7 @@
 
   .nav-link{
     color: black!important;
-    font-size: .9rem;
+    font-size: 1rem;
     background-color: white!important;
   }
 
