@@ -30,7 +30,7 @@
         Each row has the form (term,weight) 
         <v-card
         elevation=0>
-          <img src="@/assets/img/screenshot.png">
+          <img src="@/assets/img/screenshot.png" style="width:65%">
           <br><br><small style="align-text:center">See example keyword lists next to input box.</small>
           <br><br>
           </v-card>
