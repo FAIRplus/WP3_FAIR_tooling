@@ -1,21 +1,40 @@
 <template>
-<div class="container" id="examples-cont">
-  <div class="row flex-container" id="row">
-    <p><b>Example keyword lists</b></p>
-    <div type="button" v-for="item in texts" :key="item.PreferredLabel" class="col-sm-2 flex-item card" @click="sampleInput(item.keywords)">
-      {{ item.label }}
-    </div>
-  </div>
-  <div class="btn-group-vertical">
-      <button type="button" class="input-aid-btn" id="input_clear_button" @click="sampleInput('')">Clear</button>
-  </div>
+<div>
+  <v-col cols="14" id='main-col'>
+    <v-card elevation="0" id="examples-cont">
+      <h6>Example keyword lists</h6>
+      <v-btn 
+      v-for="item in texts" 
+      :key="item.PreferredLabel"
+      rounded
+      outlined
+      small
+      color="#300761"
+      @click="sampleInput(item.keywords)">
+        {{ item.label }}
+      </v-btn>
+    </v-card>
+  </v-col>
 </div>
 </template>
 <style scoped>
 #examples-cont{
   text-align: center;
-  
-
+  margin-top: 0;
+  border-width: 1px;
+}
+#examples-cont h6{
+  color: black
+}
+#main-col{
+  padding: 0;
+}
+.v-btn{
+  text-transform: unset !important;
+  margin: .5em;
+  font-size: .75rem;
+  padding: .2em;
+  color: #300761
 }
 .text {
   color: black;
@@ -56,9 +75,6 @@
   width: 45%;
 }
 
-.btn-group-vertical{
-  margin-top: 2rem;
-}
 
 </style>
 
@@ -70,7 +86,9 @@ export default {
   data() {
     return {
       IDminting : IDminting,
-      texts: [{'label':'Identifier minting', 'keywords': IDminting}],
+      texts: [{'label':'Ontology Annotation', 'keywords': IDminting},
+      {'label':'Identifier minting', 'keywords': IDminting},
+      {'label':'Extract, Transform, Load', 'keywords': IDminting}],
       texts__ : [
         {'label':'Extract, Transform, Load', 
         'keywords':'Data integration and warehousing, 1\n\

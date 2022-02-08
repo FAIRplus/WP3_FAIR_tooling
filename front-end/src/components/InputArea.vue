@@ -41,7 +41,7 @@
               <v-col cols="6">
                 <v-text-field 
                     v-model="item['label']"
-                    :disabled="!isEditing"
+                    :disabled="!item['isEditing']"
                     class="mt-0 pt-0"
                     single-line
                     color="purple darken-2"
@@ -55,7 +55,7 @@
               <v-col cols="2">
                 <v-text-field 
                   v-model="item['weight']"
-                  :disabled="!isEditing"
+                  :disabled="!item['isEditing']"
                   class="mt-0 pt-0"
                   single-line
                   align="right"
@@ -68,13 +68,11 @@
                 </v-text-field>
               </v-col>
               <v-col cols="2">
-                <EditBtn :isEditing="isEditing" @click='edit' />
-                <DeleteBtn @click="remove"/>
+                <EditBtn :isEditing="isEditing" @click='edit(item)' />
+                <DeleteBtn @click="remove(item)"/>
               </v-col>
             </v-row>
             <v-row>
-              <v-col cols="1">
-              </v-col>
               <v-col cols="2">
                 <v-btn
                   color="success"
@@ -135,14 +133,20 @@
   padding-right: 0;
   margin-right: 0
 }
+
+.v-text-field >>> input{
+  color: black   !important
+}
 #launch-btn{
   position: absolute;
-  bottom:18%;
-  left: 92%;
+  bottom:9%;
+  left: 87%;
   width: 7em;
   transform: translateX(-50%); /* Move 50% of own width to the left*/
 }
-
+.disable-events {
+  color: black
+}
 #spacer{
   width: 7em; 
   height: 4.2em; 
@@ -178,24 +182,34 @@ export default {
     addItem(){
       console.log('here'+this.input)
       if(this.input==undefined){
-        var item = {'label':this.cachedterms, 'weight':100}
+        var item = {'label':this.cachedterms, 'weight':1.00, 'isEditing': false}
       }else{
-        item = {'label':this.input, 'weight':100}
+        item = {'label':this.input, 'weight':1.00, 'isEditing':false}
       }
       this.terms.push(item)
       this.input = ''
       this.cachedterms = []
     },
-    edit(){
+    edit(item){
+      for(let i=0; i<this.terms.length;i++){
+        if(this.terms[i]['label'] == item['label']){
+          this.terms[i]['isEditing'] = !this.terms[i]['isEditing']
+          }
+      }
       this.isEditing = !this.isEditing
     },
-    remove(){
-      this.terms.pop(this.item)
+    remove(item){
+      console.log(item)
+      for(let i=0; i<this.terms.length;i++){
+        if(this.terms[i]['label'] == item['label']){
+          this.terms.splice(i, 1)
+          }
+      }
     },
     sampleInput (keywords) {
       this.terms = []
       for(let i=0; i<keywords.length;i++){
-        this.terms.push({'label':keywords[i]['label'], 'weight':keywords[i]['weight']})
+        this.terms.push({'label':keywords[i]['label'], 'weight':keywords[i]['weight'], 'isEditing':false})
       }
       this.input = ''
       this.cachedterms = []

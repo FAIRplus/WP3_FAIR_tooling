@@ -12,7 +12,7 @@
       icon
       small
       v-model="id"
-      @click="remove"
+      @click="remove(id)"
       class="terms-row-btn"
       >
       <v-icon size="18">mdi-trash-can-outline</v-icon>
