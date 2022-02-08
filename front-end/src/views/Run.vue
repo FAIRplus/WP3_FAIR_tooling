@@ -3,13 +3,8 @@
     <div class="row">
         <h4>Input</h4>
         <p>Enter keywords and their respective weights (optionally) to discover tools.</p>
-        <div class="col-sm-8 d-flex" id="inputdiv">
-            <InputArea />
-        </div>
-        <div class="col-sm-4 d-flex">
-          <ExamplesKeywords @click='sampleInput'/>
-       </div>
     </div>
+    <InputArea />
       <div>
         <div v-if=querying style="min-height: 4px;">
           <!-- query progress bar, see eaxample https://github.com/vuetifyjs/vuetify/blob/master/packages/docs/src/examples/v-progress-linear/prop-query.vue -->
@@ -28,14 +23,12 @@
 </template>
 <script>
 import Results from '../components/Results.vue'
-import ExamplesKeywords from '../components/ExamplesKeywords.vue'
 import InputArea from '../components/InputArea.vue'
 import axios from 'axios'
 export default {
   name: 'Run',
   components: {
     Results,
-    ExamplesKeywords,
     InputArea
   },
   created() {
@@ -62,7 +55,8 @@ export default {
       show: true,
       interval: 0,
       results_not_found: false,
-      error: false
+      error: false,
+      terms:null
     }
   },
   methods: {
@@ -96,9 +90,6 @@ export default {
       }else{
         this.results = null
       }
-    },
-    sampleInput (text) {
-      this.inputTextarea = text
     },
     clearInput () {
       this.inputTextarea = ''

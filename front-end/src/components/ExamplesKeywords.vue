@@ -63,12 +63,16 @@
 </style>
 
 <script>
+import IDminting from '../assets/IDminting.json'
 export default {
   name: 'ExamplesKeywords',
   props: [],
   data() {
     return {
-      texts : [
+      IDminting: IDminting,
+      texts: [
+        {'label':'Identifier minting', 'keywords': IDminting}],
+      texts__ : [
         {'label':'Extract, Transform, Load', 
         'keywords':'Data integration and warehousing, 1\n\
 data governance, 1\n\
@@ -135,8 +139,8 @@ Identifier, 1'}
     }
   },
   methods: {
-    sampleInput(n){
-      this.$emit("click", n.keywords)
+    sampleInput(){
+      this.$emit("click", this.IDminting.keywords)
     }
   }
 }
