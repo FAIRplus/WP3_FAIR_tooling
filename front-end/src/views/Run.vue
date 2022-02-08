@@ -4,7 +4,7 @@
         <h4>Input</h4>
         <p>Enter keywords and their respective weights (optionally) to discover tools.</p>
     </div>
-    <InputArea />
+    <InputArea @click='runDiscoverer'/>
       <div>
         <div v-if=querying style="min-height: 4px;">
           <!-- query progress bar, see eaxample https://github.com/vuetifyjs/vuetify/blob/master/packages/docs/src/examples/v-progress-linear/prop-query.vue -->
@@ -56,7 +56,7 @@ export default {
       interval: 0,
       results_not_found: false,
       error: false,
-      terms:null
+      terms:[]
     }
   },
   methods: {
@@ -94,22 +94,17 @@ export default {
     clearInput () {
       this.inputTextarea = ''
     },
-    async runDiscoverer () {
+    async runDiscoverer (terms) {
       this.results = null
-      var fCorrect = this.formatCorrect()
-      if (fCorrect === true) {
-        console.log('Correct format, RUN!')
-        this.formatErrorVisible = false
-        this.querying = true
-        this.query = true
-        this.results_not_found = false
-        this.error = false
-        this.ToolDiscovererCall()
-        console.log('done')
-      } else {
-        this.lineNum = fCorrect
-        this.formatErrorVisible = true
-      }
+      this.terms = terms
+      console.log(this.terms)
+      this.formatErrorVisible = false
+      this.querying = true
+      this.query = true
+      this.results_not_found = false
+      this.error = false
+      this.ToolDiscovererCall(terms)
+      console.log('done')
     },
     formatCorrect () {
       var lines = this.inputTextarea.split(/\r?\n/g)
@@ -124,12 +119,12 @@ export default {
       }
       return true
     },
-    ToolDiscovererCall () {
+    ToolDiscovererCall (terms) {
       axios({
         method: 'post',
         url: 'http://127.0.0.1:5000/',
         data: {
-          textarea_content: this.inputTextarea
+          textarea_content: terms
         },
         headers: {
           'Content-Type': 'application/json',

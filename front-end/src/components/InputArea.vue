@@ -16,7 +16,7 @@
             chips
             hide-no-data
             hide-selected
-            item-text="Preferred Label"
+            item-text="PreferredLabel"
             small-chips
           >
           </v-autocomplete>
@@ -80,6 +80,7 @@
                   color="success"
                   dark
                   id="launch-btn"
+                  @click="runDiscoverer(terms)"
                 >
                 <small> RUN <br> SEARCH</small><v-icon>mdi-rocket-launch</v-icon>
                 </v-btn>
@@ -181,9 +182,9 @@ export default {
       }else{
         item = {'label':this.input, 'weight':100}
       }
-      this.cachedterms = []
-      this.input = ''
       this.terms.push(item)
+      this.input = ''
+      this.cachedterms = []
     },
     edit(){
       this.isEditing = !this.isEditing
@@ -191,9 +192,17 @@ export default {
     remove(){
       this.terms.pop(this.item)
     },
-    sampleInput (text) {
-      this.terms = text
+    sampleInput (keywords) {
+      this.terms = []
+      for(let i=0; i<keywords.length;i++){
+        this.terms.push({'label':keywords[i]['label'], 'weight':keywords[i]['weight']})
+      }
+      this.input = ''
+      this.cachedterms = []
     },
+    runDiscoverer(terms){
+      this.$emit("click", terms)
+    }
   }
 }
 </script>

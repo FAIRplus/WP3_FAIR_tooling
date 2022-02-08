@@ -1,10 +1,10 @@
-[{"term":"Identifier minting", 
+[{"label":"Identifier minting", 
 "weight":1},{
-"term":"Identifier resolution", 
+"label":"Identifier resolution", 
 "weight":1},{
-"term":"GUID", 
+"label":"GUID", 
 "weight":1},{
-"term":"Accession", 
+"label":"Accession", 
 "weight":1},{
-"term":"Identifier", 
+"label":"Identifier", 
 "weight":1}]

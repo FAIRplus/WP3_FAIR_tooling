@@ -2,7 +2,7 @@
 <div class="container" id="examples-cont">
   <div class="row flex-container" id="row">
     <p><b>Example keyword lists</b></p>
-    <div type="button" v-for="item in texts" :key="item.label" class="col-sm-2 flex-item card" @click="sampleInput(item)">
+    <div type="button" v-for="item in texts" :key="item.PreferredLabel" class="col-sm-2 flex-item card" @click="sampleInput(item.keywords)">
       {{ item.label }}
     </div>
   </div>
@@ -69,9 +69,8 @@ export default {
   props: [],
   data() {
     return {
-      IDminting: IDminting,
-      texts: [
-        {'label':'Identifier minting', 'keywords': IDminting}],
+      IDminting : IDminting,
+      texts: [{'label':'Identifier minting', 'keywords': IDminting}],
       texts__ : [
         {'label':'Extract, Transform, Load', 
         'keywords':'Data integration and warehousing, 1\n\
@@ -139,8 +138,8 @@ Identifier, 1'}
     }
   },
   methods: {
-    sampleInput(){
-      this.$emit("click", this.IDminting.keywords)
+    sampleInput(item){
+      this.$emit("click", item)
     }
   }
 }

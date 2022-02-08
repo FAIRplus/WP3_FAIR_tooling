@@ -31,6 +31,7 @@ class tools_discoverer(object):
             print(f"{bcolors.OKBLUE}{prompt_text}{bcolors.ENDC}")    
 
         self.terms_input = kw_w # list(dict('keyword', 'weight'))
+        print(self.terms_input)
         # keywords in:
         self.keywords_weights = pd.DataFrame(kw_w)
         # zooma terms in:
