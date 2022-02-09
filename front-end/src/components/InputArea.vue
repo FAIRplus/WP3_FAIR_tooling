@@ -182,13 +182,12 @@ export default {
     addItem(){
       console.log('here'+this.input)
       if(this.input==undefined){
-        var item = {'label':this.cachedterms, 'weight':1.00, 'isEditing': false}
+        var item = {'label':this.cachedterms, 'weight':'1.00', 'isEditing': false}
       }else{
-        item = {'label':this.input, 'weight':1.00, 'isEditing':false}
+        item = {'label':this.input, 'weight':'1.00', 'isEditing':false}
       }
       this.terms.push(item)
       this.input = ''
-      this.cachedterms = []
     },
     edit(item){
       for(let i=0; i<this.terms.length;i++){
