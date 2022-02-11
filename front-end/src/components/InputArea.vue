@@ -10,10 +10,11 @@
             cache-items
             placeholder="Start typing to search EDAM terms"
             prepend-icon="mdi-magnify-expand"
-            color="#300761"
+            background-color="#f5f5f5"
             :loading="isLoading"
-            label="Search terms"
+            label=""
             chips
+            solo
             hide-no-data
             hide-selected
             item-text="PreferredLabel"
@@ -21,11 +22,11 @@
           >
           </v-autocomplete>
         </v-col>
-        <v-col cols="2">
+        <v-col cols="1">
           <v-btn
-              color="#300761"
+              color="#5750AA"
               dark
-              rounded
+              id='add-btn'
               @click="addItem"
             >
             <small> ADD TERM <br>TO SEARCH</small><v-icon>mdi-plus</v-icon>
@@ -35,7 +36,8 @@
     <v-row>
       <v-col cols="8">
         <v-card
-          elevation="1">
+          elevation="1"
+          id='terms-card'>
           <v-card-text>
             <v-row v-for="(item) in terms" :key="item">
               <v-col cols="6">
@@ -136,6 +138,22 @@
 
 .v-text-field >>> input{
   color: black   !important
+}
+#add-btn{
+  width: 8em;
+  padding-left:1.5em;
+  padding-top: 8%;
+  padding-bottom: 8%;
+  height: 3em;
+  margin-top: .2em;
+}
+#terms-card{
+  border-color: #edebeb;
+  border-style: solid;
+  border-width: 1;
+  min-height: 22em;
+  min-width: 90%;
+  margin-right: 5% 
 }
 #launch-btn{
   position: absolute;

@@ -1,5 +1,6 @@
 <template>
 <div>
+  <v-row>
   <v-col cols="14" id='main-col'>
     <v-card elevation="0" id="examples-cont">
       <p><b>Example keyword lists</b></p>
@@ -8,30 +9,41 @@
       :key="item.PreferredLabel"
       dark
       outlined
-      color="#ad6911"
+      max-width="13.5em"
+      min-width="4em"
+      min-height="4.5em"
+      small
+      :color="item.color"
       @click="sampleInput(item.keywords)">
         {{ item.label }}
       </v-btn>
     </v-card>
   </v-col>
+  </v-row>
 </div>
 </template>
 <style scoped>
 #examples-cont{
   text-align: center;
   margin-top: 0;
+  margin-left: 4%;
+  margin-right: 1%;
   border-width: 1px;
 }
 
 #main-col{
   padding: 0;
 }
+
 .v-btn{
   text-transform: unset !important;
-  margin: .5em;
-  font-size: .85rem;
-  padding: .2em;
+  margin: .4em;
+  font-size: .7rem;
+  white-space: normal;
+  display: inline-block;
 }
+
+
 .text {
   color: black;
 }
@@ -46,35 +58,13 @@
 }
 .v-card > p{
   font-size: 1.1rem;
-  color: #454545
+  color: #454545;
+  font-family: 'Lexend Deca'
 }
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap:wrap;
-  gap: 10px;
-  border-style: solid;
-  border-color:lightgrey;
-  border-width: 1px;
-  margin-top: 1em;
-  padding: .5em;
-  }
 
 .row > p{
   margin-bottom: .5em;
 }
-
-.flex-item {
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: 45%;
-  align-self: center;
-  text-align: center;
-  min-width: 45%;
-  width: 45%;
-}
-
 
 </style>
 
@@ -86,12 +76,12 @@ export default {
   data() {
     return {
       IDminting : IDminting,
-      texts: [{'label':'Ontology Annotation', 'keywords': []},
-      {'label':'Ontology Management', 'keywords': []},
-      {'label':'Ontology Engineering', 'keywords': []},
-      {'label':'Identifier Minting', 'keywords': IDminting},
-      {'label':'Identifier Mapping', 'keywords': []},
-      {'label':'Extract, Transform, Load', 'keywords': []}],
+      texts: [{'label':'Ontology Annotation','color': '#ad6911', 'keywords': []},
+      {'label':'Ontology Management','color': '#ad6911', 'keywords': []},
+      {'label':'Ontology Engineering', 'color': '#ad6911', 'keywords': []},
+      {'label':'Identifier Minting', 'color': '#8A2549', 'keywords': IDminting},
+      {'label':'Identifier Mapping', 'color': '#8A2549', 'keywords': []},
+      {'label':'Extract, Transform, Load', 'color': '#484848','keywords': []}],
       texts__ : [
         {'label':'Extract, Transform, Load', 
         'keywords':'Data integration and warehousing, 1\n\

@@ -1,9 +1,9 @@
 <template>
   <div class="container run_main">
     <v-row class='first-parag'>
-        <h4>Input</h4>
-        <p>Enter keywords and their respective weights (optionally) to discover tools.</p>
+        <h4>Disover Tools</h4>
     </v-row >
+    <p>Introduce search terms and respective weights (optionally).</p>
     <InputArea @click='runDiscoverer'/>
       <div class="main-results">
         <div v-if=querying style="min-height: 4px;">
@@ -183,6 +183,7 @@ export default {
   margin-bottom: 2em;
   font-size: .9rem;
   width: 100%;
+  font-family: "Lexend";
 }
 .first-parag{
   margin-bottom: 2em
