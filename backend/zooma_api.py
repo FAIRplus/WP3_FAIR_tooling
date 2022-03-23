@@ -48,7 +48,7 @@ def zooma_single_lookup(keyword):
     url=f"https://www.ebi.ac.uk/spot/zooma/v2/api/services/annotate?propertyValue={keyword}&filter=required:[none],ontologies:[edam]"
     # get JSON
     zooma_result = get_url(url)
-    #print(json.dumps(zooma_result, indent=4, sort_keys=False))
+    print(json.dumps(zooma_result, indent=4, sort_keys=False))
     confident_matches = []
     for match in zooma_result:
         confident_matches = filter_by_confifence(match, confident_matches)

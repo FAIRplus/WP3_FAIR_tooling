@@ -28,6 +28,16 @@
   justify-content: space-between;
 }
 
+
+@font-face {
+  font-family: "Lexend";
+  src: local("Lexend"),   url(./assets/fonts/Lexend/Lexend-VariableFont_wght.ttf) format("truetype");
+  }
+
+@font-face {
+font-family: "Lexend Deca";
+src: local("Lexend Deca"),   url(./assets/fonts/Lexend_Deca/LexendDeca-VariableFont_wght.ttf) format("truetype");
+}
 body{
   display: flex;
   flex-direction: column;

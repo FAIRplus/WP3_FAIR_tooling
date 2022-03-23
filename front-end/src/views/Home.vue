@@ -1,5 +1,10 @@
 <template>
   <div class="container" id="index-main">
+    <h4>The FAIRification tool discoverer</h4>
+    <p>
+    Discovering tools for your FAIRification tasks
+
+    </p>
     <br>
     <h4>What do you want to do?</h4>
     <br>

@@ -27,22 +27,17 @@ class unique_run(object):
 
     def parse_input(self):
         inputs_kw = []
-        missing_weights_n = 0
+        weights = set()
+        diff_weights_n = 0
         try:
-            for line in self.request.json['textarea_content'].split('\n'):
-                if line:
-                    if ',' in line:
-                        k = line.split(',')[0].lower()
-                        w = float(line.split(',')[1])
-                    else:
-                        k = line.lstrip().lower()
-                        w = 1.00
-                        missing_weights_n += 1
-                    inputs_kw.append({'keyword':k, 'weight':w})
-            if missing_weights_n == len(inputs_kw):
-                self.custom_weights = False
+            for term in self.request.json['textarea_content']:
+                w=float(term['weight'])
+                inputs_kw.append({'keyword':term['label'], 'weight': w })
+                weights.add(w)
+            if len(weights)>1:
+                self.diff_weights = True
             else:
-                self.custom_weights = True
+                self.diff_weights = False
             
         except Exception as err:
                 print(err)
@@ -58,7 +53,7 @@ class unique_run(object):
                                             self.inputs_kw,
                                             'temp',#output directory
                                             None, #default score 
-                                            self.custom_weights, # True is any custom weight entered
+                                            self.diff_weights, # True is any custom weight entered
                                             True) #verbosity
 
         self.tools_discov.run_pipeline()
@@ -87,6 +82,7 @@ def run_discoverer():
     if request.method == 'POST':
         try:
             # run query
+            print(request.json)
             this_run = unique_run(request)
             this_run.run_tool_discoverer_query()
             data = {'result':this_run.json_result, 

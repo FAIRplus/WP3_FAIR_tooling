@@ -1,22 +1,49 @@
 <template>
-<div class="container" id="examples-cont">
-  <div class="row flex-container" id="row">
-    <p><b>Example keyword lists</b></p>
-    <div type="button" v-for="item in texts" :key="item.label" class="col-sm-2 flex-item card" @click="sampleInput(item)">
-      {{ item.label }}
-    </div>
-  </div>
-  <div class="btn-group-vertical">
-      <button type="button" class="input-aid-btn" id="input_clear_button" @click="sampleInput('')">Clear</button>
-  </div>
+<div>
+  <v-row>
+  <v-col cols="14" id='main-col'>
+    <v-card elevation="0" id="examples-cont">
+      <p><b>Example keyword lists</b></p>
+      <v-btn 
+      v-for="item in texts" 
+      :key="item.PreferredLabel"
+      dark
+      outlined
+      max-width="13.5em"
+      min-width="4em"
+      min-height="4.5em"
+      small
+      :color="item.color"
+      @click="sampleInput(item.keywords)">
+        {{ item.label }}
+      </v-btn>
+    </v-card>
+  </v-col>
+  </v-row>
 </div>
 </template>
 <style scoped>
 #examples-cont{
   text-align: center;
-  
-
+  margin-top: 0;
+  margin-left: 4%;
+  margin-right: 1%;
+  border-width: 1px;
 }
+
+#main-col{
+  padding: 0;
+}
+
+.v-btn{
+  text-transform: unset !important;
+  margin: .4em;
+  font-size: .7rem;
+  white-space: normal;
+  display: inline-block;
+}
+
+
 .text {
   color: black;
 }
@@ -29,46 +56,75 @@
   padding-left: 0%;
   text-align: center;
 }
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap:wrap;
-  gap: 10px;
-  border-style: solid;
-  border-color:lightgrey;
-  border-width: 1px;
-  margin-top: 1em;
-  padding: .5em;
-  }
+.v-card > p{
+  font-size: 1.1rem;
+  color: #454545;
+  font-family: 'Lexend Deca'
+}
 
 .row > p{
   margin-bottom: .5em;
 }
 
-.flex-item {
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: 45%;
-  align-self: center;
-  text-align: center;
-  min-width: 45%;
-  width: 45%;
-}
-
-.btn-group-vertical{
-  margin-top: 2rem;
-}
-
 </style>
 
 <script>
+import IDminting from '../assets/IDminting.json'
 export default {
-  name: 'SourceAvatar',
+  name: 'ExamplesKeywords',
   props: [],
   data() {
     return {
-      texts : [
+      IDminting : IDminting,
+      texts: [{'label':'Ontology Annotation','color': '#ad6911', 'keywords': []},
+      {'label':'Ontology Management','color': '#ad6911', 'keywords': []},
+      {'label':'Ontology Engineering', 'color': '#ad6911', 'keywords': []},
+      {'label':'Identifier Minting', 'color': '#8A2549', 'keywords': IDminting},
+      {'label':'Identifier Mapping', 'color': '#8A2549', 'keywords': []},
+      {'label':'Extract, Transform, Load', 'color': '#484848','keywords': []}],
+      texts__ : [
+        {'label':'Extract, Transform, Load', 
+        'keywords':'Data integration and warehousing, 1\n\
+data governance, 1\n\
+Data identity and mapping, 1\n\
+Data submission annotation and curation, 1\n\
+Database management, 1\n\
+workflows, 1\n\
+Data quality management, 1\n\
+parsing, 1\n\
+deposition, 1\n\
+aggregation, 1\n\
+formatting, 1\n\
+Query and retrieval, 1\n\
+Information extraction, 1\n\
+Format validation, 1\n\
+data store, 1\n\
+data warehous, 1\n\
+data lake, 1\n\
+aggregated data, 1\n\
+ETL, 1\n\
+Ingest, 1\n\
+Retriev, 1\n\
+Cloud migration, 1\n\
+Database replication, 1\n\
+dataflow, 1\n\
+integrat, 1\n\
+extract, 1\n\
+transform, 1\n\
+data cleaning, 1\n\
+loading, 1\n\
+validat, 1\n\
+query, 1\n\
+provenance, 1\n\
+Database management, 1\n\
+Data quality, 1\n\
+parsing, 1\n\
+deposit, 1\n\
+format, 1\n\
+data unification, 1\n\
+provenance, 1\n\
+workflow, 1\n\
+transfer'},
         {'label':'Ontology Annotation',
          'keywords':'Ontology annotation,1\n\
 Semantic annotation,0.8\n\
@@ -153,8 +209,8 @@ Format validation",0.7'}
     }
   },
   methods: {
-    sampleInput(n){
-      this.$emit("click", n.keywords)
+    sampleInput(item){
+      this.$emit("click", item)
     }
   }
 }
