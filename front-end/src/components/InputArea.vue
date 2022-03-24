@@ -7,6 +7,7 @@
             v-model="input"
             :items="EDAM_items"
             :search-input.sync="cachedterms"
+            :debounce-search="0"
             cache-items
             placeholder="Start typing to search EDAM terms"
             prepend-icon="mdi-magnify-expand"
@@ -18,8 +19,40 @@
             hide-no-data
             hide-selected
             item-text="PreferredLabel"
+            item-value="PreferredLabel"
             small-chips
           >
+             <template v-slot:selection="data">
+                <v-chip
+                      class="ma-2"
+                      label
+                      small
+                      color="grey"
+                      text-color="white"
+                      >
+                      {{ getLabel(data.item) }}
+                    </v-chip>
+                    {{data.item.PreferredLabel}}
+                </template>
+              <template v-slot:item="data">
+                <template v-if="typeof data.item !== 'object'">
+                  <v-list-item-content v-text="data.item"></v-list-item-content>
+                </template>
+                <template v-else>
+                   <v-chip
+                      class="ma-2"
+                      label
+                      small
+                      color="grey"
+                      text-color="white"
+                      >
+                      {{ getLabel(data.item) }}
+                    </v-chip>
+                  <v-list-item-content>
+                    <v-list-item-title v-html="data.item.PreferredLabel"></v-list-item-title>
+                  </v-list-item-content>
+                </template>
+              </template>
           </v-autocomplete>
         </v-col>
         <v-col cols="1">
@@ -122,7 +155,7 @@
 }
 .v-autocomplete{
   padding-top: 0%;
-  font-size: .9rem
+  font-size: .9rem;
 }
 .v-autocomplete >>> .v-icon{
   color:#300761;
@@ -189,6 +222,8 @@ export default {
       return {
         terms:[],
         isEditing: false,
+        cachedterms:"",
+        termsNames:[],
         hover:[],
         btns: {'edit':{'icon':'mdi-pencil', 'text':'Edit'},
                'delete':{'icon':'mdi-trash-can-outline', 'text':'Remove'}
@@ -200,13 +235,15 @@ export default {
     addItem(){
       console.log('here'+this.input)
       if(this.input==undefined){
+        console.log(this.termsNames.includes(this.cachedterms))
         var item = {'label':this.cachedterms, 'weight':'1.00', 'isEditing': false}
+          this.cachedterms=null
       }else{
         item = {'label':this.input, 'weight':'1.00', 'isEditing':false}
+        this.input=null
       }
       this.terms.push(item)
-      this.input = ''
-    },
+          },
     edit(item){
       for(let i=0; i<this.terms.length;i++){
         if(this.terms[i]['label'] == item['label']){
@@ -233,7 +270,25 @@ export default {
     },
     runDiscoverer(terms){
       this.$emit("click", terms)
+    },
+    getLabel(item){
+      if(item.ClassId.includes('operation')===true){
+        return('Operation')
+      }else if(item.ClassId.includes('format')===true){
+        return('Data Type')
+      }else if(item.ClassId.includes('topic')===true){
+        return('Topic')
+      }else{return('Other')}
+    }
+  },
+  getColor(item){
+      if(item.ClassId.includes('operation')===true){
+        return('teal')
+      }else if(item.ClassId.includes('format')===true){
+        return('grey')
+      }else if(item.ClassId.includes('topic')===true){
+        return('blue')
+      }else{return('grey')}
     }
   }
-}
 </script>

@@ -19,7 +19,6 @@
     <p>
       <i class="fas fa-tools"></i>
     </p>
-    </v-row>
     <v-row class="lists">
     <v-col cols="6">
       <p>Below are some manually curated tool lists:</p>
@@ -78,6 +77,7 @@
 .link-icon >>> i{
   margin-left: 0.25em;
   margin-right: 0.25em
+  }
 .v-container {
   font-size: .2rem;
   margin-bottom: 3%;
