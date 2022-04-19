@@ -265,8 +265,6 @@ export default {
       for(let i=0; i<keywords.length;i++){
         this.terms.push({'label':keywords[i]['label'], 'weight':keywords[i]['weight'], 'isEditing':false})
       }
-      this.input = ''
-      this.cachedterms = []
     },
     runDiscoverer(terms){
       this.$emit("click", terms)

@@ -114,13 +114,17 @@ class tools_discoverer(object):
         print('Done')   
 
     def compute_score(self, row):
+        #print(row)
         if self.custom_weights == False:
             return(float(len([x for x in row['matches']])))
         else:
             scores = []
+            #[self.keywords_weights['keyword']]
             for match in list(row['matches']):
+                #print(match)
+                #print(self.keywords_weights)
                 w = self.keywords_weights.loc[self.keywords_weights['keyword']==match]['weight'].values[0]
-                scores.append(w)
+                scores.append(float(w))
             summ = sum(scores)
             return(float(summ))
 

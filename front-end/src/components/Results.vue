@@ -4,11 +4,21 @@
     <h5>URL:</h5>
     <p><a :href="build_url(run_id) " target='_blank'>{{ build_url(run_id) }}</a></p>
   </div>
-  <v-expansion-panels flat>
-    <v-expansion-panel>
-      <v-expansion-panel-header><h5>Input parameters</h5></v-expansion-panel-header>
+  <v-expansion-panels 
+    style="width:60%" 
+    flat 
+    hover>
+    <v-expansion-panel >
+      <v-expansion-panel-header>
+        <h5>Input parameters</h5>
+        <template v-slot:actions>
+            <v-icon color="success">
+              mdi-arrow-down-drop-circle-outline
+            </v-icon>
+          </template>
+      </v-expansion-panel-header>
       <v-expansion-panel-content>
-        <div style="width:70%">
+        <div style="width:90%, padding-top:1%">
           <v-data-table
             :headers="inputsHeaders"
             :items="inputParameters"
@@ -20,12 +30,20 @@
       </v-expansion-panel>
     </v-expansion-panels>
   <br>
-    <v-expansion-panels flat v-model="panel">
+    <v-expansion-panels 
+        flat 
+        v-model="panel"
+        hover>
       <v-expansion-panel
       expand
       v-model="panel">
       <v-expansion-panel-header>
         <h4>Results</h4>
+        <template v-slot:actions>
+            <v-icon color="success">
+              mdi-arrow-down-drop-circle-outline
+            </v-icon>
+          </template>
       </v-expansion-panel-header>
       <v-expansion-panel-content>
         <div>
@@ -427,7 +445,7 @@ export default {
       if(this.tools.length===0){
         return('')
       }else{
-        var url = 'http://192.168.1.34:8080/run/' + id
+        var url = 'http://192.168.1.37:8080/run/' + id
         return(url)
       }
     },

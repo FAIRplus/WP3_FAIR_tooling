@@ -70,15 +70,18 @@
 
 <script>
 import IDminting from '../assets/IDminting.json'
+import OntoAnno from '../assets/OntoAnno.json'
+import OntoEng from '../assets/OntoEng.json'
 export default {
   name: 'ExamplesKeywords',
   props: [],
   data() {
     return {
       IDminting : IDminting,
-      texts: [{'label':'Ontology Annotation','color': '#ad6911', 'keywords': []},
+      OntoAnno: OntoAnno,
+      texts: [{'label':'Ontology Annotation','color': '#ad6911', 'keywords': OntoAnno},
       {'label':'Ontology Management','color': '#ad6911', 'keywords': []},
-      {'label':'Ontology Engineering', 'color': '#ad6911', 'keywords': []},
+      {'label':'Ontology Engineering', 'color': '#ad6911', 'keywords': OntoEng},
       {'label':'Identifier Minting', 'color': '#8A2549', 'keywords': IDminting},
       {'label':'Identifier Mapping', 'color': '#8A2549', 'keywords': []},
       {'label':'Extract, Transform, Load', 'color': '#484848','keywords': []}],

@@ -32,7 +32,7 @@ class unique_run(object):
         try:
             for term in self.request.json['textarea_content']:
                 w=float(term['weight'])
-                inputs_kw.append({'keyword':term['label'], 'weight': w })
+                inputs_kw.append({'keyword':term['label'].lower(), 'weight': w })
                 weights.add(w)
             if len(weights)>1:
                 self.diff_weights = True

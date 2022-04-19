@@ -25,16 +25,16 @@
       <h6><span class="question-icon"><i class="fas fa-question-circle"></i></span>
         Input format</h6>   
       <v-col cols="12" class="column">
-        Keywords and weights must be introduced as CSV format, where the first column are terms 
-        or keywords and second column weights associated to them. 
-        Each row has the form (term,weight) 
+        Introduce a term in the input bar and click "Add term to search" to include it into the kywords list to search. While typing, similar EDAM terms will be dispalyed as a dropdown. 
+        The list of keywords to search is displayed under the input bar as the terms are added to it.
+        The grey label on the right indicates the type os EDAM term, either 'operation' or 'topic'. Once a term is added to the list, you can modify its weight by clicking the 'Edit' bottom on the right.
         <v-card
         elevation=0>
-          <img src="@/assets/img/screenshot.png" style="width:65%">
+          <img src="@/assets/img/help_screenshot.png" style="width:65%">
           <br><br><small style="align-text:center">See example keyword lists next to input box.</small>
           <br><br>
           </v-card>
-        Weights are optional and, if specified, they are recommended to be in the range (0,1).
+        Weights are recommended to be in the range (0,1).
       </v-col>
     </v-row>
     <v-row>
