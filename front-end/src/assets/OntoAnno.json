@@ -1,0 +1,12 @@
+[{"label":"Ontology annotation", 
+"weight":"1.00"},{
+"label":"Semantic annotation", 
+"weight":"0.80"},{
+"label":"Entity tagging", 
+"weight":"1.00"},{
+"label":"Entity recognition", 
+"weight":"1.00"},{
+"label":"Ontology and terminology", 
+"weight":"1.00"},{
+"label":"Annotation", 
+"weight":"0.70"}]
