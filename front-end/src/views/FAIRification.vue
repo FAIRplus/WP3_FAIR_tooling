@@ -1,6 +1,7 @@
 <template>
   <div class="v-container" id="index-main">
-    <h6>What tools to use for FAIRification tasks?</h6>
+    <h6><span class="tools-icon"><i class="fas fa-tools"></i></span>
+    What tools to use for FAIRification tasks?</h6>
     <p>
     The <b>FAIRification Tool Discoverer</b> suggests tools for common FAIRification tasks. <br>
     The tools are collected from public archives and curated for FAIRification capabilities 
@@ -15,13 +16,10 @@
     <p>
     For detailed information about using such tools, or how to perform FAIRification, 
     please check the <a href="https://fairplus.github.io/the-fair-cookbook/content/home.html">FAIR Cookbook</a>.
-    <p>
-    <p>
-      <i class="fas fa-tools"></i>
     </p>
     <v-row class="lists">
     <v-col cols="6">
-      <p>Below are some manually curated tool lists:</p>
+      <p>Some manually curated tool lists are shown below:</p>
     <v-expansion-panels>
       <v-expansion-panel
         v-for="(item) in keyw_lists"

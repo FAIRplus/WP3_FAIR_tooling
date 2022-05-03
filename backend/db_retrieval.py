@@ -46,7 +46,9 @@ class query(object):
                                               'matches',
                                               'citations',
                                               'citations_other',
-                                              'sources_labels'])
+                                              'sources_labels',
+                                              'input_format_labels',
+                                              'output_format_labels'])
         self.results.set_index('@id')
   
 

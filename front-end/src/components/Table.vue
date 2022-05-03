@@ -1,53 +1,93 @@
 <template>
     <div>
         <v-card elevation="2" style="margin-bottom:4em; margin-top:2em">
-            <v-col cols="12" class="py-2">
-            <h5>
-                Filters
-            </h5>
-            </v-col>
-            <v-col
-            cols="12"
-            class="py-2"
-            >
-                <p>
-                    Availability
-                </p>
-                <v-btn-toggle
-                v-model="toggle_sources"
-                multiple
-                dense
-                group
-                >
-                    <FilterBtn 
-                        v-for="label in filtersMapping.sources" 
-                        :key="filtersMapping.sources.indexOf(label)" 
-                        :label="label" 
-                        icon />
-                    
-                </v-btn-toggle>
-            </v-col>
-            <v-col
-            cols="12"
-            class="py-2"
-            >
-                <p>
-                    Type of Software
-                </p>
-                <v-btn-toggle
-                    v-model="toggle_types"
-                    multiple
-                    dense
-                    group
-                >   
-                    <FilterBtn  
-                        v-for="item in filtersMapping.types" 
-                        :key="filtersMapping.types.indexOf(item)" 
-                        :label="item" 
-                        />
+            <v-form>
+                <v-container>
+                    <v-row>
+                        <v-col cols="12" class="py-2">
+                        <h5>
+                            Filters
+                        </h5>
+                        </v-col>
+                        <span class="filterTitle">
+                            Availability
+                        </span>
+                        <v-col
+                        cols="12"
+                        class="py-2"
+                        style="margin-bottom:.9em"
+                        >    
+                            <v-btn-toggle
+                            v-model="toggle_sources"
+                            multiple
+                            dense
+                            group
+                            >
+                                <FilterBtn 
+                                    v-for="label in filtersMapping.sources" 
+                                    :key="filtersMapping.sources.indexOf(label)" 
+                                    :label="label" 
+                                    icon />
+                            </v-btn-toggle>
+                        </v-col>
+                        <span class="filterTitle">
+                            Type of Software
+                        </span>
+                        <v-col
+                        cols="12"
+                        class="py-2"
+                        style="margin-bottom:.9em"
+                        >    
+                            <v-btn-toggle
+                                v-model="toggle_types"
+                                multiple
+                                dense
+                                group
+                            >   
+                                <FilterBtn  
+                                    v-for="item in filtersMapping.types" 
+                                    :key="filtersMapping.types.indexOf(item)" 
+                                    :label="item" 
+                                    />
 
-                </v-btn-toggle>
-            </v-col>
+                            </v-btn-toggle>
+                        </v-col>
+                        <span class="filterTitle">
+                            Data Types
+                        </span>
+                        <v-row
+                        style="margin-top:.9em">
+                        <v-col
+                        cols="5"
+                        class="py-2"
+                        >
+                            <v-autocomplete
+                                v-model="inputValues"
+                                :items="inputTypes"
+                                outlined
+                                dense
+                                label="Input"
+                            ></v-autocomplete>
+                        </v-col>
+                        <v-col
+                            cols="1">
+                        </v-col>
+                        <v-col
+                        cols="5"
+                        class="py-2"
+                        >
+                            <v-autocomplete
+                                v-model="outputValues"
+                                :items="outputTypes"
+                                outlined
+                                dense
+                                label="Output"
+                            ></v-autocomplete>
+                        </v-col>
+                        </v-row>
+                    </v-row>
+                </v-container>
+            </v-form>
         </v-card >
     <v-data-table
     v-model="rowSelect"
@@ -66,64 +106,46 @@
             @click="rowSelect(key)" 
             v-for="(item, key) in items" :key="item._id.toString()"
         >
+            <ArrowsCol :down="arrowsDownShow(key, item.name)" :up="arrowsUpShow(key, item.name)"/>
+            <NameCol :name="item.name" />
+            <TypeCol :type="item.type" />
+            <SourcesCol :itemSources="item.sources_labels" />
+            <DescriptionCol :description="item.description" :selected="selected" :idx="key" />
+            <EnumCol 
+                :items="item.edam_topics" 
+                :selected="selected" 
+                :arrowsUp="arrowsUpShow(key, item.name)"
+                :idx="key" />
+            <EnumCol 
+                :items="item.edam_operations"
+                :selected="selected"
+                :arrowsUp="arrowsUpShow(key, item.name)"
+                :idx="key"/>
             <td>
-            <i  v-if="arrowsDownShow(key, item.name)" class="fas fa-angle-down cell-arrow"></i>
-            <i  v-if="arrowsUpShow(key, item.name)" class="fas fa-angle-up cell-arrow"></i>
+                <ul>
+                    <li v-for="format in item.input_format_labels" :key="item.input_format_labels.indexOf(format)">
+                    {{ format }}
+                    </li>
+                    <span v-if="dots">...</span>                      
+                </ul>
             </td>
-            <td>
-            <b><big>{{ item.name }}</big></b>
-            </td>
-            <td>
-                {{ dictGet(item.type).hover }}
-            </td>
-            <td>
-            <SourceAvatar 
-                v-for="source in avatars"
-                :key="source.content" 
-                :avatarProps="source"
-                :sources_labels='item.sources_labels' />
 
-            </td>
             <td>
-            <span v-html="descriptionSpan(trimIfNotSelected(item.description[0], key))"></span>
+                <ul>
+                    <li v-for="format in item.output_format_labels" :key="item.output_format_labels.indexOf(format)">
+                    {{ format }}
+                    </li>
+                    <span v-if="dots">...</span>                      
+                </ul>
             </td>
-            <td>
-            <ul>
-                <li v-for="(topic, name) in trimListIfNotSelected(item.edam_topics, key)" :key="name">
-                {{ topic.label }}
-                </li>
-                <span v-if="item.edam_topics.length > 5 && arrowsUpShow(key, item.name) == false">...</span>                      
-            </ul>
-            </td>
-            <td>
-            <ul>
-                <li v-for="(operation, name) in trimListIfNotSelected(item.edam_operations, key)" :key="name">
-                {{ operation.label }}
-                </li>
-                <span v-if="item.edam_operations.length > 5 && arrowsUpShow(key, item.name) == false">...</span>
-            </ul>
-            </td>
-            <td>
-            <ul>
-                <div v-for="(pdata, year) in build_pubs(item, key)" :key="year" class='publications'>
-                <v-icon class='fas fa-circle' :color = 'pdata.color' size="10"></v-icon> 
-                <span v-html="pdata['label']" />
-                    <a v-for="(link, year) in pdata['links']" :key="year"  :href="link" target="_blank">  
-                    <i class='fas fa-external-link-alt' size="3"></i>
-                    </a>
-                </div>
-            </ul>
-            </td>
-            <td>
-            <PubPlot :pubPlotProps='item' v-if="item.citations.length!=0"/>
-            </td>
-            <td>
-            {{ item.license[0] }}
-            <!-- Match license to spdx-->
-            </td>
-            <td>
-            {{ formatNumber(item.score) }} 
-            </td>
+
+
+            <PublicationsCol :item="item" :idx="key" />
+            <CitationsCol :pubPlotProps='item' />
+
+            <LicenseCol :licenses="item.license"  />
+            <ScoreCol :score="item.score" />
+
         </tr>
         </tbody>
     </template>
@@ -132,21 +154,41 @@
 </template>
 
 <script>
-import PubPlot from './PubPlot.vue'
-import SourceAvatar from './SourceAvatar.vue'
-import FilterBtn from './FilterBtn.vue'
 
+import FilterBtn from './FilterBtn.vue'
+import ArrowsCol from './ArrowsCol.vue'
+import NameCol from './NameCol.vue'
+import TypeCol from './TypeCol.vue'
+import SourcesCol from './SourcesCol.vue'
+import DescriptionCol from './DescriptionCol.vue'
+import EnumCol from './EnumCol.vue'
+import PublicationsCol from './PublicationsCol.vue'
+import CitationsCol from './CitationsCol.vue'
+import LicenseCol from './LicenseCol.vue'
+import ScoreCol from './ScoreCol.vue'
 
 export default {
     name : 'Table',
     props: ["tools"],
     components : {
-        PubPlot,
-        SourceAvatar,
-        FilterBtn
+        FilterBtn,
+        ArrowsCol,
+        NameCol,
+        TypeCol,
+        SourcesCol,
+        DescriptionCol,
+        EnumCol,
+        PublicationsCol,
+        CitationsCol,
+        LicenseCol,
+        ScoreCol
     },
     data() {
         return {
+            inputTypes: ['CSV', 'GFF', 'BED', 'FASTA'],
+            outputTypes: ['CSV', 'GFF', 'BED', 'FASTA'],
+            inputValues: [],
+            outputValues: [],
             toggle_sources: [0,1,2,3,4,5,6],
             toggle_types: [0,1,2,3,4],
             activeResults: true,
@@ -155,108 +197,6 @@ export default {
             selected: null,
             isHovering: false,
             longResults:[],
-            avatars: {
-                biotools: {
-                    src:'elixir-logo.svg',
-                    color:'orange',
-                    content:'bio.tools',
-                    url:'bio.tools',
-                    label: 'biotools',
-                },
-                bioconda: {
-                    src:'bioconda-logo.svg',
-                    color:'#005500',
-                    content:'bioconda',
-                    url:'',
-                    label:'bioconda'
-                },
-                github: {
-                    src:'github-logo.svg',
-                    color:'black',
-                    content:'GitHub',
-                    url:'github.org',
-                    label:'github'
-                },
-                bioconductor: {
-                    src:'bioconductor-logo.svg',
-                    color:'#2f93ba',
-                    content:'Bioconductor',
-                    url:'',
-                    label:'bioconductor'
-                },
-                galaxy: {
-                    src: 'galaxy-logo.svg',
-                    color: '#134798',
-                    content: 'Galaxy Eu',
-                    url:'',
-                    label: 'galaxy'
-                },
-                sourceforge: {
-                    src: 'sourceforge-logo.svg',
-                    color: '#ff6602',
-                    content: 'SourceForge',
-                    url:'',
-                    label: 'sourceforge'
-                },
-                bitbucket: {
-                    src: 'bitbucket-logo.svg',
-                    color: '#005ed9',
-                    content: 'Bitbucket',
-                    url:'',
-                    label: 'bitbucket'
-                },
-                other: {
-                    src: 'other.svg',
-                    color: '#535682',
-                    content: 'Homepage',
-                    url:'',
-                    label: 'other'
-                }
-            },
-            linksURLs: [
-                {id : 'doi',  template : 'https://doi.org/'},
-                {id : 'pmcid', template : 'https://www.ncbi.nlm.nih.gov/pmc/articles/'},
-                {id : 'pmid', template :'https://pubmed.ncbi.nlm.nih.gov/'},
-                {id : 'url', template: ''}
-                ],
-            inputsHeaders: [
-                {text: 'Keyword', value: 'keyword'},
-                {text: 'Weight', value: 'weight'}
-            ],
-            typesAbb: {
-                'cmd' : {
-                'text': 'CMD',
-                'hover': 'Command-line Tool'
-                },
-                'web': {
-                'text': 'Web',
-                'hover': 'Web Application'
-                },
-                'db' : {
-                'text': 'DB',
-                'hover': 'Database'
-                },
-                'lib' : {
-                'text': 'Lib',
-                'hover': 'Library'
-                },
-                'unknown': {
-                'text': 'Unknown',
-                'hover': 'Unknown'
-                }
-            },
-            plot_colors: [
-            '#1f77b4',
-            '#ff7f0e',
-            '#2ca02c',
-            '#d62728',
-            '#9467bd',
-            '#8c564b',
-            '#e377c2',
-            '#7f7f7f',
-            '#bcbd22',
-            '#17becf' 
-            ],
             filtersMapping: {
                 sources : ['biotools', 'github', 'bioconda','galaxy', 'sourceforge', 'bioconductor', 'bitbucket'],
                 types : ['cmd', 'web', 'library', 'db', 'suite']
@@ -267,7 +207,7 @@ export default {
         headers () {
             return [
                 {text: '', align: 'start', sortable: false, value: 'down', width: '1em'},
-                {text: 'Tool Name', align: 'start', sortable: false, value: 'name', width: '5rem'},
+                {text: 'Tool Name', align: 'start', sortable: false, value: 'name', width: '3rem'},
                 {
                     text: 'Type of Software', 
                     value: 'type', 
@@ -287,7 +227,9 @@ export default {
                 {text: 'Description', value: 'description', width: '13rem'},
                 {text: 'Related Topics', value: 'edam_topics', width: '8rem'},
                 {text: 'Functionality', value: 'edam_operations', width: '8rem'},
-                {text: 'Publications', value: 'publications', width: '14rem'},
+                {text: 'Input Data Format', value: 'input_format_labels', width: '8rem'},
+                {text: 'Output Data Format', value: 'output_format_labels', width: '8rem'},
+                {text: 'Publications', value: 'publications', width: '13rem'},
                 {text: 'Number of Citations', value: 'publications',  width: '13rem'},
                 {text: 'License', value: 'license', width: '5rem'},
                 {text: 'Score', value: 'score', width: '3rem'}
@@ -336,30 +278,18 @@ export default {
       }
         },
         arrowsDownShow(idx, toolID){
-      if(this.longResults.includes(toolID) && idx != this.selected){
-        return(true)
-      }else{
-        return(false)
-      }
+            if(this.longResults.includes(toolID) && idx != this.selected){
+                return(true)
+            }else{
+                return(false)
+            }
         },
         arrowsUpShow(idx, toolID){
-      if(this.longResults.includes(toolID) && idx === this.selected){
-        return(true)
-      }else{
-        return(false)
-      }
-        },
-        trimIfNotSelected(value, idx){
-      if(this.selected === idx){
-        return(value)
-      }else{
-        if(value.length > 320){
-          var short = `${value.substring(0,320)} ...`
-        }else{
-          return(value)
-        }
-        return(short)
-      }
+            if(this.longResults.includes(toolID) && idx === this.selected){
+                return(true)
+            }else{
+                return(false)
+            }
         },
         trimListIfNotSelected(list, idx){
         if(this.selected === idx){
@@ -369,61 +299,15 @@ export default {
             return(short_list)
         }
         },
-        dictGet(key) {
-        var result = this.typesAbb[key] || {'text':key, "hover":key}
-        return(result)
-        },
-        build_pubs(item){
-        var labels = []
-        for (let i = 0; i < item.citations.length; i++) {
-            const links = []
-            for(var k = 0; k < this.linksURLs.length; k++){
-            const idType = this.linksURLs[k]['id']
-            if(item.citations[i][idType]!=undefined){
-                links.push(this.linksURLs[k]['template']+item.citations[i][idType]) 
-            }
-            }
-            var label
-            if(item.citations[i]['year'] == undefined){
-            if(item.citations[i]['title'] == undefined){
-                label = 'link'
-            }else{
-                label = item.citations[i]['title']
-            }
-            }else{
-            label = `<span>${item.citations[i]['title']}(${item.citations[i]['year']})</span>`
-            }
-            labels.push({'label':label, 
-                        'color':this.plot_colors[i],
-                        'year':item.citations[i]['year'],
-                        'links':links})
-        }
-        for (let e = 0; e < item.citations_other.length; e++) {
-            const links = []
-            for(var j = 0; j < this.linksURLs.length; j++){
-            const idType = this.linksURLs[j]['id']
-            if(item.citations_other[e][idType]!=undefined){
-                links.push(this.linksURLs[j]['template']+item.citations_other[e][idType]) 
-            }
-            }
-            label = ''
-            if(item.citations_other[e]['title'] != '' && item.citations_other[e]['title'] != undefined){
-            labels.push({'label': item.citations_other[e]['title'],
-                        'color': 'black',
-                        'year': null,
-                        'links': links})
-            }
-        }
-        return(labels)
-        },
+        
         formats(formats){
-        var string = ''
-        for (let i = 0; i < formats.length; i++) {
-            if(i>0){
-            string= string + ', ' + formats[i]
-            }else{
-            string= string + ': ' + formats[i]
-            }
+            var string = ''
+            for (let i = 0; i < formats.length; i++) {
+                if(i>0){
+                string= string + ', ' + formats[i]
+                }else{
+                string= string + ': ' + formats[i]
+                }
         }
         return(string)
         },
@@ -431,10 +315,7 @@ export default {
         const span = `${title} (${year})`
         return(span)
         },
-        descriptionSpan(description){
-        const html = `<span>${description}</span>`
-        return(html)
-        },
+        
         formatNumber (num) {
         return parseFloat(num).toFixed(2)
         }
@@ -456,18 +337,7 @@ export default {
   font-size: smaller !important;
   padding: .5em .5em 1em 1em;
 }
-#descr_panel{
-  font-size: smaller !important;
-}
 
-.cell-arrow{
-  color: darkgray;
-}
-
-.avatar-source{
-  margin-top: 0.4em;
-  margin-right: 0.2em;
-}
 
 #url{
   width: 96%;
@@ -479,10 +349,5 @@ export default {
   text-indent: .7rem;
 }
 
-.publications >>> .fas{
-  padding-right: .15em;
-  padding-left: .15em;
-  padding-bottom: .4em;
-}
 
 </style>

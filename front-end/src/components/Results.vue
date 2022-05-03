@@ -18,7 +18,7 @@
           </template>
       </v-expansion-panel-header>
       <v-expansion-panel-content>
-        <div style="width:90%, padding-top:1%">
+        <div style="width:100%, padding-top:1%">
           <v-data-table
             :headers="inputsHeaders"
             :items="inputParameters"
@@ -59,7 +59,6 @@
 
 <script>
 import Table from './Table.vue'
-
 export default {
   name: 'Results',
   props: ['tools', 'inputParameters', 'run_id'],
@@ -68,11 +67,16 @@ export default {
     },
   data () {
     return {
+      inputsHeaders: [
+                {text: 'Keyword', value: 'keyword'},
+                {text: 'Weight', value: 'weight'}
+            ],
       activeResults: true,
       search: '',
       selected: null,
       isHovering: false,
       longResults:[],
+      panel: 0
     }},
   methods:{
         build_url(id){

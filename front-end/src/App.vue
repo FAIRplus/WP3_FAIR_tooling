@@ -44,7 +44,7 @@ body{
   height: 100%;
 }
 
-main{
+.main{
   display:flex;
   flex-direction:column;
   width: 100%;

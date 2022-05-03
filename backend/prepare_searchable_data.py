@@ -6,6 +6,7 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 import csv
 import bibtexparser
+import json
 
 parser = bibtexparser.bparser.BibTexParser(common_strings=True)
 
@@ -58,7 +59,129 @@ def clean_text(text):
     words = [w for w in words if not w in stop_words]
     return(words, n2grams, n3grams)
 
+def remove_dupe_dicts(l):
+  list_of_strings = [
+    json.dumps(d, sort_keys=True)
+    for d in l
+  ]
+  list_of_strings = set(list_of_strings)
+  return [
+    json.loads(s)
+    for s in list_of_strings
+  ]
+
 def extract_citations(tool):
+        #print('Extracting citations ...')
+        ids = {}
+        ids_tuples = []
+        other_titles = []
+        citations = []
+        final_cits = []
+        final_citations = []
+        other_citations = []
+        pubs_titles = []
+        if tool['publication']:
+            publications =remove_dupe_dicts(tool['publication'])
+            for pub in publications:
+                new_entry = pub
+                new_trace = {'x':[], 'y':[]}
+                if 'citations' in pub.keys():
+                    for item in pub['citations']:
+                        new_trace['x'].append(item['year'])
+                        new_trace['y'].append(item['count'])
+                    new_entry['trace'] = new_trace
+                
+                citations.append(new_entry)
+
+                new_tuple = set()
+                seen = False
+                for ID in ['doi', 'pmcid', 'pmid']:
+                    if pub.get(ID) != None:
+                        new_tuple.add(pub.get(ID))
+
+                if new_tuple:
+                    ids_tuples.append(new_tuple)
+                else:
+                    if new_entry.get('title') not in [p.get('title') for p in citations]:
+                        other_titles.append(new_entry)
+
+            print(f'Ids tuples: {ids_tuples}')
+            if ids_tuples:
+                clean_tuples = []
+                for tup in ids_tuples:
+                    same = [list(tup)]
+                    for other_tup in ids_tuples:
+                        inter = [x for x in other_tup if x in tup]
+                        if inter != [] and other_tup != tup:
+                            same.append(list(other_tup))
+                            ids_tuples.remove(other_tup)
+                    ids_tuples.remove(tup)
+                    clean_tuples.append(max(same,key=len))
+                
+                print(f'Clean tuples: {clean_tuples}')
+                
+                ids_dict = {}
+                tuples_map = []
+                N = 0
+                for t in clean_tuples:
+                    ids_dict[N] = []
+                    tuples_map.append([N, t])
+                    N += 1
+                
+                print(tuples_map)
+                print(f'Ids dict: {ids_dict}')
+
+                print(f'Citations: {citations}')
+                for pub_ in citations:
+                    flag = False
+                    for ID in ['doi', 'pmcid', 'pmid']:
+                        print(f'Ids dict: {ids_dict}')
+                        if pub_.get(ID) != None:
+                            if flag == False:
+                                for item in tuples_map:
+                                    if pub_.get(ID) in item[1]:
+                                        pub_N = item[0]
+                                        ids_dict[pub_N].append(pub_)
+                                        print('hey')
+                                        flag = True
+
+                print(f'Ids dict: {ids_dict}')
+                final_citations = [] 
+                for unique_pub in ids_dict.keys():
+                    max_complete_pub = max(ids_dict[unique_pub], key=len)
+                    final_citations.append(max_complete_pub)
+            else:
+                final_citations = other_titles
+                                                
+            print(f'Final citations: {final_citations}')
+
+            titles_final = {}
+            final_cits = []
+            for citation in final_citations:
+                if citation.get('title') not in titles_final.keys():
+                    titles_final[str(citation.get('title'))] = [citation]
+                else:
+                    titles_final[str(citation.get('title'))].append(citation)
+
+            for tit in titles_final.keys():
+                final_cits.append(max(titles_final[tit], key=len))
+                
+          
+
+            for citation in final_cits:
+                try:
+                    if 'title' in citation.keys():
+                        if citation['title']:
+                            pubs_titles.append(citation['title'])
+                except Exception as er:
+                    print(tool['@id'])
+                    print(tool['publication'])
+                    raise
+
+        return(final_cits, other_citations, pubs_titles)
+
+
+def extract_citations_old(tool):
         #print('Extracting citations ...')
         ids = set()
         citations = []
@@ -209,6 +332,20 @@ def searchable_data_prep():
                 [edam_operations.append({'uri':item, 'label':match_edam_label(item)}) for item in tool['semantics']['operations']]
                 [discoverer_tool['edam'].append(item) for item in tool['semantics']['operations']]
             discoverer_tool['edam_operations'] = edam_operations
+
+        for data_inout in ['input','output']:
+            if tool.get(data_inout):
+                tool[f"{data_inout}_format_labels"] = set()
+                for input in tool.get(data_inout):
+                    if input.get('formats'):
+                        for f in input.get('formats'):
+                           tool[f"{data_inout}_format_labels"].add(match_edam_label(f))
+                    if input.get('format'):
+                        if input['format'].get('term'):
+                            tool[f"{data_inout}_format_labels"].add(input['format'].get('term'))
+
+                tool[f"{data_inout}_format_labels"] = list(tool[f"{data_inout}_format_labels"])
+
 
         discoverer_tool['curated'] = curated(tool)
         discoverer_tool['citations'], discoverer_tool['citations_other'], discoverer_tool['pubs_titles'] = extract_citations(tool)
