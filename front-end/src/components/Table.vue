@@ -61,13 +61,12 @@
                         cols="5"
                         class="py-2"
                         >
-                            <v-autocomplete
+                            <v-text-field
                                 v-model="inputValues"
-                                :items="inputTypes"
                                 outlined
                                 dense
                                 label="Input"
-                            ></v-autocomplete>
+                            ></v-text-field>
                         </v-col>
                         <v-col
                             cols="1">
@@ -76,13 +75,12 @@
                         cols="5"
                         class="py-2"
                         >
-                            <v-autocomplete
+                            <v-text-field
                                 v-model="outputValues"
-                                :items="outputTypes"
                                 outlined
                                 dense
                                 label="Output"
-                            ></v-autocomplete>
+                            ></v-text-field>
                         </v-col>
                         </v-row>
                     </v-row>
@@ -121,6 +119,7 @@
                 :selected="selected"
                 :arrowsUp="arrowsUpShow(key, item.name)"
                 :idx="key"/>
+            <!-- Put following cells (input data types and output data types) as separate components-->
             <td>
                 <ul>
                     <li v-for="format in item.input_format_labels" :key="item.input_format_labels.indexOf(format)">
@@ -185,10 +184,8 @@ export default {
     },
     data() {
         return {
-            inputTypes: ['CSV', 'GFF', 'BED', 'FASTA'],
-            outputTypes: ['CSV', 'GFF', 'BED', 'FASTA'],
-            inputValues: [],
-            outputValues: [],
+            inputValues: null,
+            outputValues: null,
             toggle_sources: [0,1,2,3,4,5,6],
             toggle_types: [0,1,2,3,4],
             activeResults: true,
@@ -227,8 +224,30 @@ export default {
                 {text: 'Description', value: 'description', width: '13rem'},
                 {text: 'Related Topics', value: 'edam_topics', width: '8rem'},
                 {text: 'Functionality', value: 'edam_operations', width: '8rem'},
-                {text: 'Input Data Format', value: 'input_format_labels', width: '8rem'},
-                {text: 'Output Data Format', value: 'output_format_labels', width: '8rem'},
+                {
+                    text: 'Input Data Format', 
+                    value: 'input_format_labels', 
+                    width: '8rem',
+                    filter: value => {
+                        if( value != undefined && this.inputValues != null ){
+                            return this.filterDataType(this.inputValues, value)
+                        }else{
+                            return value
+                        }
+                    }
+                },
+                {
+                    text: 'Output Data Format', 
+                    value: 'output_format_labels', 
+                    width: '8rem',
+                    filter: value => {
+                        if( value != undefined && this.outputValues != null ){
+                            return this.filterDataType(this.outputValues, value)
+                        }else{
+                            return value
+                        }
+                    }
+                },
                 {text: 'Publications', value: 'publications', width: '13rem'},
                 {text: 'Number of Citations', value: 'publications',  width: '13rem'},
                 {text: 'License', value: 'license', width: '5rem'},
@@ -249,6 +268,18 @@ export default {
       }
     })},
     methods : {
+        filterDataType(inputValues, value){
+            console.log(value)
+            const overlapArray = [inputValues].filter(item => value.includes(item))
+            /* If overlap, show tool */
+            console.log(overlapArray)
+            if(overlapArray.length>0){
+                return value
+            }else{
+                return false
+            }   
+
+        },
         filter(toggleArray, mappingFunct, value){
             /* Convert filters index to sources labels*/
             var mapped_filters = toggleArray.map(mappingFunct)
