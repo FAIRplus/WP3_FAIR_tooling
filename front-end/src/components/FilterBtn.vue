@@ -1,6 +1,6 @@
 <template>
 <v-btn> 
-    <span class="hidden-sm-and-down filter">{{ label }}</span>
+    <span class="filter">{{ label }}</span>
         <v-img
             v-if="icon"
             :src="require(`@/assets/img/${label}-logo-black.svg`)"

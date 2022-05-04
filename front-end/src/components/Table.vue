@@ -9,19 +9,22 @@
                             Filters
                         </h5>
                         </v-col>
-                        <span class="filterTitle">
-                            Availability
-                        </span>
+                        
                         <v-col
                         cols="12"
+                        sm="6"
+                        md="3"
                         class="py-2"
-                        style="margin-bottom:.9em"
-                        >    
+                        >   
+                            <span class="filterTitle">
+                            Availability
+                            </span>
                             <v-btn-toggle
                             v-model="toggle_sources"
                             multiple
                             dense
                             group
+                            class="flex-wrap" 
                             >
                                 <FilterBtn 
                                     v-for="label in filtersMapping.sources" 
@@ -30,19 +33,21 @@
                                     icon />
                             </v-btn-toggle>
                         </v-col>
+                        <v-col
+                        cols="12"
+                        sm="6"
+                        md="3"
+                        class="py-2"
+                        >    
                         <span class="filterTitle">
                             Type of Software
                         </span>
-                        <v-col
-                        cols="12"
-                        class="py-2"
-                        style="margin-bottom:.9em"
-                        >    
                             <v-btn-toggle
                                 v-model="toggle_types"
                                 multiple
                                 dense
                                 group
+                                class="flex-wrap" 
                             >   
                                 <FilterBtn  
                                     v-for="item in filtersMapping.types" 
@@ -52,37 +57,48 @@
 
                             </v-btn-toggle>
                         </v-col>
-                        <span class="filterTitle">
-                            Data Types
-                        </span>
-                        <v-row
-                        style="margin-top:.9em">
+
                         <v-col
-                        cols="5"
+                        cols="12"
+                        sm="6"
+                        md="2"
                         class="py-2"
                         >
+                            <span class="filterTitle">
+                                Input Data Format
+                            </span>
                             <v-text-field
                                 v-model="inputValues"
-                                outlined
+                                regular
                                 dense
-                                label="Input"
+                                label="Type format here"
+                                style="margin-top:.8em"
                             ></v-text-field>
                         </v-col>
                         <v-col
-                            cols="1">
+                        cols="0"
+                        sm="0"
+                        md="1"
+                        >
                         </v-col>
                         <v-col
-                        cols="5"
+                        cols="12"
+                        sm="6"
+                        md="2"
                         class="py-2"
                         >
+                            <span class="filterTitle">
+                                Output Data Format
+                            </span>
                             <v-text-field
                                 v-model="outputValues"
-                                outlined
+                                regular
                                 dense
-                                label="Output"
+                                label="Type format here"
+                                style="margin-top:.8em"
                             ></v-text-field>
                         </v-col>
-                        </v-row>
+
                     </v-row>
                 </v-container>
             </v-form>
@@ -368,7 +384,6 @@ export default {
   font-size: smaller !important;
   padding: .5em .5em 1em 1em;
 }
-
 
 #url{
   width: 96%;
