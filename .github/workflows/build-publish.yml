@@ -17,7 +17,7 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASS }}
       - uses: actions/checkout@v2
       - name: Build Docker image
-        run: docker build . --file Dockerfile --tag frontend:$(date +%s)
+        run: docker build . --file Dockerfile -t $REPO:latest -t $REPO:${GITHUB_SHA::8}
         working-directory: front-end
       - name: Publish Docker image
         run: docker push $REPO
