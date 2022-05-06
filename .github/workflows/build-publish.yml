@@ -16,7 +16,7 @@ jobs:
       - name: Login to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASS }}
       - name: Build Docker image
-        run: docker build . --file Dockerfile --tag $REPO:latest -t $REPO:${GITHUB_SHA::8}
+        run: docker build . --file Dockerfile --tag frontend:$(date +%s)
         working-directory: front-end
       - name: Publish Docker image
         run: docker push $REPO
