@@ -15,6 +15,7 @@ jobs:
     steps:
       - name: Login to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASS }}
+      - uses: actions/checkout@v2
       - name: Build Docker image
         run: docker build . --file Dockerfile --tag frontend:$(date +%s)
         working-directory: front-end
