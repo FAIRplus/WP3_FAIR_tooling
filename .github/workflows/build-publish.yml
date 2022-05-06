@@ -8,10 +8,10 @@ jobs:
 
   docker:
     name: Publish - Docker Hub
-    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: front-end
+    runs-on: ubuntu-latest
 
     env:
       REPO: ${{ secrets.DOCKER_REPO }}
@@ -20,6 +20,6 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USER }} 
              -p ${{ secrets.DOCKER_PASS }}
       - name: Build Docker image
-        run: docker build . --tag $REPO:latest -t $REPO:${GITHUB_SHA::8} .
+        run: docker build . --tag $REPO:latest -t $REPO:${GITHUB_SHA::8}
       - name: Publish Docker image
         run: docker push $REPO
