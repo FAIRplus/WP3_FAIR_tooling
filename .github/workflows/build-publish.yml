@@ -2,7 +2,7 @@ name: Dev - Build & Redeploy
 
 on:
   push:
-    branches: [ dev ] 
+    branches: [ prod ] 
 
 jobs:
 
