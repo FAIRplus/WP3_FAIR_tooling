@@ -64,7 +64,7 @@ export default {
       if(this.$route.params.run_id){
         this.query = true
         this.querying = true
-        axios.get('https://fair-tool-discoverer.bsc.es/api/result/fetch', {
+        axios.get('http://127.0.0.1:5000/result/fetch', {
         params : {
           id : this.$route.params.run_id
         },
@@ -121,7 +121,7 @@ export default {
     ToolDiscovererCall (terms) {
       axios({
         method: 'post',
-        url: 'https://fair-tool-discoverer.bsc.es/api/',
+        url: 'http://127.0.0.1:5000/',
         data: {
           textarea_content: terms
         },

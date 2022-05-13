@@ -18,8 +18,8 @@
             solo
             hide-no-data
             hide-selected
-            item-text="PreferredLabel"
-            item-value="PreferredLabel"
+            :item-text="PreferredLabel"
+            :item-value="PreferredLabel"
             small-chips
           >
              <template v-slot:selection="data">
@@ -228,7 +228,8 @@ export default {
         btns: {'edit':{'icon':'mdi-pencil', 'text':'Edit'},
                'delete':{'icon':'mdi-trash-can-outline', 'text':'Remove'}
               },
-        EDAM_items: EDAM
+        EDAM_items: EDAM,
+        input: null
       }
     },
   methods: {
@@ -236,10 +237,19 @@ export default {
       console.log('here'+this.input)
       if(this.input==undefined){
         console.log(this.termsNames.includes(this.cachedterms))
-        var item = {'label':this.cachedterms, 'weight':'1.00', 'isEditing': false}
-          this.cachedterms=null
+        var item = {
+          'label':this.cachedterms, 
+          'ClassId':null,
+          'weight':'1.00', 
+          'isEditing': false
+          }
+        this.cachedterms=null
       }else{
-        item = {'label':this.input, 'weight':'1.00', 'isEditing':false}
+        item = {
+          'label':this.input.PreferredLabel, 
+          'ClassId':this.input.ClassId,
+          'weight':'1.00', 
+          'isEditing':false}
         this.input=null
       }
       this.terms.push(item)
