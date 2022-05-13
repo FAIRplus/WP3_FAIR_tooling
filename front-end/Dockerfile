@@ -1,4 +1,5 @@
 FROM node:lts as build-stage
+RUN export NODE_OPTIONS=--max_old_space_size=1536
 WORKDIR /app
 COPY package*.json ./
 RUN npm cache clean -f

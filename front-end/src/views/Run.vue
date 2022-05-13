@@ -64,13 +64,12 @@ export default {
       if(this.$route.params.run_id){
         this.query = true
         this.querying = true
-        axios.get('http://127.0.0.1:5000/result/fetch', {
+        axios.get('https://fair-tool-discoverer.bsc.es/api/result/fetch', {
         params : {
           id : this.$route.params.run_id
         },
         headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
+          'Content-Type': 'application/json'
         }
       })
       .then((response) => {
@@ -122,14 +121,13 @@ export default {
     ToolDiscovererCall (terms) {
       axios({
         method: 'post',
-        url: 'http://127.0.0.1:5000/',
+        url: 'https://fair-tool-discoverer.bsc.es/api/',
         data: {
           textarea_content: terms
         },
         headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        }
+          'Content-Type': 'application/json'
+          }
       })
         .then(
           (response) => {
