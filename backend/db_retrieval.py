@@ -100,12 +100,12 @@ class query(object):
             print(f'Querying EDAM term {term} ...')
             if 'operation' in term:
                 matches = self.collection.find({
-                    'edam_operations' : term
+                    'edam_operations.uri' : term
                 })
 
             elif 'topic' in term:
                 matches = self.collection.find({
-                    'edam_topics' : term
+                    'edam_topics.uri' : term
                 })
 
             else:
@@ -128,6 +128,7 @@ class query(object):
 
     def query_description(self):
         for term in self.free_terms:
+            print(term)
             term = term.lower()
             l = len(term.split(' '))
             if l==1:

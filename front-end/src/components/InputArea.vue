@@ -273,7 +273,11 @@ export default {
     sampleInput (keywords) {
       this.terms = []
       for(let i=0; i<keywords.length;i++){
-        this.terms.push({'label':keywords[i]['label'], 'weight':keywords[i]['weight'], 'isEditing':false})
+        this.terms.push({
+          'label':keywords[i]['label'], 
+          'weight':keywords[i]['weight'],
+          'ClassId':keywords[i]['ClassId'],
+          'isEditing':false})
       }
     },
     runDiscoverer(terms){

@@ -77,10 +77,12 @@ class tools_discoverer(object):
             # If edam term, directly add to edam list
             print(keyword)
             if term['classId']:
-                self.edam_terms.append(keyword)
+                self.edam_terms.append(term['classId'])
                 term['weight']= term['weight'] + 1
                 self.keywords_weights.append(term)
-                
+
+                self.keywords_weights.append({'keyword':keyword, 'classId':None, 'weight':w})
+                self.free_terms.append(keyword)
             else:
                 if self.verbosity:
                     print(f"{bcolors.BOLD}{keyword}{bcolors.ENDC}")
@@ -96,6 +98,10 @@ class tools_discoverer(object):
                         self.edam_terms.append(term_label)
                         #self.terms_label[match] = str(match['label']).strip('\n')
                         self.keywords_weights.append({'keyword':term_label, 'classId':None, 'weight':w+1})
+                        
+                        self.free_terms.append(keyword)
+                        self.keywords_weights.append({'keyword':keyword, 'classId':None, 'weight':w})
+
                     self.free_terms.append(keyword)
                 else:
                     self.keywords_weights.append({'keyword':keyword, 'classId':None, 'weight':w})
