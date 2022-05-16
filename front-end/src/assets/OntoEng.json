@@ -1,12 +1,30 @@
-[{"label":"Module extraction", 
-"weight":"1.00"},{
-"label":"Ontology slims", 
-"weight":"1.00"},{
-"label":"Ontology and terminology", 
-"weight":"1.00"},{
-"label":"Semantic enrichment", 
-"weight":"0.70"},{
-"label":"Customise ontology", 
-"weight":"1.00"},{
-"label":"Ontology engineering", 
-"weight":"0.70"}]
+[{
+    "label":"Module extraction",
+    "ClassId":null, 
+    "weight":"1.00"
+},
+{
+    "label":"Ontology slims",
+    "ClassId":null,  
+    "weight":"1.00"
+},
+{
+    "label":"Ontology and terminology",
+    "ClassId":"http://edamontology.org/topic_0089",  
+    "weight":"1.00"
+},
+{
+    "label":"Semantic enrichment", 
+    "ClassId":null, 
+    "weight":"0.70"
+},
+{
+    "label":"Customise ontology",
+    "ClassId":null,  
+    "weight":"1.00"
+},
+{
+    "label":"Ontology engineering",
+    "ClassId":null,  
+    "weight":"0.70"
+}]
