@@ -1,9 +1,10 @@
 version: '3.8'
 
 services:
-    flask-app:
-        build: ./flask-app
-        network_mode: host
+    front-end:
+        image: wp3fairtooling/tools_discoverer_fe_dev
+        ports:
+            - "8080:80"
     back-end:
-        build: ./back-end
+        image: wp3_fair_tooling_back-end 
         network_mode: host
