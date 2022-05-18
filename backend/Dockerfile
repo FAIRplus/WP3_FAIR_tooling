@@ -13,7 +13,7 @@ RUN python3 -m pip install -r requirements.txt
 COPY . .
 
 # Expose correct port
-EXPOSE 5000
+EXPOSE 3000
 
 # Executable commands
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=5000"]
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=3000"]
