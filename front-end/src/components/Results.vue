@@ -83,7 +83,7 @@ export default {
       if(this.tools.length===0){
         return('')
       }else{
-        var url = 'http://192.168.1.37:8080/run/' + id
+        var url = 'https://fair-tool-discoverer.bsc.es/run' + id
         return(url)
       }
     }
