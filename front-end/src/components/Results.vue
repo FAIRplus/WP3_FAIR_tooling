@@ -83,7 +83,7 @@ export default {
       if(this.tools.length===0){
         return('')
       }else{
-        var url = 'https://fair-tool-discoverer.bsc.es/run' + id
+        var url = 'https://fair-tool-discoverer.bsc.es/run/' + id
         return(url)
       }
     }
