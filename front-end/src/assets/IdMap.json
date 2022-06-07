@@ -1,0 +1,36 @@
+[{
+    "label":"ID mapping",
+    "ClassId":null, 
+    "weight":"1.00"
+},
+{
+    "label":"Identifier",
+    "ClassId":"http://edamontology.org/data_0842", 
+    "weight":"1.00"
+},
+{
+    "label":"Identifier mapping",
+    "ClassId":null, 
+    "weight":"1.00"
+},
+{
+    "label":"Accession mapping",
+    "ClassId":null, 
+    "weight":"1.00"
+},
+{
+    "label":"Database cross-mapping",
+    "ClassId":null, 
+    "weight":"1.00"
+},
+{
+    "label":"Cross-mapping",
+    "ClassId":null, 
+    "weight":"0.70"
+},
+{
+    "label":"Accession",
+    "ClassId":"http://edamontology.org/data_2091", 
+    "weight":"0.50"
+}
+]

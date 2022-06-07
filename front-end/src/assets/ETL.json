@@ -1,0 +1,66 @@
+[{
+    "label":"Data integration and warehousing",
+    "ClassId":"http://edamontology.org/topic_3366", 
+    "weight":"1.00"
+},
+{
+    "label":"Data governance",
+    "ClassId":"http://edamontology.org/topic_3571", 
+    "weight":"0.70"
+},
+{
+    "label":"Data identity and mapping",
+    "ClassId":"http://edamontology.org/topic_3345", 
+    "weight":"0.70"
+},
+{
+    "label":"Data submission, annotation and curation",
+    "ClassId":"http://edamontology.org/topic_0219", 
+    "weight":"0.70"
+},
+{
+    "label":"Database management",
+    "ClassId":"http://edamontology.org/topic_3489", 
+    "weight":"0.70"
+},
+{
+    "label":"Aggregation",
+    "ClassId":"http://edamontology.org/operation_3436", 
+    "weight":"0.70"
+},
+{
+    "label":"Format Validation",
+    "ClassId":"http://edamontology.org/operation_0336", 
+    "weight":"0.70"
+},
+{
+    "label":"Query and retrieval",
+    "ClassId":"http://edamontology.org/operation_0224", 
+    "weight":"1.00"
+},
+{
+    "label":"Information extraction",
+    "ClassId":"http://edamontology.org/operation_3907", 
+    "weight":"1.00"
+},
+{
+    "label":"Data transformation",
+    "ClassId":null, 
+    "weight":"1.00"
+},
+{
+    "label":"Data cleaning",
+    "ClassId":null, 
+    "weight":"1.00"
+},
+{
+    "label":"Data integration",
+    "ClassId":null, 
+    "weight":"1.00"
+},
+{
+    "label":"Data extraction",
+    "ClassId":null, 
+    "weight":"1.00"
+}
+]

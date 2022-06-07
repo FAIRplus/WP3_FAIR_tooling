@@ -30,7 +30,9 @@
         The grey label on the right indicates the type os EDAM term, either 'operation' or 'topic'. Once a term is added to the list, you can modify its weight by clicking the 'Edit' bottom on the right.
         <v-card
         elevation=0>
-          <img src="@/assets/img/help_screenshot.png" style="width:65%">
+        <div class="text-center">
+          <v-img  src="@/assets/img/help_screenshot.png" max-width=600 style="margin:auto"></v-img>
+        </div>
           <br><br><small style="align-text:center">See example keyword lists next to input box.</small>
           <br><br>
           </v-card>

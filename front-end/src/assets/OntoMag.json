@@ -1,0 +1,41 @@
+[{
+    "label":"Ontology and terminology",
+    "ClassId":null, 
+    "weight":"1.00"
+},
+{
+    "label":"Ontology Model",
+    "ClassId":null, 
+    "weight":"1.00"
+},
+{
+    "label":"Vocabulary management",
+    "ClassId":null, 
+    "weight":"1.00"
+},
+{
+    "label":"Ontology identifier",
+    "ClassId":null, 
+    "weight":"1.00"
+},
+{
+    "label":"Ontology metadata",
+    "ClassId":null, 
+    "weight":"1.00"
+},
+{
+    "label":"Ontology visualisation",
+    "ClassId":null, 
+    "weight":"1.00"
+},
+{
+    "label":"Ontology management",
+    "ClassId":null, 
+    "weight":"1.00"
+},
+{
+    "label":"Knowledge graph",
+    "ClassId":null, 
+    "weight":"0.80"
+}
+]
